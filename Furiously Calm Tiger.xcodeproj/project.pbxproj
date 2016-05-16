@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */; };
 		1FA94B0D1CD79DBE0024B6DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94B0C1CD79DBE0024B6DA /* AppDelegate.swift */; };
 		1FA94B0F1CD79DBE0024B6DA /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FA94B0E1CD79DBE0024B6DA /* GameScene.sks */; };
 		1FA94B111CD79DBE0024B6DA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94B101CD79DBE0024B6DA /* GameScene.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
 		1FA94B091CD79DBE0024B6DA /* Furiously Calm Tiger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Furiously Calm Tiger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA94B0C1CD79DBE0024B6DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FA94B0E1CD79DBE0024B6DA /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				1FA94B0C1CD79DBE0024B6DA /* AppDelegate.swift */,
 				1FA94B0E1CD79DBE0024B6DA /* GameScene.sks */,
+				1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */,
 				1FA94B101CD79DBE0024B6DA /* GameScene.swift */,
 				1FA94B121CD79DBE0024B6DA /* GameViewController.swift */,
 				1FA94B141CD79DBE0024B6DA /* Main.storyboard */,
@@ -186,6 +189,7 @@
 				1FA94B0F1CD79DBE0024B6DA /* GameScene.sks in Resources */,
 				1FA94B1B1CD79DBE0024B6DA /* LaunchScreen.storyboard in Resources */,
 				1FA94B181CD79DBE0024B6DA /* Assets.xcassets in Resources */,
+				1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */,
 				1FA94B161CD79DBE0024B6DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +401,7 @@
 				1FA94B2C1CD79DBE0024B6DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FA94B2D1CD79DBE0024B6DA /* Build configuration list for PBXNativeTarget "Furiously Calm TigerUITests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +410,7 @@
 				1FA94B2F1CD79DBE0024B6DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
