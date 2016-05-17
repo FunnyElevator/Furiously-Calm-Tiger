@@ -9,16 +9,23 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var colorFieldLeft: SKSpriteNode?
+    var colorFieldRight: SKSpriteNode?
+    var colorLineLeft: SKSpriteNode?
+    var colorLineRight: SKSpriteNode?
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        /*
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        colorFieldLeft = self.childNodeWithName("colorFieldLeft") as? SKSpriteNode
+        colorFieldRight = self.childNodeWithName("colorFieldRight") as? SKSpriteNode
+        colorLineLeft = self.childNodeWithName("colorLineLeft") as? SKSpriteNode
+        colorLineRight = self.childNodeWithName("colorLineRight") as? SKSpriteNode
         
-        self.addChild(myLabel)*/
+        colorFieldLeft?.alpha = 0.0
+        colorFieldRight?.alpha = 0.0
+        colorLineLeft?.alpha = 0.0
+        colorLineRight?.alpha = 0.0
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
