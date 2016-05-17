@@ -10,36 +10,30 @@ import SpriteKit
 
 class TitleScene: SKScene {
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here
-         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-         myLabel.text = "Hello, World!"
-         myLabel.fontSize = 45
-         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-         
-         self.addChild(myLabel)  */
+        /* Setup your scene here */
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Called when a touch begins
+        /* Called when a touch begins */
+        super.touchesBegan(touches, withEvent: event)
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
+        if let location = touches.first?.locationInNode(self) {
+            let touchedNode = nodeAtPoint(location)
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }*/
+            if touchedNode.name == "StartButton" {
+                print("Start button touched")
+                let transition = SKTransition.fadeWithDuration(1.0)
+                
+                let nextScene = GameScene(fileNamed: "GameScene")
+                nextScene!.scaleMode = .AspectFill
+                
+                scene?.view?.presentScene(nextScene!, transition: transition)
+            }
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
 }
+
