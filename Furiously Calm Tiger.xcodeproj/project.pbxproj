@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F24BC911CEA5AF400CF6A96 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */; };
 		1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */; };
+		1F6B2DC31CEB26F60090B44E /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B2DC21CEB26F60090B44E /* MyActions.sks */; };
 		1FA94B0D1CD79DBE0024B6DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94B0C1CD79DBE0024B6DA /* AppDelegate.swift */; };
 		1FA94B0F1CD79DBE0024B6DA /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FA94B0E1CD79DBE0024B6DA /* GameScene.sks */; };
 		1FA94B111CD79DBE0024B6DA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94B101CD79DBE0024B6DA /* GameScene.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
+		1F6B2DC21CEB26F60090B44E /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyActions.sks; path = Actions/MyActions.sks; sourceTree = "<group>"; };
 		1FA94B091CD79DBE0024B6DA /* Furiously Calm Tiger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Furiously Calm Tiger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA94B0C1CD79DBE0024B6DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FA94B0E1CD79DBE0024B6DA /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		1FA94B0B1CD79DBE0024B6DA /* Furiously Calm Tiger */ = {
 			isa = PBXGroup;
 			children = (
+				1F6B2DC21CEB26F60090B44E /* MyActions.sks */,
 				1FA94B0C1CD79DBE0024B6DA /* AppDelegate.swift */,
 				1FA94B0E1CD79DBE0024B6DA /* GameScene.sks */,
 				1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */,
@@ -158,6 +161,7 @@
 				TargetAttributes = {
 					1FA94B081CD79DBE0024B6DA = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 253UBMFA3G;
 					};
 					1FA94B201CD79DBE0024B6DA = {
 						CreatedOnToolsVersion = 7.3;
@@ -190,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA94B0F1CD79DBE0024B6DA /* GameScene.sks in Resources */,
+				1F6B2DC31CEB26F60090B44E /* MyActions.sks in Resources */,
 				1FA94B1B1CD79DBE0024B6DA /* LaunchScreen.storyboard in Resources */,
 				1FA94B181CD79DBE0024B6DA /* Assets.xcassets in Resources */,
 				1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */,
@@ -345,10 +350,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Furiously Calm Tiger/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fabianhaeusler.Furiously-Calm-Tiger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -356,10 +364,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Furiously Calm Tiger/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fabianhaeusler.Furiously-Calm-Tiger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

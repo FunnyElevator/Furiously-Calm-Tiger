@@ -9,8 +9,13 @@
 import SpriteKit
 
 class TitleScene: SKScene {
+    var startButton: SKSpriteNode?
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        startButton = self.childNodeWithName("StartButton") as? SKSpriteNode
+        startButton!.alpha = 0.0
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -21,13 +26,21 @@ class TitleScene: SKScene {
             let touchedNode = nodeAtPoint(location)
             
             if touchedNode.name == "StartButton" {
+                
                 print("Start button touched")
-                let transition = SKTransition.fadeWithDuration(1.0)
                 
-                let nextScene = GameScene(fileNamed: "GameScene")
-                nextScene!.scaleMode = .AspectFill
+                if let actionPressed = SKAction(named: "StartButtonPressed") {
+                    startButton!.runAction(actionPressed, completion: {
+                        let transition = SKTransition.fadeWithDuration(1.0)
+                        
+                        let nextScene = GameScene(fileNamed: "GameScene")
+                        nextScene!.scaleMode = .AspectFill
+                        
+                        self.scene?.view?.presentScene(nextScene!, transition: transition)
+                    })
+                }
                 
-                scene?.view?.presentScene(nextScene!, transition: transition)
+                
             }
         }
     }
