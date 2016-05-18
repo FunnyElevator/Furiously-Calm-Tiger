@@ -17,6 +17,12 @@ class GameScene: SKScene {
     var emojiButton: SKSpriteNode?
     
     var emojis = [SKTexture]()
+    var colors = [UIColor]()
+    
+    var currentGameMode: Int = 1
+            /*  1: preEmoji
+                2: EmojiSelect
+                3: ColorSelect   */
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -32,29 +38,48 @@ class GameScene: SKScene {
         colorLineLeft?.alpha = 0.0
         colorLineRight?.alpha = 0.0
         
+        // Setup Emoji Textures
+        emojis = [
+            SKTexture(imageNamed: "emoji-happy-1f61b"),
+            SKTexture(imageNamed: "emoji-happy-flushed-1f60a"),
+            SKTexture(imageNamed: "emoji-happy-love-1f60d"),
+            SKTexture(imageNamed: "emoji-happy-mouth-1f600"),
+            SKTexture(imageNamed: "emoji-happy-tongue-1f61c"),
+            SKTexture(imageNamed: "emoji-happy-twinker-1f609"),
+            SKTexture(imageNamed: "emoji-happy-upside-1f643"),
+            SKTexture(imageNamed: "emoji-hushed-1f62f"),
+            SKTexture(imageNamed: "emoji-kiss-1f617"),
+            SKTexture(imageNamed: "emoji-neutral-1f610"),
+            SKTexture(imageNamed: "emoji-neutral-1f636"),
+            SKTexture(imageNamed: "emoji-neutral-1f644"),
+            SKTexture(imageNamed: "emoji-positive-1f642"),
+            SKTexture(imageNamed: "emoji-sad-1f61f"),
+            SKTexture(imageNamed: "emoji-sad-1f626"),
+            SKTexture(imageNamed: "emoji-sad-cry-1f622"),
+            SKTexture(imageNamed: "emoji-sad-cry-1f625"),
+            SKTexture(imageNamed: "emoji-sad-flushed-1f623"),
+            SKTexture(imageNamed: "emoji-sad-mouth-1f62b"),
+            SKTexture(imageNamed: "emoji-sad-teeth-1f62c"),
+            SKTexture(imageNamed: "emoji-unhappy-sick-1f915"),
+            SKTexture(imageNamed: "emoji-xx-1f635")
+        ]
         
-        emojis.append(SKTexture(imageNamed: "emoji-happy-1f61b"))
-        emojis.append(SKTexture(imageNamed: "emoji-happy-flushed-1f60a"))
-        emojis.append(SKTexture(imageNamed: "emoji-happy-love-1f60d"))
-        emojis.append(SKTexture(imageNamed: "emoji-happy-mouth-1f600"))
-        emojis.append(SKTexture(imageNamed: "emoji-happy-tongue-1f61c"))
-        emojis.append(SKTexture(imageNamed: "emoji-happy-twinker-1f609"))
-        emojis.append(SKTexture(imageNamed: "emoji-happy-upside-1f643"))
-        emojis.append(SKTexture(imageNamed: "emoji-hushed-1f62f"))
-        emojis.append(SKTexture(imageNamed: "emoji-kiss-1f617"))
-        emojis.append(SKTexture(imageNamed: "emoji-neutral-1f610"))
-        emojis.append(SKTexture(imageNamed: "emoji-neutral-1f636"))
-        emojis.append(SKTexture(imageNamed: "emoji-neutral-1f644"))
-        emojis.append(SKTexture(imageNamed: "emoji-positive-1f642"))
-        emojis.append(SKTexture(imageNamed: "emoji-sad-1f61f"))
-        emojis.append(SKTexture(imageNamed: "emoji-sad-1f626"))
-        emojis.append(SKTexture(imageNamed: "emoji-sad-cry-1f622"))
-        emojis.append(SKTexture(imageNamed: "emoji-sad-cry-1f625"))
-        emojis.append(SKTexture(imageNamed: "emoji-sad-flushed-1f623"))
-        emojis.append(SKTexture(imageNamed: "emoji-sad-mouth-1f62b"))
-        emojis.append(SKTexture(imageNamed: "emoji-sad-teeth-1f62c"))
-        emojis.append(SKTexture(imageNamed: "emoji-unhappy-sick-1f915"))
-        emojis.append(SKTexture(imageNamed: "emoji-xx-1f635"))
+        // Setup Colors
+        colors = [
+            UIColor(red: 210/255, green: 77/255,  blue: 87/255,  alpha: 1.0),
+            UIColor(red: 217/255, green: 30/255,  blue: 24/255,  alpha: 1.0),
+            UIColor(red: 150/255, green: 40/255,  blue: 27/255,  alpha: 1.0),
+            UIColor(red: 220/255, green: 198/255, blue: 224/255, alpha: 1.0),
+            UIColor(red: 103/255, green: 65/255,  blue: 114/255, alpha: 1.0),
+            UIColor(red: 68/255,  green: 108/255, blue: 179/255, alpha: 1.0),
+            UIColor(red: 210/255, green: 77/255,  blue: 87/255,  alpha: 1.0),
+            UIColor(red: 228/255, green: 241/255, blue: 254/255, alpha: 1.0),
+            UIColor(red: 65/255,  green: 131/255, blue: 215/255, alpha: 1.0),
+            UIColor(red: 89/255,  green: 171/255, blue: 227/255, alpha: 1.0),
+            UIColor(red: 129/255, green: 207/255, blue: 224/255, alpha: 1.0),
+            UIColor(red: 191/255, green: 191/255, blue: 191/255, alpha: 1.0)
+        ]
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -95,4 +120,9 @@ class GameScene: SKScene {
         // Optionally, resize the sprite
         emojiButton!.size = emojiTexture.size()
     }
+    
+    func setupColorSelect() {
+        UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+    }
+    
 }
