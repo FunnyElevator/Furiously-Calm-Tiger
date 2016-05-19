@@ -164,7 +164,7 @@
 				TargetAttributes = {
 					1FA94B081CD79DBE0024B6DA = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 253UBMFA3G;
+						DevelopmentTeam = 494MEJF5K5;
 					};
 					1FA94B201CD79DBE0024B6DA = {
 						CreatedOnToolsVersion = 7.3;
@@ -358,7 +358,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Furiously Calm Tiger/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabianhaeusler.Furiously-Calm-Tiger";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabianhaeusler.furiouslycalm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -372,7 +372,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Furiously Calm Tiger/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabianhaeusler.Furiously-Calm-Tiger";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabianhaeusler.furiouslycalm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
