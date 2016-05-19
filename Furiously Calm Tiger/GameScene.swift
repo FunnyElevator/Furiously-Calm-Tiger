@@ -33,10 +33,7 @@ class GameScene: SKScene {
         colorLineRight = self.childNodeWithName("colorLineRight") as? SKSpriteNode
         
         /* Prepare Interface elements */
-        colorFieldLeft?.alpha = 0.0
-        colorFieldRight?.alpha = 0.0
-        colorLineLeft?.alpha = 0.0
-        colorLineRight?.alpha = 0.0
+        resetColorAreas()
         
         // Setup Emoji Textures
         emojis = [
@@ -122,7 +119,14 @@ class GameScene: SKScene {
     }
     
     func setupColorSelect() {
-        UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+
+    }
+    
+    func resetColorAreas() {
+        colorFieldLeft?.alpha = 0.0
+        colorFieldRight?.alpha = 0.0
+        colorLineLeft?.alpha = 0.0
+        colorLineRight?.alpha = 0.0
     }
     
 }
