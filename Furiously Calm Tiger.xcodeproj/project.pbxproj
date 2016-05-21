@@ -68,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F2BF7891CF0C6FA007171B6 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				1F6B2DC21CEB26F60090B44E /* MyActions.sks */,
+				1FA75D371CEE0BE40003BC78 /* Tiger.sks */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		1FA94B001CD79DBE0024B6DA = {
 			isa = PBXGroup;
 			children = (
@@ -89,13 +98,12 @@
 		1FA94B0B1CD79DBE0024B6DA /* Furiously Calm Tiger */ = {
 			isa = PBXGroup;
 			children = (
-				1F6B2DC21CEB26F60090B44E /* MyActions.sks */,
+				1F2BF7891CF0C6FA007171B6 /* Graphics */,
 				1FA94B0C1CD79DBE0024B6DA /* AppDelegate.swift */,
 				1FA94B0E1CD79DBE0024B6DA /* GameScene.sks */,
-				1FA75D371CEE0BE40003BC78 /* Tiger.sks */,
+				1FA94B101CD79DBE0024B6DA /* GameScene.swift */,
 				1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */,
 				1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */,
-				1FA94B101CD79DBE0024B6DA /* GameScene.swift */,
 				1FA94B121CD79DBE0024B6DA /* GameViewController.swift */,
 				1FA94B141CD79DBE0024B6DA /* Main.storyboard */,
 				1FA94B171CD79DBE0024B6DA /* Assets.xcassets */,
