@@ -15,7 +15,8 @@ class GameScene: SKScene {
     var colorLineRight: SKSpriteNode?
     
     
-    var emojiButton: SKSpriteNode?
+    var emojiButton1: SKSpriteNode?
+    var emojiButton2: SKSpriteNode?
     
     var emojis = [SKTexture]()
     var lastEmoji:Int = 0
@@ -30,13 +31,18 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
+        // Connect UI Elements from the Editor
         colorFieldLeft = self.childNodeWithName("colorFieldLeft") as? SKSpriteNode
         colorFieldRight = self.childNodeWithName("colorFieldRight") as? SKSpriteNode
         colorLineLeft = self.childNodeWithName("colorLineLeft") as? SKSpriteNode
         colorLineRight = self.childNodeWithName("colorLineRight") as? SKSpriteNode
+        emojiButton1 = self.childNodeWithName("emojiButton1") as? SKSpriteNode
+        emojiButton2 = self.childNodeWithName("emojiButton2") as? SKSpriteNode
         
         /* Prepare Interface elements */
         resetColorAreas()
+        emojiButton1?.alpha = 0.0
+        emojiButton2?.alpha = 0.0
         
         // Setup Emoji Textures
         emojis = [
@@ -50,7 +56,7 @@ class GameScene: SKScene {
             SKTexture(imageNamed: "emoji-hushed-1f62f"),
             SKTexture(imageNamed: "emoji-kiss-1f617"),
             SKTexture(imageNamed: "emoji-neutral-1f610"),
-            SKTexture(imageNamed: "emoji-neutral-1f636"),
+         // SKTexture(imageNamed: "emoji-neutral-1f636"), // used as placeholder
             SKTexture(imageNamed: "emoji-neutral-1f644"),
             SKTexture(imageNamed: "emoji-positive-1f642"),
             SKTexture(imageNamed: "emoji-sad-1f61f"),
@@ -88,19 +94,36 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.locationInNode(self)
             
+            // Demo action
             let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
             sprite.xScale = 0.5
             sprite.yScale = 0.5
             sprite.position = location
             sprite.zPosition = 200
-            
             let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
             sprite.runAction(SKAction.repeatActionForever(action))
-            
             self.addChild(sprite)
-            //setupColorSelect()
+            
+            
+            let touchedNode = nodeAtPoint(location)
+            
+            if (currentGameMode == 1) {
+                currentGameMode += 1
+                
+                setupEmojiSelect()
+            } else if (currentGameMode == 2) {
+                if (touchedNode.name == "emojiButton1") {
+                    performEmojiSelect(1)
+                    print("Button 1")
+                } else if (touchedNode.name == "emojiButton2") {
+                    performEmojiSelect(2)
+                    print("Button 1")
+                }
+            } else if (currentGameMode >= 3) {
+                
+                setupColorSelect()
+            }
+            
         }
     }
    
@@ -112,26 +135,51 @@ class GameScene: SKScene {
     }
     
     func setupEmojiSelect() {
-        //
-        // Randomly select a character
-        let rand = Int(arc4random_uniform(UInt32(emojis.count)))
-        let emojiTexture = emojis[rand] as SKTexture
+        let fadeInAction = SKAction.fadeInWithDuration(0.5)
         
-        emojiButton!.texture = emojiTexture
+        // Randomly select a character
+        let leftEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
+        emojiButton1?.texture = emojis[leftEmoji] as SKTexture
+        lastEmoji = leftEmoji
+        
+        let rightEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
+        emojiButton2?.texture = emojis[rightEmoji] as SKTexture
+        lastEmoji = rightEmoji
+        
         // Optionally, resize the sprite
-        emojiButton!.size = emojiTexture.size()
+        //emojiButton1!.size = emojiTexture.size()
+    
+        emojiButton1?.runAction(fadeInAction)
+        emojiButton2?.runAction(fadeInAction)
     }
+    
+    func performEmojiSelect(buttonNr: Int) {
+        let fadeOut = SKAction.fadeOutWithDuration(0.5)
+        let moveToCenter = SKAction.moveToX(512, duration: 0.8)
+        
+        setupColorSelect()
+        currentGameMode += 1
+        
+        if buttonNr == 1 {
+            emojiButton2?.runAction(fadeOut)
+            emojiButton1?.runAction(moveToCenter)
+        } else if buttonNr == 2 {
+            emojiButton1?.runAction(fadeOut)
+            emojiButton2?.runAction(moveToCenter)
+        }
+    }
+    
     
     func setupColorSelect() {
         let fadeInAction = SKAction.fadeInWithDuration(0.5)
         
         let leftColor = getRandomValue(colors.count, lastValue: lastColor)
-        lastColor = leftColor
         colorFieldLeft?.color = colors[leftColor]
+        lastColor = leftColor
         
         let rightColor = getRandomValue(colors.count, lastValue: lastColor)
-        lastColor = rightColor
         colorFieldRight?.color = colors[rightColor]
+        lastColor = rightColor
         
         colorLineLeft?.runAction(fadeInAction)
         colorLineRight?.runAction(fadeInAction)
