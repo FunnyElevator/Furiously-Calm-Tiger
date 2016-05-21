@@ -14,10 +14,13 @@ class GameScene: SKScene {
     var colorLineLeft: SKSpriteNode?
     var colorLineRight: SKSpriteNode?
     
+    
     var emojiButton: SKSpriteNode?
     
     var emojis = [SKTexture]()
+    var lastEmoji:Int = 0
     var colors = [UIColor]()
+    var lastColor: Int = 0
     
     var currentGameMode: Int = 1
             /*  1: preEmoji
@@ -97,6 +100,7 @@ class GameScene: SKScene {
             sprite.runAction(SKAction.repeatActionForever(action))
             
             self.addChild(sprite)
+            //setupColorSelect()
         }
     }
    
@@ -119,7 +123,30 @@ class GameScene: SKScene {
     }
     
     func setupColorSelect() {
-
+        let fadeInAction = SKAction.fadeInWithDuration(0.5)
+        
+        let leftColor = getRandomValue(colors.count, lastValue: lastColor)
+        lastColor = leftColor
+        colorFieldLeft?.color = colors[leftColor]
+        
+        let rightColor = getRandomValue(colors.count, lastValue: lastColor)
+        lastColor = rightColor
+        colorFieldRight?.color = colors[rightColor]
+        
+        colorLineLeft?.runAction(fadeInAction)
+        colorLineRight?.runAction(fadeInAction)
+        colorFieldLeft?.runAction(fadeInAction)
+        colorFieldRight?.runAction(fadeInAction)
+        
+    }
+    
+    
+    func getRandomValue(fromRange: Int, lastValue: Int) -> Int {
+        var randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
+        while (randomIndex == lastValue) {
+            randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
+        }
+        return randomIndex
     }
     
     func resetColorAreas() {
