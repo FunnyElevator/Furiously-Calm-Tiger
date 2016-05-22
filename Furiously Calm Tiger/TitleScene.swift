@@ -26,9 +26,7 @@ class TitleScene: SKScene {
             let touchedNode = nodeAtPoint(location)
             
             if touchedNode.name == "StartButton" {
-                
                 print("Start button touched")
-                
                 if let actionPressed = SKAction(named: "StartButtonPressed") {
                     startButton!.runAction(actionPressed, completion: {
                         let transition = SKTransition.fadeWithDuration(1.0)
@@ -39,8 +37,17 @@ class TitleScene: SKScene {
                         self.scene?.view?.presentScene(nextScene!, transition: transition)
                     })
                 }
+            } else {
+                // remove previous emitters? after 2s?
                 
-                
+                // sprakle emitter for Other Touches
+                let particlePath:NSString = NSBundle.mainBundle().pathForResource("Sparkles", ofType: "sks")!
+                let sparklesEmmiter = NSKeyedUnarchiver.unarchiveObjectWithFile(particlePath as String) as! SKEmitterNode
+                sparklesEmmiter.position = location
+                sparklesEmmiter.name = "sparkEmmitter"
+                sparklesEmmiter.zPosition = 400
+                //sparkEmmiter.targetNode = self
+                self.addChild(sparklesEmmiter)
             }
         }
     }

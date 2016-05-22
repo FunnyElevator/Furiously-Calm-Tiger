@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F02C2311CF122DC002C3AE8 /* RoundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F02C22F1CF122DC002C3AE8 /* RoundParticle.sks */; };
 		1F02C2321CF122DC002C3AE8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F02C2301CF122DC002C3AE8 /* spark.png */; };
+		1F03FC1B1CF22A97001EBA67 /* Sparkles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F03FC1A1CF22A97001EBA67 /* Sparkles.sks */; };
 		1F24BC911CEA5AF400CF6A96 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */; };
 		1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */; };
 		1F6B2DC31CEB26F60090B44E /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B2DC21CEB26F60090B44E /* MyActions.sks */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		1F02C22F1CF122DC002C3AE8 /* RoundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoundParticle.sks; sourceTree = "<group>"; };
 		1F02C2301CF122DC002C3AE8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		1F03FC1A1CF22A97001EBA67 /* Sparkles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Sparkles.sks; sourceTree = "<group>"; };
 		1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
 		1F6B2DC21CEB26F60090B44E /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyActions.sks; path = Actions/MyActions.sks; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				1FA75D371CEE0BE40003BC78 /* Tiger.sks */,
 				1F02C22F1CF122DC002C3AE8 /* RoundParticle.sks */,
 				1F02C2301CF122DC002C3AE8 /* spark.png */,
+				1F03FC1A1CF22A97001EBA67 /* Sparkles.sks */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F03FC1B1CF22A97001EBA67 /* Sparkles.sks in Resources */,
 				1FA94B0F1CD79DBE0024B6DA /* GameScene.sks in Resources */,
 				1F02C2321CF122DC002C3AE8 /* spark.png in Resources */,
 				1F6B2DC31CEB26F60090B44E /* MyActions.sks in Resources */,
