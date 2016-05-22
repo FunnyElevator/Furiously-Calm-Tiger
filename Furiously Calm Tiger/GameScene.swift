@@ -92,18 +92,38 @@ class GameScene: SKScene {
         
         // Setup Colors
         colors = [
-            UIColor(red: 210/255, green: 77/255,  blue: 87/255,  alpha: 1.0),
             UIColor(red: 217/255, green: 30/255,  blue: 24/255,  alpha: 1.0),
-            UIColor(red: 150/255, green: 40/255,  blue: 27/255,  alpha: 1.0),
-            UIColor(red: 220/255, green: 198/255, blue: 224/255, alpha: 1.0),
             UIColor(red: 103/255, green: 65/255,  blue: 114/255, alpha: 1.0),
-            UIColor(red: 68/255,  green: 108/255, blue: 179/255, alpha: 1.0),
+            
             UIColor(red: 210/255, green: 77/255,  blue: 87/255,  alpha: 1.0),
-            UIColor(red: 228/255, green: 241/255, blue: 254/255, alpha: 1.0),
-            UIColor(red: 65/255,  green: 131/255, blue: 215/255, alpha: 1.0),
-            UIColor(red: 89/255,  green: 171/255, blue: 227/255, alpha: 1.0),
             UIColor(red: 129/255, green: 207/255, blue: 224/255, alpha: 1.0),
-            UIColor(red: 191/255, green: 191/255, blue: 191/255, alpha: 1.0)
+            
+            UIColor(red: 52/255,  green: 152/255, blue: 219/255, alpha: 1.0),
+            UIColor(red: 25/255,  green: 181/255, blue: 254/255, alpha: 1.0),
+            
+            UIColor(red: 58/255,  green: 83/255,  blue: 155/255, alpha: 1.0),
+            UIColor(red: 37/255,  green: 116/255, blue: 169/255, alpha: 1.0),
+            //5
+            UIColor(red: 31/255,  green: 58/255,  blue: 147/255, alpha: 1.0),
+            UIColor(red: 137/255, green: 196/255, blue: 244/255, alpha: 1.0),
+            
+            UIColor(red: 135/255, green: 211/255, blue: 124/255, alpha: 1.0),
+            UIColor(red: 38/255,  green: 166/255, blue: 91/255,  alpha: 1.0),
+            
+            UIColor(red: 27/255,  green: 163/255, blue: 156/255, alpha: 1.0),
+            UIColor(red: 134/255, green: 226/255, blue: 213/255, alpha: 1.0),
+            
+            UIColor(red: 46/255,  green: 204/255, blue: 113/255, alpha: 1.0),
+            UIColor(red: 3/255,   green: 166/255, blue: 120/255, alpha: 1.0),
+            
+            UIColor(red: 42/255,  green: 187/255, blue: 155/255, alpha: 1.0),
+            UIColor(red: 30/255,  green: 130/255, blue: 76/255,  alpha: 1.0),
+            
+            UIColor(red: 232/255, green: 126/255, blue: 4/255,   alpha: 1.0),
+            UIColor(red: 242/255, green: 120/255, blue: 75/255,  alpha: 1.0),
+            
+            UIColor(red: 211/255, green: 84/255,  blue: 0/255,   alpha: 1.0),
+            UIColor(red: 249/255, green: 191/255, blue: 59/255,  alpha: 1.0)
         ]
         
     }
@@ -114,7 +134,7 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.locationInNode(self)
             
-            // Demo action
+            /* Demo action
             let sprite = SKSpriteNode(imageNamed:"Spaceship")
             sprite.xScale = 0.5
             sprite.yScale = 0.5
@@ -122,7 +142,7 @@ class GameScene: SKScene {
             sprite.zPosition = 200
             let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
             sprite.runAction(SKAction.repeatActionForever(action))
-            self.addChild(sprite)
+            self.addChild(sprite)*/
             
             
             let touchedNode = nodeAtPoint(location)
@@ -150,7 +170,7 @@ class GameScene: SKScene {
             
             sparkEmmiter.position = location
             sparkEmmiter.name = "sparkEmmitter"
-            sparkEmmiter.zPosition = 1000
+            sparkEmmiter.zPosition = 400
             //sparkEmmiter.targetNode = self
             self.addChild(sparkEmmiter)
             
