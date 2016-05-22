@@ -124,6 +124,16 @@ class GameScene: SKScene {
                 setupColorSelect()
             }
             
+            
+            let roundparticlePath:NSString = NSBundle.mainBundle().pathForResource("RoundParticle", ofType: "sks")!
+            let sparkEmmiter = NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode
+            
+            sparkEmmiter.position = location
+            sparkEmmiter.name = "sparkEmmitter"
+            sparkEmmiter.zPosition = 1000
+            //sparkEmmiter.targetNode = self
+            self.addChild(sparkEmmiter)
+            
         }
     }
    
