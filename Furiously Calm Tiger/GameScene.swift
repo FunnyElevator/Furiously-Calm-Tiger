@@ -41,7 +41,12 @@ class GameScene: SKScene {
     var currentGameMode: Int = 1
             /*  1: preEmoji
                 2: EmojiSelect
-                3: ColorSelect   */
+                3: ColorSelect
+                4: TigerReaction -> jump to Mode 2   */
+    var roundsPlayed: Int = 0
+            /*  If gameRound greather than maxRounds reset game */
+    let maxRounds:Int = 3
+
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -154,14 +159,19 @@ class GameScene: SKScene {
             } else if (currentGameMode == 2) {
                 if (touchedNode.name == "emojiButton1") {
                     performEmojiSelect(1)
-                    print("Button 1")
+                    print("Emoji 1")
                 } else if (touchedNode.name == "emojiButton2") {
                     performEmojiSelect(2)
-                    print("Button 1")
+                    print("Emoji 2")
                 }
-            } else if (currentGameMode >= 3) {
-                
-                setupColorSelect()
+            } else if (currentGameMode == 3) {
+                if (touchedNode.name == "colorFieldLeft") {
+                    performColorSelect(1)
+                    print("Color 1")
+                } else if (touchedNode.name == "colorFieldRight") {
+                    performColorSelect(2)
+                    print("Color 2")
+                }
             }
             
             
@@ -219,6 +229,57 @@ class GameScene: SKScene {
             emojiButton1?.runAction(fadeOut)
             emojiButton2?.runAction(moveToCenter)
         }
+    }
+    
+    func performColorSelect(buttonNr: Int) {
+        currentGameMode += 1
+        var colorButtonCenter:CGFloat = 0.0
+        
+        
+        print("Run color function")
+        if (buttonNr == 1) {
+            colorButtonCenter = (colorFieldLeft?.size.width)!/2
+        } else if (buttonNr == 2) {
+            colorButtonCenter = (colorFieldRight?.size.width)!/2+(colorFieldRight?.position.x)!
+        }
+        let moveAction = SKAction.moveToX(colorButtonCenter, duration: 0.5)
+        
+        
+        if (emojiButton2?.alpha == 0.0) {
+            emojiButton1?.runAction(moveAction, completion: { 
+                self.perfomTigerReaction()
+            })
+        } else if (emojiButton1?.alpha == 0.0) {
+            emojiButton2?.runAction(moveAction, completion: {
+                self.perfomTigerReaction()
+            })
+        }
+    }
+    
+    func perfomTigerReaction() {
+        // remove UI elemnts
+        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
+        roundsPlayed += 1
+        
+        emojiButton1?.runAction(fadeOutAction)
+        emojiButton2?.runAction(fadeOutAction)
+        emojiButton1?.position.x = 512
+        emojiButton1?.position.y = 512
+        colorFieldRight?.runAction(fadeOutAction)
+        colorFieldLeft?.runAction(fadeOutAction)
+        colorLineLeft?.runAction(fadeOutAction)
+        colorLineRight?.runAction(fadeOutAction, completion: { // -Move stuff
+            if (self.roundsPlayed == self.maxRounds) {
+                self.restartGame()
+            } else {
+                self.currentGameMode = 2
+                self.setupEmojiSelect()
+            }
+        })
+        
+        // peform tiger action -> completion move on
+        
+        
     }
     
     
@@ -367,6 +428,10 @@ class GameScene: SKScene {
         colorFieldRight?.alpha = 0.0
         colorLineLeft?.alpha = 0.0
         colorLineRight?.alpha = 0.0
+    }
+    
+    func restartGame() {
+            // restart
     }
     
 }
