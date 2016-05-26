@@ -14,9 +14,15 @@ class GameScene: SKScene {
     var colorLineLeft: SKSpriteNode?
     var colorLineRight: SKSpriteNode?
     
-    
     var emojiButton1: SKSpriteNode?
     var emojiButton2: SKSpriteNode?
+    var emoji1Angry: Bool = false
+    var emoji1Tired: Bool = false
+    var emoji1Twike: Bool = false
+    var emoji2Angry: Bool = false
+    var emoji2Tired: Bool = false
+    var emoji2Twike: Bool = false
+    
     
     var emojis = [SKTexture]()
     var lastEmoji:Int = 0
@@ -26,6 +32,10 @@ class GameScene: SKScene {
     var tigerMouthOpen: SKSpriteNode?
     var tigerMouthClosed1: SKSpriteNode?
     var tigerMouthClosed2: SKSpriteNode?
+    
+    var tigerMoodAngryIndex: Int = 0
+    var tigerMoodTiredIndex: Int = 0
+    var tigerMoodTwinkeIndex: Bool = false
     
     
     var currentGameMode: Int = 1
@@ -167,7 +177,7 @@ class GameScene: SKScene {
         lastEmoji = rightEmoji
         
         // Optionally, resize the sprite
-        //emojiButton1!.size = emojiTexture.size()
+        // emojiButton1!.size = emojiTexture.size()
     
         emojiButton1?.runAction(fadeInAction)
         emojiButton2?.runAction(fadeInAction)
@@ -215,6 +225,100 @@ class GameScene: SKScene {
             randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
         }
         return randomIndex
+    }
+    
+    func setEmojiMood(emojiNumber:Int) {
+        var angryValue: Int
+        var tiredValue: Int
+        var twinkerValue: Int
+        switch emojiNumber {
+            case 0:             //happy
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 1:             //flushed
+                angryValue = 0
+                tiredValue = 0
+                twinkerValue = 1
+            case 2:             //love
+                angryValue = 0
+                tiredValue = 0
+                twinkerValue = 0
+            case 3:             // mouth
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 4:             //tongue
+                angryValue = 0
+                tiredValue = 0
+                twinkerValue = 1
+            case 5:             //twinker
+                angryValue = 0
+                tiredValue = 0
+                twinkerValue = 1
+            case 6:             //upside
+                angryValue = 0
+                tiredValue = 1
+                twinkerValue = 0
+            case 7:             //hushed
+                angryValue = 0
+                tiredValue = 1
+                twinkerValue = 0
+            case 8:             //kiss
+                angryValue = 0
+                tiredValue = 0
+                twinkerValue = 1
+            case 9:             //neutral1
+                angryValue = 0
+                tiredValue = 1
+                twinkerValue = 0
+            case 10:             //neutral2
+                angryValue = 0
+                tiredValue = 1
+                twinkerValue = 0
+            case 11:             //smile
+                angryValue = 0
+                tiredValue = 1
+                twinkerValue = 0
+            case 12:             //sad1
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 13:             //sad2
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 14:             //tears1
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 15:             //tears2
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 16:             //sad angry
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 17:             //sad neg
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 18:             //teeth
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 19:             //sick
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+            case 20:             //xx
+                angryValue = 1
+                tiredValue = 0
+                twinkerValue = 0
+
+        }
+        
     }
     
     func resetColorAreas() {
