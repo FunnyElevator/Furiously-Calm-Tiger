@@ -23,6 +23,11 @@ class GameScene: SKScene {
     var colors = [UIColor]()
     var lastColor: Int = 0
     
+    var tigerMouthOpen: SKSpriteNode?
+    var tigerMouthClosed1: SKSpriteNode?
+    var tigerMouthClosed2: SKSpriteNode?
+    
+    
     var currentGameMode: Int = 1
             /*  1: preEmoji
                 2: EmojiSelect
@@ -38,6 +43,11 @@ class GameScene: SKScene {
         colorLineRight = self.childNodeWithName("colorLineRight") as? SKSpriteNode
         emojiButton1 = self.childNodeWithName("emojiButton1") as? SKSpriteNode
         emojiButton2 = self.childNodeWithName("emojiButton2") as? SKSpriteNode
+        
+        tigerMouthOpen = self.childNodeWithName("x") as? SKSpriteNode                   // ##### Fill x
+        tigerMouthClosed1 = self.childNodeWithName("x") as? SKSpriteNode                // ##### Fill x
+        tigerMouthClosed2 = self.childNodeWithName("x") as? SKSpriteNode                // ##### Fill x
+        
         
         /* Prepare Interface elements */
         resetColorAreas()
