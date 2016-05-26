@@ -228,99 +228,118 @@ class GameScene: SKScene {
     }
     
     func setEmojiMood(emojiNumber:Int) {
-        var angryValue: Int
-        var tiredValue: Int
-        var twinkerValue: Int
+        var angryValue: Bool
+        var tiredValue: Bool
+        var twinkerValue: Bool
         switch emojiNumber {
-            case 0:             //happy
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 1:             //flushed
-                angryValue = 0
-                tiredValue = 0
-                twinkerValue = 1
-            case 2:             //love
-                angryValue = 0
-                tiredValue = 0
-                twinkerValue = 0
-            case 3:             // mouth
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 4:             //tongue
-                angryValue = 0
-                tiredValue = 0
-                twinkerValue = 1
-            case 5:             //twinker
-                angryValue = 0
-                tiredValue = 0
-                twinkerValue = 1
-            case 6:             //upside
-                angryValue = 0
-                tiredValue = 1
-                twinkerValue = 0
-            case 7:             //hushed
-                angryValue = 0
-                tiredValue = 1
-                twinkerValue = 0
-            case 8:             //kiss
-                angryValue = 0
-                tiredValue = 0
-                twinkerValue = 1
-            case 9:             //neutral1
-                angryValue = 0
-                tiredValue = 1
-                twinkerValue = 0
-            case 10:             //neutral2
-                angryValue = 0
-                tiredValue = 1
-                twinkerValue = 0
-            case 11:             //smile
-                angryValue = 0
-                tiredValue = 1
-                twinkerValue = 0
-            case 12:             //sad1
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 13:             //sad2
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 14:             //tears1
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 15:             //tears2
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 16:             //sad angry
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 17:             //sad neg
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 18:             //teeth
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 19:             //sick
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-            case 20:             //xx
-                angryValue = 1
-                tiredValue = 0
-                twinkerValue = 0
-
+        case 0:             //happy
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 1:             //flushed
+            angryValue = false
+            tiredValue = false
+            twinkerValue = true
+        case 2:             //love
+            angryValue = false
+            tiredValue = false
+            twinkerValue = false
+        case 3:             // mouth
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 4:             //tongue
+            angryValue = false
+            tiredValue = false
+            twinkerValue = true
+        case 5:             //twinker
+            angryValue = false
+            tiredValue = false
+            twinkerValue = true
+        case 6:             //upside
+            angryValue = false
+            tiredValue = true
+            twinkerValue = false
+        case 7:             //hushed
+            angryValue = false
+            tiredValue = true
+            twinkerValue = false
+        case 8:             //kiss
+            angryValue = false
+            tiredValue = false
+            twinkerValue = true
+        case 9:             //neutral1
+            angryValue = false
+            tiredValue = true
+            twinkerValue = false
+        case 10:             //neutral2
+            angryValue = false
+            tiredValue = true
+            twinkerValue = false
+        case 11:             //smile
+            angryValue = false
+            tiredValue = true
+            twinkerValue = false
+        case 12:             //sad1
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 13:             //sad2
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 14:             //tears1
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 15:             //tears2
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 16:             //sad angry
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 17:             //sad neg
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 18:             //teeth
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 19:             //sick
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+        case 20:             //xx
+            angryValue = true
+            tiredValue = false
+            twinkerValue = false
+            
+        }
+        
+        if (emojiNumber == 1) {
+            emoji1Angry = angryValue
+            emoji1Tired = tiredValue
+            emoji1Twike = twinkerValue
+            
+        } else if (emojiNumber == 2) {
+            emoji2Angry = angryValue
+            emoji2Tired = tiredValue
+            emoji2Twike = twinkerValue
+            
         }
         
     }
     
+    func perfomAngryFinal() {
+        //
+        
+    }
+    func performTiredFinal() {
+        //
+    }
     func resetColorAreas() {
         colorFieldLeft?.alpha = 0.0
         colorFieldRight?.alpha = 0.0
