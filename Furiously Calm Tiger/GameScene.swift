@@ -259,25 +259,29 @@ class GameScene: SKScene {
     func perfomTigerReaction() {
         // remove UI elemnts
         let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
+        let waitAction = SKAction.waitForDuration(2)
         roundsPlayed += 1
         
-        emojiButton1?.runAction(fadeOutAction)
-        emojiButton2?.runAction(fadeOutAction)
-        emojiButton1?.position.x = 512
-        emojiButton1?.position.y = 512
-        colorFieldRight?.runAction(fadeOutAction)
-        colorFieldLeft?.runAction(fadeOutAction)
-        colorLineLeft?.runAction(fadeOutAction)
-        colorLineRight?.runAction(fadeOutAction, completion: { // -Move stuff
-            if (self.roundsPlayed == self.maxRounds) {
-                self.restartGame()
-            } else {
-                self.currentGameMode = 2
-                self.setupEmojiSelect()
-            }
+        emojiButton1?.runAction(waitAction, completion: { 
+            self.emojiButton1?.runAction(fadeOutAction)
+            self.emojiButton2?.runAction(fadeOutAction)
+            self.emojiButton1?.position.x = 442
+            self.emojiButton1?.position.x = 582
+            self.colorFieldRight?.runAction(fadeOutAction)
+            self.colorFieldLeft?.runAction(fadeOutAction)
+            self.colorLineLeft?.runAction(fadeOutAction)
+            self.colorLineRight?.runAction(fadeOutAction, completion: { // -Move stuff
+                if (self.roundsPlayed == self.maxRounds) {
+                    self.restartGame()
+                } else {
+                    self.currentGameMode = 2
+                    self.setupEmojiSelect()
+                }
+            })
+            
+            // peform tiger action -> completion move on
         })
         
-        // peform tiger action -> completion move on
         
         
     }
