@@ -404,6 +404,11 @@ class GameScene: SKScene {
             tiredValue = false
             twinkerValue = false
             
+        default:
+            angryValue = false
+            tiredValue = false
+            twinkerValue = false
+            
         }
         
         if (emojiNumber == 1) {
