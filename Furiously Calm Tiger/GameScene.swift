@@ -29,6 +29,7 @@ class GameScene: SKScene {
     var colors = [UIColor]()
     var lastColor: Int = 0
     
+    var tiger: SKNode?
     var tigerMouthOpen: SKSpriteNode?
     var tigerMouthClosed1: SKSpriteNode?
     var tigerMouthClosed2: SKSpriteNode?
@@ -52,22 +53,25 @@ class GameScene: SKScene {
         /* Setup your scene here */
         
         // Connect UI Elements from the Editor
-        colorFieldLeft = self.childNodeWithName("colorFieldLeft") as? SKSpriteNode
+        colorFieldLeft  = self.childNodeWithName("colorFieldLeft")  as? SKSpriteNode
         colorFieldRight = self.childNodeWithName("colorFieldRight") as? SKSpriteNode
-        colorLineLeft = self.childNodeWithName("colorLineLeft") as? SKSpriteNode
+        colorLineLeft  = self.childNodeWithName("colorLineLeft")  as? SKSpriteNode
         colorLineRight = self.childNodeWithName("colorLineRight") as? SKSpriteNode
         emojiButton1 = self.childNodeWithName("emojiButton1") as? SKSpriteNode
         emojiButton2 = self.childNodeWithName("emojiButton2") as? SKSpriteNode
         
-        tigerMouthOpen = self.childNodeWithName("x") as? SKSpriteNode                   // ##### Fill x
-        tigerMouthClosed1 = self.childNodeWithName("x") as? SKSpriteNode                // ##### Fill x
-        tigerMouthClosed2 = self.childNodeWithName("x") as? SKSpriteNode                // ##### Fill x
+        tiger = self.childNodeWithName("Tiger")
+        tigerMouthOpen = tiger!.childNodeWithName("TigerMouthOpen") as? SKSpriteNode                   // ##### Fill x
+        //tigerMouthClosed1 = tiger!.childNodeWithName("TigerMouthClosed1") as? SKSpriteNode                // ##### Fill x
+        //tigerMouthClosed2 = tiger!.childNodeWithName("TigerMouthClosed2") as? SKSpriteNode                // ##### Fill x
         
         
         /* Prepare Interface elements */
         resetColorAreas()
         emojiButton1?.alpha = 0.0
         emojiButton2?.alpha = 0.0
+        tigerMouthOpen?.alpha = 0.0
+        tigerMouthClosed1?.alpha = 0.0
         
         // Setup Emoji Textures
         emojis = [
