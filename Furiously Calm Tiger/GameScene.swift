@@ -202,10 +202,12 @@ class GameScene: SKScene {
         // Randomly select a character
         let leftEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
         emojiButton1?.texture = emojis[leftEmoji] as SKTexture
+        self.setEmojiMood(leftEmoji, leftOrRight: 1)
         lastEmoji = leftEmoji
         
         let rightEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
         emojiButton2?.texture = emojis[rightEmoji] as SKTexture
+        self.setEmojiMood(rightEmoji, leftOrRight: 2)
         lastEmoji = rightEmoji
         
         // Optionally, resize the sprite
@@ -266,7 +268,7 @@ class GameScene: SKScene {
             self.emojiButton1?.runAction(fadeOutAction)
             self.emojiButton2?.runAction(fadeOutAction)
             self.emojiButton1?.position.x = 442
-            self.emojiButton1?.position.x = 582
+            self.emojiButton2?.position.x = 582
             self.colorFieldRight?.runAction(fadeOutAction)
             self.colorFieldLeft?.runAction(fadeOutAction)
             self.colorLineLeft?.runAction(fadeOutAction)
@@ -284,6 +286,21 @@ class GameScene: SKScene {
         
         
         
+    }
+    
+    
+    func resetButtonAndEmojiParameters() {
+        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
+        let waitAction = SKAction.waitForDuration(2)
+        
+        self.emojiButton1?.runAction(fadeOutAction)
+        self.emojiButton2?.runAction(fadeOutAction)
+        self.emojiButton1?.position.x = 442
+        self.emojiButton2?.position.x = 582
+        self.colorFieldRight?.runAction(fadeOutAction)
+        self.colorFieldLeft?.runAction(fadeOutAction)
+        self.colorLineLeft?.runAction(fadeOutAction)
+        self.colorLineRight?.runAction(fadeOutAction)
     }
     
     
@@ -314,7 +331,7 @@ class GameScene: SKScene {
         return randomIndex
     }
     
-    func setEmojiMood(emojiNumber:Int) {
+    func setEmojiMood(emojiNumber:Int, leftOrRight: Int) {
         var angryValue: Bool
         var tiredValue: Bool
         var twinkerValue: Bool
@@ -411,12 +428,12 @@ class GameScene: SKScene {
             
         }
         
-        if (emojiNumber == 1) {
+        if (leftOrRight == 1) {
             emoji1Angry = angryValue
             emoji1Tired = tiredValue
             emoji1Twike = twinkerValue
             
-        } else if (emojiNumber == 2) {
+        } else if (leftOrRight == 2) {
             emoji2Angry = angryValue
             emoji2Tired = tiredValue
             emoji2Twike = twinkerValue
