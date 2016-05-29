@@ -38,6 +38,7 @@ class GameScene: SKScene {
     var tigerMoodTiredIndex: Int = 0
     var tigerMoodTwinkeIndex: Bool = false
     
+    var blockInteraction: Bool = false
     
     var currentGameMode: Int = 1
             /*  1: preEmoji
@@ -158,41 +159,41 @@ class GameScene: SKScene {
             
             
             let touchedNode = nodeAtPoint(location)
-            
-            if (currentGameMode == 1) {
-                currentGameMode += 1
+            if (blockInteraction == false) {
+                if (currentGameMode == 1) {
+                    currentGameMode += 1
+                    
+                    setupEmojiSelect()
+                } else if (currentGameMode == 2) {
+                    if (touchedNode.name == "emojiButton1") {
+                        performEmojiSelect(1)
+                        print("Emoji 1")
+                    } else if (touchedNode.name == "emojiButton2") {
+                        performEmojiSelect(2)
+                        print("Emoji 2")
+                    }
+                } else if (currentGameMode == 3) {
+                    if (touchedNode.name == "colorFieldLeft") {
+                        performColorSelect(1)
+                        print("Color 1")
+                    } else if (touchedNode.name == "colorFieldRight") {
+                        performColorSelect(2)
+                        print("Color 2")
+                    }
+                }
                 
-                setupEmojiSelect()
-            } else if (currentGameMode == 2) {
-                if (touchedNode.name == "emojiButton1") {
-                    performEmojiSelect(1)
-                    print("Emoji 1")
-                } else if (touchedNode.name == "emojiButton2") {
-                    performEmojiSelect(2)
-                    print("Emoji 2")
-                }
-            } else if (currentGameMode == 3) {
-                if (touchedNode.name == "colorFieldLeft") {
-                    performColorSelect(1)
-                    print("Color 1")
-                } else if (touchedNode.name == "colorFieldRight") {
-                    performColorSelect(2)
-                    print("Color 2")
-                }
+                
+                //remove previous partcile emitters
+                
+                // create touch circle effect
+                let roundparticlePath:NSString = NSBundle.mainBundle().pathForResource("RoundParticle", ofType: "sks")!
+                let sparkEmmiter = NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode
+                sparkEmmiter.position = location
+                sparkEmmiter.name = "sparkEmmitter"
+                sparkEmmiter.zPosition = 400
+                //sparkEmmiter.targetNode = self
+                self.addChild(sparkEmmiter)
             }
-            
-            
-            //remove previous partcile emitters
-            
-            // create touch circle effect
-            let roundparticlePath:NSString = NSBundle.mainBundle().pathForResource("RoundParticle", ofType: "sks")!
-            let sparkEmmiter = NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode
-            sparkEmmiter.position = location
-            sparkEmmiter.name = "sparkEmmitter"
-            sparkEmmiter.zPosition = 400
-            //sparkEmmiter.targetNode = self
-            self.addChild(sparkEmmiter)
-            
         }
     }
    
@@ -258,6 +259,7 @@ class GameScene: SKScene {
     
     func performColorSelect(buttonNr: Int) {
         currentGameMode += 1
+        blockInteraction = true
         var colorButtonCenter:CGFloat = 0.0
         let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
         
@@ -290,7 +292,7 @@ class GameScene: SKScene {
         let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
         let waitAction = SKAction.waitForDuration(2)
         roundsPlayed += 1
-        self.tigerMouthOpen?.runAction(waitAction, completion: {
+        self.runAction(waitAction, completion: {
             self.emojiButton1?.runAction(fadeOutAction)
             self.emojiButton2?.runAction(fadeOutAction, completion: {
                 self.emojiButton1?.position.x = 442
@@ -299,15 +301,16 @@ class GameScene: SKScene {
                 self.colorFieldLeft?.runAction(fadeOutAction)
                 self.colorLineLeft?.runAction(fadeOutAction)
                 self.colorLineRight?.runAction(fadeOutAction)
+                self.blockInteraction = false
+                
+                
+                if (self.roundsPlayed == self.maxRounds) {
+                    self.restartGame()
+                } else {
+                    self.currentGameMode = 1
+                }
             })
         })
-        
-        
-        if (self.roundsPlayed == self.maxRounds) {
-            self.restartGame()
-        } else {
-            self.currentGameMode = 1
-        }
     }
     
     
