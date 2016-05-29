@@ -202,12 +202,12 @@ class GameScene: SKScene {
         // Randomly select a character
         let leftEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
         emojiButton1?.texture = emojis[leftEmoji] as SKTexture
-        self.setEmojiMood(leftEmoji, leftOrRight: 1)
+        self.setupEmojiMood(leftEmoji, leftOrRight: 1)
         lastEmoji = leftEmoji
         
         let rightEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
         emojiButton2?.texture = emojis[rightEmoji] as SKTexture
-        self.setEmojiMood(rightEmoji, leftOrRight: 2)
+        self.setupEmojiMood(rightEmoji, leftOrRight: 2)
         lastEmoji = rightEmoji
         
         // Optionally, resize the sprite
@@ -221,16 +221,34 @@ class GameScene: SKScene {
         let fadeOut = SKAction.fadeOutWithDuration(0.5)
         let moveToCenter = SKAction.moveToX(512, duration: 0.8)
         
-        setupColorSelect()
-        currentGameMode += 1
+        var emojiSelectedAngry = false
+        var emojiSelectedTired = false
+        var emojiSelectedTwinker = false
         
         if buttonNr == 1 {
             emojiButton2?.runAction(fadeOut)
             emojiButton1?.runAction(moveToCenter)
+            emojiSelectedTired = emoji1Tired
+            emojiSelectedAngry = emoji1Angry
+            emojiSelectedTwinker = emoji1Twike
         } else if buttonNr == 2 {
             emojiButton1?.runAction(fadeOut)
             emojiButton2?.runAction(moveToCenter)
+            emojiSelectedTired = emoji2Tired
+            emojiSelectedAngry = emoji2Angry
+            emojiSelectedTwinker = emoji2Twike
         }
+        if (emojiSelectedAngry == true) {
+            tigerMoodAngryIndex += 1
+        }
+        if (emojiSelectedTired == true) {
+            tigerMoodTiredIndex += 1
+        }
+        
+        tigerMoodTwinkeIndex = emojiSelectedTwinker
+        
+        setupColorSelect()
+        currentGameMode += 1
     }
     
     func performColorSelect(buttonNr: Int) {
@@ -331,7 +349,7 @@ class GameScene: SKScene {
         return randomIndex
     }
     
-    func setEmojiMood(emojiNumber:Int, leftOrRight: Int) {
+    func setupEmojiMood(emojiNumber:Int, leftOrRight: Int) {
         var angryValue: Bool
         var tiredValue: Bool
         var twinkerValue: Bool
