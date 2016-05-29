@@ -192,8 +192,6 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
-        
-        
     }
     
     func setupEmojiSelect() {
@@ -255,14 +253,14 @@ class GameScene: SKScene {
         currentGameMode += 1
         var colorButtonCenter:CGFloat = 0.0
         
-        
         print("Run color function")
         if (buttonNr == 1) {
-            colorButtonCenter = (colorFieldLeft?.size.width)!/2
+            colorButtonCenter = (colorFieldLeft?.position.x)!
         } else if (buttonNr == 2) {
-            colorButtonCenter = (colorFieldRight?.size.width)!/2+(colorFieldRight?.position.x)!
+            colorButtonCenter = (colorFieldRight?.position.x)!
         }
         let moveAction = SKAction.moveToX(colorButtonCenter, duration: 0.5)
+        moveAction.timingMode = SKActionTimingMode.EaseInEaseOut
         
         
         if (emojiButton2?.alpha == 0.0) {
