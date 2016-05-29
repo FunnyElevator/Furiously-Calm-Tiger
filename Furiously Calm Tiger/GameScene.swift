@@ -29,7 +29,7 @@ class GameScene: SKScene {
     var colors = [UIColor]()
     var lastColor: Int = 0
     
-    var tiger: SKNode?
+    var theTiger: SKNode?
     var tigerMouthOpen: SKSpriteNode?
     var tigerMouthClosed1: SKSpriteNode?
     var tigerMouthClosed2: SKSpriteNode?
@@ -60,18 +60,21 @@ class GameScene: SKScene {
         emojiButton1 = self.childNodeWithName("emojiButton1") as? SKSpriteNode
         emojiButton2 = self.childNodeWithName("emojiButton2") as? SKSpriteNode
         
-        tiger = self.childNodeWithName("Tiger")
-        tigerMouthOpen = tiger!.childNodeWithName("TigerMouthOpen") as? SKSpriteNode                   // ##### Fill x
+        theTiger = self.childNodeWithName("Tiger")
+        tigerMouthOpen = theTiger!.childNodeWithName("TigerMouthOpen") as? SKSpriteNode // TigerBody ??
         //tigerMouthClosed1 = tiger!.childNodeWithName("TigerMouthClosed1") as? SKSpriteNode                // ##### Fill x
         //tigerMouthClosed2 = tiger!.childNodeWithName("TigerMouthClosed2") as? SKSpriteNode                // ##### Fill x
+        theTiger!.enumerateChildNodesWithName("*") { (node, stop) in
+            print(node.name)
+        }
         
         
         /* Prepare Interface elements */
         resetColorAreas()
         emojiButton1?.alpha = 0.0
         emojiButton2?.alpha = 0.0
-        tigerMouthOpen?.alpha = 0.0
-        tigerMouthClosed1?.alpha = 0.0
+        //tigerMouthOpen?.alpha = 0.0                           didn't work...
+        //tigerMouthClosed1?.alpha = 0.0
         
         // Setup Emoji Textures
         emojis = [
@@ -256,8 +259,6 @@ class GameScene: SKScene {
     func performColorSelect(buttonNr: Int) {
         currentGameMode += 1
         var colorButtonCenter:CGFloat = 0.0
-        let moveAction = SKAction.moveToX(colorButtonCenter, duration: 0.5)
-        moveAction.timingMode = SKActionTimingMode.EaseInEaseOut
         let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
         
         print("Run color function")
@@ -270,7 +271,8 @@ class GameScene: SKScene {
             self.colorFieldLeft?.runAction(fadeOutAction)
             self.colorLineLeft?.runAction(fadeOutAction)
         }
-        
+        let moveAction = SKAction.moveToX(colorButtonCenter, duration: 0.5)
+        moveAction.timingMode = SKActionTimingMode.EaseInEaseOut
         
         if (emojiButton2?.alpha == 0.0) {
             emojiButton1?.runAction(moveAction, completion: {
