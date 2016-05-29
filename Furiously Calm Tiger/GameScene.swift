@@ -253,6 +253,7 @@ class GameScene: SKScene {
         currentGameMode += 1
         var colorButtonCenter:CGFloat = 0.0
         
+        
         print("Run color function")
         if (buttonNr == 1) {
             colorButtonCenter = (colorFieldLeft?.position.x)!
@@ -261,14 +262,18 @@ class GameScene: SKScene {
         }
         let moveAction = SKAction.moveToX(colorButtonCenter, duration: 0.5)
         moveAction.timingMode = SKActionTimingMode.EaseInEaseOut
-        
+        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
         
         if (emojiButton2?.alpha == 0.0) {
-            emojiButton1?.runAction(moveAction, completion: { 
+            emojiButton1?.runAction(moveAction, completion: {
+                self.colorFieldRight?.runAction(fadeOutAction)
+                self.colorLineRight?.runAction(fadeOutAction)
                 self.perfomTigerReaction()
             })
         } else if (emojiButton1?.alpha == 0.0) {
             emojiButton2?.runAction(moveAction, completion: {
+                self.colorFieldLeft?.runAction(fadeOutAction)
+                self.colorLineLeft?.runAction(fadeOutAction)
                 self.perfomTigerReaction()
             })
         }
@@ -279,44 +284,28 @@ class GameScene: SKScene {
         let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
         let waitAction = SKAction.waitForDuration(2)
         roundsPlayed += 1
-        
-        emojiButton1?.runAction(waitAction, completion: { 
+        self.tigerMouthOpen?.runAction(waitAction, completion: {
             self.emojiButton1?.runAction(fadeOutAction)
-            self.emojiButton2?.runAction(fadeOutAction)
-            self.emojiButton1?.position.x = 442
-            self.emojiButton2?.position.x = 582
-            self.colorFieldRight?.runAction(fadeOutAction)
-            self.colorFieldLeft?.runAction(fadeOutAction)
-            self.colorLineLeft?.runAction(fadeOutAction)
-            self.colorLineRight?.runAction(fadeOutAction, completion: { // -Move stuff
-                if (self.roundsPlayed == self.maxRounds) {
-                    self.restartGame()
-                } else {
-                    self.currentGameMode = 2
-                    self.setupEmojiSelect()
-                }
+            self.emojiButton2?.runAction(fadeOutAction, completion: {
+                self.emojiButton1?.position.x = 442
+                self.emojiButton2?.position.x = 582
+                self.colorFieldRight?.runAction(fadeOutAction)
+                self.colorFieldLeft?.runAction(fadeOutAction)
+                self.colorLineLeft?.runAction(fadeOutAction)
+                self.colorLineRight?.runAction(fadeOutAction)
             })
-            
-            // peform tiger action -> completion move on
         })
         
         
-        
+        if (self.roundsPlayed == self.maxRounds) {
+            self.restartGame()
+        } else {
+            self.currentGameMode = 1
+        }
     }
     
     
     func resetButtonAndEmojiParameters() {
-        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
-        let waitAction = SKAction.waitForDuration(2)
-        
-        self.emojiButton1?.runAction(fadeOutAction)
-        self.emojiButton2?.runAction(fadeOutAction)
-        self.emojiButton1?.position.x = 442
-        self.emojiButton2?.position.x = 582
-        self.colorFieldRight?.runAction(fadeOutAction)
-        self.colorFieldLeft?.runAction(fadeOutAction)
-        self.colorLineLeft?.runAction(fadeOutAction)
-        self.colorLineRight?.runAction(fadeOutAction)
     }
     
     
@@ -473,7 +462,15 @@ class GameScene: SKScene {
     }
     
     func restartGame() {
-            // restart
+        // restart
+     
+        let transition = SKTransition.fadeWithDuration(1.0)
+        
+        let nextScene = TitleScene(fileNamed: "TitleScene")
+        nextScene!.scaleMode = .AspectFill
+        
+        self.scene?.view?.presentScene(nextScene!, transition: transition)
+        
     }
     
 }
