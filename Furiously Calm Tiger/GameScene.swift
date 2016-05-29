@@ -16,6 +16,9 @@ class GameScene: SKScene {
     
     var emojiButton1: SKSpriteNode?
     var emojiButton2: SKSpriteNode?
+    var smallCirclesL: SKNode?
+    var smallCirclesR: SKNode?
+    
     var emoji1Angry: Bool = false
     var emoji1Tired: Bool = false
     var emoji1Twike: Bool = false
@@ -63,6 +66,8 @@ class GameScene: SKScene {
         colorLineRight = self.childNodeWithName("colorLineRight") as? SKSpriteNode
         emojiButton1 = self.childNodeWithName("emojiButton1") as? SKSpriteNode
         emojiButton2 = self.childNodeWithName("emojiButton2") as? SKSpriteNode
+        smallCirclesL = self.childNodeWithName("smallCirclesL")
+        smallCirclesR = self.childNodeWithName("smallCirclesR")
         
         theTiger = self.childNodeWithName("Tiger")
         tigerMouthOpen = theTiger!.childNodeWithName("TigerMouthOpen") as? SKSpriteNode // TigerBody ??
@@ -77,6 +82,8 @@ class GameScene: SKScene {
         resetColorAreas()
         emojiButton1?.alpha = 0.0
         emojiButton2?.alpha = 0.0
+        smallCirclesL?.hidden = true
+        smallCirclesR?.hidden = true
         //tigerMouthOpen?.alpha = 0.0                           didn't work...
         //tigerMouthClosed1?.alpha = 0.0
         
@@ -251,13 +258,19 @@ class GameScene: SKScene {
         
         if buttonNr == 1 {
             emojiButton2?.runAction(fadeOut)
-            emojiButton1?.runAction(moveToCenter)
+            emojiButton1?.runAction(moveToCenter, completion: { 
+                self.smallCirclesL?.hidden = false
+                self.smallCirclesR?.hidden = false
+            })
             emojiSelectedTired = emoji1Tired
             emojiSelectedAngry = emoji1Angry
             emojiSelectedTwinker = emoji1Twike
         } else if buttonNr == 2 {
             emojiButton1?.runAction(fadeOut)
-            emojiButton2?.runAction(moveToCenter)
+            emojiButton2?.runAction(moveToCenter, completion: {
+                self.smallCirclesL?.hidden = false
+                self.smallCirclesR?.hidden = false
+            })
             emojiSelectedTired = emoji2Tired
             emojiSelectedAngry = emoji2Angry
             emojiSelectedTwinker = emoji2Twike
@@ -280,6 +293,8 @@ class GameScene: SKScene {
         blockInteraction = true
         var colorButtonCenter:CGFloat = 0.0
         let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
+        self.smallCirclesL?.hidden = true
+        self.smallCirclesR?.hidden = true
         
         
         //
