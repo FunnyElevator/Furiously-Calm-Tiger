@@ -34,6 +34,9 @@ class GameScene: SKScene {
     var tigerMouthClosed1: SKSpriteNode?
     var tigerMouthClosed2: SKSpriteNode?
     
+    var emoji1Sparkle: SKEmitterNode?
+    var emoji2Sparkle: SKEmitterNode?
+    
     var tigerMoodAngryIndex: Int = 0
     var tigerMoodTiredIndex: Int = 0
     var tigerMoodTwinkeIndex: Bool = false
@@ -76,6 +79,21 @@ class GameScene: SKScene {
         emojiButton2?.alpha = 0.0
         //tigerMouthOpen?.alpha = 0.0                           didn't work...
         //tigerMouthClosed1?.alpha = 0.0
+        
+        //Add sparkle emitters to Emoji Icons
+        let roundparticlePath:NSString = NSBundle.mainBundle().pathForResource("RoundParticle2", ofType: "sks")!
+        emoji1Sparkle = (NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode)
+        emoji1Sparkle!.position = CGPointMake(0.0, 0.0)
+        emoji1Sparkle!.name = "emoji1Sparkle"
+        emoji1Sparkle!.zPosition = 0
+        emojiButton1?.addChild(emoji1Sparkle!)
+        
+        emoji2Sparkle = (NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode)
+        emoji2Sparkle!.position = CGPointMake(0.0, 0.0)
+        emoji2Sparkle!.name = "emoji2Sparkle"
+        emoji2Sparkle!.zPosition = 0
+        emojiButton2?.addChild(emoji2Sparkle!)
+        
         
         // Setup Emoji Textures
         emojis = [
@@ -263,6 +281,12 @@ class GameScene: SKScene {
         var colorButtonCenter:CGFloat = 0.0
         let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
         
+        
+        //
+        emojiButton1?.childNodeWithName("emoji1Sparkle")?.hidden = true
+        emojiButton2?.childNodeWithName("emoji2Sparkle")?.hidden = true
+        //
+        
         print("Run color function")
         if (buttonNr == 1) {
             colorButtonCenter = (colorFieldLeft?.position.x)!
@@ -302,7 +326,8 @@ class GameScene: SKScene {
                 self.colorLineLeft?.runAction(fadeOutAction)
                 self.colorLineRight?.runAction(fadeOutAction)
                 self.blockInteraction = false
-                
+                self.emojiButton1?.childNodeWithName("emoji1Sparkle")?.hidden = false
+                self.emojiButton2?.childNodeWithName("emoji2Sparkle")?.hidden = false
                 
                 if (self.roundsPlayed == self.maxRounds) {
                     self.restartGame()
