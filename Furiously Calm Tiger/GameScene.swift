@@ -199,10 +199,10 @@ class GameScene: SKScene {
                     }
                 } else if (currentGameMode == 3) {
                     if (touchedNode.name == "colorFieldLeft") {
-                        performColorSelect(1)
+                        //performColorSelect(1)
                         print("Color 1")
                     } else if (touchedNode.name == "colorFieldRight") {
-                        performColorSelect(2)
+                        //performColorSelect(2)
                         print("Color 2")
                     }
                 }
@@ -221,6 +221,58 @@ class GameScene: SKScene {
             }
         }
     }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        for touch : AnyObject in touches {
+            
+            let location : CGPoint = touch.locationInNode(self)
+            let nodes : Array = self.nodesAtPoint(location)
+            for node in nodes {
+                // Select a node by it's name
+                if (currentGameMode == 3) {
+                    if (node.name == "emojiButton1" || node.name == "emojiButton2") {
+                        node.position = location
+                        
+                        if (location.y > 187) {
+                            let moveToCenter = SKAction.moveTo(CGPointMake(512, 88), duration: 0.5)
+                            moveToCenter.timingMode = SKActionTimingMode.EaseOut
+                            node.runAction(moveToCenter)
+                        } else {
+                            if (location.x < 287) {
+                                performColorSelect(1)
+                            } else if (location.x > 737) {
+                                performColorSelect(2)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        } 
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch : AnyObject in touches {
+            
+            let location : CGPoint = touch.locationInNode(self)
+            let nodes : Array = self.nodesAtPoint(location)
+            for node in nodes {
+                if (currentGameMode == 3 && blockInteraction == false) {
+                    if (node.name == "emojiButton1" || node.name == "emojiButton2") {
+                        if (node.position.x == 512 && node.position.y == 88){
+                        } else {
+                            let moveToCenter = SKAction.moveTo(CGPointMake(512, 88), duration: 0.4)
+                            moveToCenter.timingMode = SKActionTimingMode.EaseOut
+                            node.runAction(moveToCenter)
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
@@ -312,7 +364,7 @@ class GameScene: SKScene {
             self.colorFieldLeft?.runAction(fadeOutAction)
             self.colorLineLeft?.runAction(fadeOutAction)
         }
-        let moveAction = SKAction.moveToX(colorButtonCenter, duration: 0.5)
+        let moveAction = SKAction.moveTo(CGPointMake(colorButtonCenter, 88) , duration: 0.5)
         moveAction.timingMode = SKActionTimingMode.EaseInEaseOut
         
         if (emojiButton2?.alpha == 0.0) {
@@ -334,8 +386,8 @@ class GameScene: SKScene {
         self.runAction(waitAction, completion: {
             self.emojiButton1?.runAction(fadeOutAction)
             self.emojiButton2?.runAction(fadeOutAction, completion: {
-                self.emojiButton1?.position.x = 442
-                self.emojiButton2?.position.x = 582
+                self.emojiButton1?.position = CGPointMake(442, 88)
+                self.emojiButton2?.position = CGPointMake(582, 88)
                 self.colorFieldRight?.runAction(fadeOutAction)
                 self.colorFieldLeft?.runAction(fadeOutAction)
                 self.colorLineLeft?.runAction(fadeOutAction)
