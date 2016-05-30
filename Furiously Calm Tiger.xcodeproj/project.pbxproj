@@ -13,6 +13,7 @@
 		1F0642B11CFBD2FA0023B253 /* SmokeParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F0642AD1CFBD2FA0023B253 /* SmokeParticles.sks */; };
 		1F0642B21CFBD2FA0023B253 /* spark2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F0642AF1CFBD2FA0023B253 /* spark2.png */; };
 		1F0E61F91CFB2FE400115A29 /* RoundParticle2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E61F81CFB2FE400115A29 /* RoundParticle2.sks */; };
+		1F16030F1CFBE88C0044350B /* TigerSnoozescene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F16030E1CFBE88C0044350B /* TigerSnoozescene.sks */; };
 		1F1DC65F1CFB3E1800AB9B9D /* littleCircles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DC65E1CFB3E1800AB9B9D /* littleCircles.sks */; };
 		1F24BC911CEA5AF400CF6A96 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */; };
 		1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */; };
@@ -47,6 +48,7 @@
 		1F0642AE1CFBD2FA0023B253 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Base; path = "Furiously Calm Tiger/Base.lproj/SmokeParticles.sks"; sourceTree = "<group>"; };
 		1F0642B01CFBD2FA0023B253 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Furiously Calm Tiger/Base.lproj/spark2.png"; sourceTree = "<group>"; };
 		1F0E61F81CFB2FE400115A29 /* RoundParticle2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoundParticle2.sks; sourceTree = "<group>"; };
+		1F16030E1CFBE88C0044350B /* TigerSnoozescene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TigerSnoozescene.sks; sourceTree = "<group>"; };
 		1F1DC65E1CFB3E1800AB9B9D /* littleCircles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = littleCircles.sks; sourceTree = "<group>"; };
 		1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				1F0642AF1CFBD2FA0023B253 /* spark2.png */,
 				1F03FC1A1CF22A97001EBA67 /* Sparkles.sks */,
 				1F1DC65E1CFB3E1800AB9B9D /* littleCircles.sks */,
+				1F16030E1CFBE88C0044350B /* TigerSnoozescene.sks */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				1F02C2311CF122DC002C3AE8 /* RoundParticle.sks in Resources */,
 				1F0642B21CFBD2FA0023B253 /* spark2.png in Resources */,
 				1FA94B181CD79DBE0024B6DA /* Assets.xcassets in Resources */,
+				1F16030F1CFBE88C0044350B /* TigerSnoozescene.sks in Resources */,
 				1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */,
 				1FA94B161CD79DBE0024B6DA /* Main.storyboard in Resources */,
 				1F1DC65F1CFB3E1800AB9B9D /* littleCircles.sks in Resources */,

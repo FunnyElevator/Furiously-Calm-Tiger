@@ -39,6 +39,7 @@ class GameScene: SKScene {
     var lastColor: Int = 0
     
     var theTiger: SKNode?
+    var tigerSnooze: SKNode?
     var tigerMouthOpen: SKSpriteNode?
     var tigerMouthClosed1: SKSpriteNode?
     var tigerMouthClosed2: SKSpriteNode?
@@ -76,6 +77,7 @@ class GameScene: SKScene {
         smallCirclesR = self.childNodeWithName("smallCirclesR")
         
         theTiger = self.childNodeWithName("Tiger")
+        tigerSnooze = self.childNodeWithName("TigerSnooze")
         tigerMouthOpen = theTiger!.childNodeWithName("TigerMouthOpen") as? SKSpriteNode // TigerBody ??
         //tigerMouthClosed1 = tiger!.childNodeWithName("TigerMouthClosed1") as? SKSpriteNode                // ##### Fill x
         //tigerMouthClosed2 = tiger!.childNodeWithName("TigerMouthClosed2") as? SKSpriteNode                // ##### Fill x
