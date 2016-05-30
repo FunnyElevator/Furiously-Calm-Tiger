@@ -40,9 +40,9 @@ class GameScene: SKScene {
     
     var theTiger: SKNode?
     var tigerSnooze: SKNode?
-    var tigerMouthOpen: SKSpriteNode?
-    var tigerMouthClosed1: SKSpriteNode?
-    var tigerMouthClosed2: SKSpriteNode?
+    let tigerMouthOpen = SKSpriteNode(imageNamed: "TigerMouthOpen")
+    let tigerMouthClosed1 = SKSpriteNode(imageNamed: "TigerMouthClosed1")
+    let tigerMouthClosed2 = SKSpriteNode(imageNamed: "TigerMouthClosed2")
     
     var emoji1Sparkle: SKEmitterNode?
     var emoji2Sparkle: SKEmitterNode?
@@ -78,12 +78,20 @@ class GameScene: SKScene {
         
         theTiger = self.childNodeWithName("Tiger")
         tigerSnooze = self.childNodeWithName("TigerSnooze")
-        tigerMouthOpen = theTiger!.childNodeWithName("TigerMouthOpen") as? SKSpriteNode // TigerBody ??
-        //tigerMouthClosed1 = tiger!.childNodeWithName("TigerMouthClosed1") as? SKSpriteNode                // ##### Fill x
-        //tigerMouthClosed2 = tiger!.childNodeWithName("TigerMouthClosed2") as? SKSpriteNode                // ##### Fill x
-        theTiger!.enumerateChildNodesWithName("*") { (node, stop) in
-            print(node.name)
-        }
+        
+        tigerMouthOpen.position = CGPointMake(0.0, 15.0)
+        tigerMouthOpen.zPosition = 500
+        tigerMouthOpen.alpha = 0.0
+        theTiger!.addChild(tigerMouthOpen)
+
+        tigerMouthClosed1.position = CGPointMake(0.0, 15.0)
+        tigerMouthClosed1.zPosition = 500
+        tigerMouthClosed1.alpha = 0.0
+        theTiger!.addChild(tigerMouthClosed1)
+        
+        tigerMouthClosed2.position = CGPointMake(0.0, 15.0)
+        tigerMouthClosed2.zPosition = 500
+        theTiger!.addChild(tigerMouthClosed2)
         
         
         /* Prepare Interface elements */
@@ -394,33 +402,51 @@ class GameScene: SKScene {
     
     func perfomTigerReaction() {
         // remove UI elemnts
-        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
-        let waitAction = SKAction.waitForDuration(2)
+        
+        var waitAction = SKAction.waitForDuration(2)
         roundsPlayed += 1
-        self.runAction(waitAction, completion: {
-            self.emojiButton1?.runAction(fadeOutAction)
-            self.emojiButton2?.runAction(fadeOutAction, completion: {
-                self.emojiButton1?.position = CGPointMake(442, 88)
-                self.emojiButton2?.position = CGPointMake(582, 88)
-                self.colorFieldRight?.runAction(fadeOutAction)
-                self.colorFieldLeft?.runAction(fadeOutAction)
-                self.colorLineLeft?.runAction(fadeOutAction)
-                self.colorLineRight?.runAction(fadeOutAction)
-                self.blockInteraction = false
-                self.emojiButton1?.childNodeWithName("emoji1Sparkle")?.hidden = false
-                self.emojiButton2?.childNodeWithName("emoji2Sparkle")?.hidden = false
-                
-                if (self.roundsPlayed == self.maxRounds) {
-                    self.restartGame()
-                } else {
-                    self.currentGameMode = 1
-                }
+        if (tigerMoodTiredIndex > 0) {
+            let fadeInSnooze = SKAction.fadeInWithDuration(0.5)
+            let fadeOutSnooze = SKAction.fadeOutWithDuration(0.5)
+            let waitAction2 = SKAction.waitForDuration(2)
+            
+            tigerSnooze?.runAction(SKAction.sequence([fadeInSnooze, waitAction2, fadeOutSnooze]), completion: {
+                self.runAfterTigerMood()
             })
-        })
+        } else if (tigerMoodAngryIndex > 0){
+            tigerMouthOpen.yScale = 0.1
+            tigerMouthOpen.alpha = 1
+            let openingMouth = SKAction.scaleYTo(1, duration: 0.2)
+            let closingMouth = SKAction.scaleYTo(0.1, duration: 0.2)
+            let waitAction3 = SKAction.waitForDuration(0.2)
+            
+            tigerMouthOpen.runAction(SKAction.sequence([openingMouth, waitAction3, closingMouth, waitAction3, openingMouth, waitAction3, closingMouth]), completion: {
+                self.tigerMouthOpen.alpha = 0.0
+                self.runAfterTigerMood()
+            })
+        }
     }
-    
-    
-    func resetButtonAndEmojiParameters() {
+    func runAfterTigerMood() {
+        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
+        
+        self.emojiButton1?.runAction(fadeOutAction)
+        self.emojiButton2?.runAction(fadeOutAction, completion: {
+            self.emojiButton1?.position = CGPointMake(442, 88)
+            self.emojiButton2?.position = CGPointMake(582, 88)
+            self.colorFieldRight?.runAction(fadeOutAction)
+            self.colorFieldLeft?.runAction(fadeOutAction)
+            self.colorLineLeft?.runAction(fadeOutAction)
+            self.colorLineRight?.runAction(fadeOutAction)
+            self.blockInteraction = false
+            self.emojiButton1?.childNodeWithName("emoji1Sparkle")?.hidden = false
+            self.emojiButton2?.childNodeWithName("emoji2Sparkle")?.hidden = false
+            
+            if (self.roundsPlayed == self.maxRounds) {
+                self.restartGame()
+            } else {
+                self.currentGameMode = 1
+            }
+        })
     }
     
     
