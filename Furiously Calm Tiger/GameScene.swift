@@ -403,7 +403,7 @@ class GameScene: SKScene {
     func perfomTigerReaction() {
         // remove UI elemnts
         
-        var waitAction = SKAction.waitForDuration(2)
+        let waitAction = SKAction.waitForDuration(2)
         roundsPlayed += 1
         if (tigerMoodTiredIndex > 0) {
             let fadeInSnooze = SKAction.fadeInWithDuration(0.5)
@@ -420,8 +420,14 @@ class GameScene: SKScene {
             let closingMouth = SKAction.scaleYTo(0.1, duration: 0.2)
             let waitAction3 = SKAction.waitForDuration(0.2)
             
+            tigerMouthClosed2.runAction(SKAction.fadeAlphaTo(0.0, duration: 0.2))
             tigerMouthOpen.runAction(SKAction.sequence([openingMouth, waitAction3, closingMouth, waitAction3, openingMouth, waitAction3, closingMouth]), completion: {
-                self.tigerMouthOpen.alpha = 0.0
+                self.tigerMouthClosed2.runAction(SKAction.fadeAlphaTo(0.0, duration: 0.2))
+                self.tigerMouthOpen.runAction(SKAction.fadeAlphaTo(0.0, duration: 0.2))
+                self.runAfterTigerMood()
+            })
+        } else {
+            self.runAction(waitAction, completion: { 
                 self.runAfterTigerMood()
             })
         }
@@ -606,13 +612,26 @@ class GameScene: SKScene {
     
     func restartGame() {
         // restart
-     
-        let transition = SKTransition.fadeWithDuration(1.0)
         
-        let nextScene = TitleScene(fileNamed: "TitleScene")
-        nextScene!.scaleMode = .AspectFill
+        // smoke effect
+        let particlePath:NSString = NSBundle.mainBundle().pathForResource("SmokeParticles", ofType: "sks")!
+        let sparkEmmiter = NSKeyedUnarchiver.unarchiveObjectWithFile(particlePath as String) as! SKEmitterNode
+        sparkEmmiter.position = CGPointMake(512, 180)
+        sparkEmmiter.name = "sparkEmmitter"
+        sparkEmmiter.zPosition = 400
+        //sparkEmmiter.targetNode = self
+        self.addChild(sparkEmmiter)
         
-        self.scene?.view?.presentScene(nextScene!, transition: transition)
+        
+        self.runAction(SKAction.waitForDuration(3)) {
+            let transition = SKTransition.fadeWithDuration(1.0)
+            
+            let nextScene = TitleScene(fileNamed: "TitleScene")
+            nextScene!.scaleMode = .AspectFill
+            
+            self.scene?.view?.presentScene(nextScene!, transition: transition)
+        }
+        
         
     }
     
