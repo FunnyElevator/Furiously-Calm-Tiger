@@ -303,6 +303,7 @@ class GameScene: SKScene {
     func performEmojiSelect(buttonNr: Int) {
         let fadeOut = SKAction.fadeOutWithDuration(0.5)
         let moveToCenter = SKAction.moveToX(512, duration: 0.8)
+        blockInteraction = true
         
         var emojiSelectedAngry = false
         var emojiSelectedTired = false
@@ -424,7 +425,9 @@ class GameScene: SKScene {
         colorLineLeft?.runAction(fadeInAction)
         colorLineRight?.runAction(fadeInAction)
         colorFieldLeft?.runAction(fadeInAction)
-        colorFieldRight?.runAction(fadeInAction)
+        colorFieldRight?.runAction(fadeInAction, completion: { 
+            self.blockInteraction = false
+        })
         
     }
     
