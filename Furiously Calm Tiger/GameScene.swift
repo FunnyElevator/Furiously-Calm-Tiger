@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameAnalytics
 
 class GameScene: SKScene {
     var colorFieldLeft: SKSpriteNode?
@@ -18,6 +19,11 @@ class GameScene: SKScene {
     var emojiButton2: SKSpriteNode?
     var smallCirclesL: SKNode?
     var smallCirclesR: SKNode?
+    
+    
+    // for logging
+    var lastEmoji1Number: Int = 0
+    var lastEmoji2Number: Int = 0
     
     var emoji1Angry: Bool = false
     var emoji1Tired: Bool = false
@@ -193,6 +199,7 @@ class GameScene: SKScene {
                     if (touchedNode.name == "emojiButton1") {
                         performEmojiSelect(1)
                         print("Emoji 1")
+                         GameAnalytics.setCustomDimension01("emojiLeft")
                     } else if (touchedNode.name == "emojiButton2") {
                         performEmojiSelect(2)
                         print("Emoji 2")
@@ -284,6 +291,7 @@ class GameScene: SKScene {
         
         // Randomly select a character
         let leftEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
+        lastEmoji1Number = leftEmoji
         emojiButton1?.texture = emojis[leftEmoji] as SKTexture
         self.setupEmojiMood(leftEmoji, leftOrRight: 1)
         lastEmoji = leftEmoji
@@ -292,6 +300,7 @@ class GameScene: SKScene {
         emojiButton2?.texture = emojis[rightEmoji] as SKTexture
         self.setupEmojiMood(rightEmoji, leftOrRight: 2)
         lastEmoji = rightEmoji
+        lastEmoji2Number = rightEmoji
         
         // Optionally, resize the sprite
         // emojiButton1!.size = emojiTexture.size()
@@ -318,11 +327,13 @@ class GameScene: SKScene {
             emojiSelectedTired = emoji1Tired
             emojiSelectedAngry = emoji1Angry
             emojiSelectedTwinker = emoji1Twike
+            GameAnalytics.addProgressionEventWithProgressionStatus(GAProgressionStatusStart, progression01: "world01", progression02: "level01", progression03: "")
         } else if buttonNr == 2 {
             emojiButton1?.runAction(fadeOut)
             emojiButton2?.runAction(moveToCenter, completion: {
                 self.smallCirclesL?.hidden = false
                 self.smallCirclesR?.hidden = false
+                GameAnalytics.addProgressionEventWithProgressionStatus(GAProgressionStatusStart, progression01: "world01", progression02: "level02", progression03: "")
             })
             emojiSelectedTired = emoji2Tired
             emojiSelectedAngry = emoji2Angry
