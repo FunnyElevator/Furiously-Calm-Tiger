@@ -63,33 +63,33 @@ class GameScene: SKScene {
     let maxRounds:Int = 3
 
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         /* Setup your scene here */
         
         // Connect UI Elements from the Editor
-        colorFieldLeft  = self.childNodeWithName("colorFieldLeft")  as? SKSpriteNode
-        colorFieldRight = self.childNodeWithName("colorFieldRight") as? SKSpriteNode
-        colorLineLeft  = self.childNodeWithName("colorLineLeft")  as? SKSpriteNode
-        colorLineRight = self.childNodeWithName("colorLineRight") as? SKSpriteNode
-        emojiButton1 = self.childNodeWithName("emojiButton1") as? SKSpriteNode
-        emojiButton2 = self.childNodeWithName("emojiButton2") as? SKSpriteNode
-        smallCirclesL = self.childNodeWithName("smallCirclesL")
-        smallCirclesR = self.childNodeWithName("smallCirclesR")
+        colorFieldLeft  = self.childNode(withName: "colorFieldLeft")  as? SKSpriteNode
+        colorFieldRight = self.childNode(withName: "colorFieldRight") as? SKSpriteNode
+        colorLineLeft  = self.childNode(withName: "colorLineLeft")  as? SKSpriteNode
+        colorLineRight = self.childNode(withName: "colorLineRight") as? SKSpriteNode
+        emojiButton1 = self.childNode(withName: "emojiButton1") as? SKSpriteNode
+        emojiButton2 = self.childNode(withName: "emojiButton2") as? SKSpriteNode
+        smallCirclesL = self.childNode(withName: "smallCirclesL")
+        smallCirclesR = self.childNode(withName: "smallCirclesR")
         
-        theTiger = self.childNodeWithName("Tiger")
-        tigerSnooze = self.childNodeWithName("TigerSnooze")
+        theTiger = self.childNode(withName: "Tiger")
+        tigerSnooze = self.childNode(withName: "TigerSnooze")
         
-        tigerMouthOpen.position = CGPointMake(0.0, 15.0)
+        tigerMouthOpen.position = CGPoint(x: 0.0, y: 15.0)
         tigerMouthOpen.zPosition = 500
         tigerMouthOpen.alpha = 0.0
         theTiger!.addChild(tigerMouthOpen)
 
-        tigerMouthClosed1.position = CGPointMake(0.0, 15.0)
+        tigerMouthClosed1.position = CGPoint(x: 0.0, y: 15.0)
         tigerMouthClosed1.zPosition = 500
         tigerMouthClosed1.alpha = 0.0
         theTiger!.addChild(tigerMouthClosed1)
         
-        tigerMouthClosed2.position = CGPointMake(0.0, 15.0)
+        tigerMouthClosed2.position = CGPoint(x: 0.0, y: 15.0)
         tigerMouthClosed2.zPosition = 500
         theTiger!.addChild(tigerMouthClosed2)
         
@@ -98,21 +98,21 @@ class GameScene: SKScene {
         resetColorAreas()
         emojiButton1?.alpha = 0.0
         emojiButton2?.alpha = 0.0
-        smallCirclesL?.hidden = true
-        smallCirclesR?.hidden = true
+        smallCirclesL?.isHidden = true
+        smallCirclesR?.isHidden = true
         //tigerMouthOpen?.alpha = 0.0                           didn't work...
         //tigerMouthClosed1?.alpha = 0.0
         
         //Add sparkle emitters to Emoji Icons
-        let roundparticlePath:NSString = NSBundle.mainBundle().pathForResource("RoundParticle2", ofType: "sks")!
-        emoji1Sparkle = (NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode)
-        emoji1Sparkle!.position = CGPointMake(0.0, 0.0)
+        let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle2", ofType: "sks")! as NSString
+        emoji1Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        emoji1Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         emoji1Sparkle!.name = "emoji1Sparkle"
         emoji1Sparkle!.zPosition = 0
         emojiButton1?.addChild(emoji1Sparkle!)
         
-        emoji2Sparkle = (NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode)
-        emoji2Sparkle!.position = CGPointMake(0.0, 0.0)
+        emoji2Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        emoji2Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         emoji2Sparkle!.name = "emoji2Sparkle"
         emoji2Sparkle!.zPosition = 0
         emojiButton2?.addChild(emoji2Sparkle!)
@@ -182,11 +182,11 @@ class GameScene: SKScene {
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        /* Called when a touch begins */
         
         for touch in touches {
-            let location = touch.locationInNode(self)
+            let location = touch.location(in: self)
             
             /* Demo action
             let sprite = SKSpriteNode(imageNamed:"Spaceship")
@@ -199,7 +199,7 @@ class GameScene: SKScene {
             self.addChild(sprite)*/
             
             
-            let touchedNode = nodeAtPoint(location)
+            let touchedNode = atPoint(location)
             if (blockInteraction == false) {
                 if (currentGameMode == 1) {
                     currentGameMode += 1
@@ -216,10 +216,10 @@ class GameScene: SKScene {
                     }
                 } else if (currentGameMode == 3) {
                     if (touchedNode.name == "colorFieldLeft") {
-                        //performColorSelect(1)
+                        performColorSelect(1)
                         print("Color 1")
                     } else if (touchedNode.name == "colorFieldRight") {
-                        //performColorSelect(2)
+                        performColorSelect(2)
                         print("Color 2")
                     }
                 }
@@ -228,8 +228,8 @@ class GameScene: SKScene {
                 //remove previous partcile emitters
                 
                 // create touch circle effect
-                let roundparticlePath:NSString = NSBundle.mainBundle().pathForResource("RoundParticle", ofType: "sks")!
-                let sparkEmmiter = NSKeyedUnarchiver.unarchiveObjectWithFile(roundparticlePath as String) as! SKEmitterNode
+                let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
+                let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
                 sparkEmmiter.position = location
                 sparkEmmiter.name = "sparkEmmitter"
                 sparkEmmiter.zPosition = 400
@@ -239,12 +239,12 @@ class GameScene: SKScene {
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch : AnyObject in touches {
             
-            let location : CGPoint = touch.locationInNode(self)
-            let nodes : Array = self.nodesAtPoint(location)
+            let location : CGPoint = touch.location(in: self)
+            let nodes : Array = self.nodes(at: location)
             for node in nodes {
                 // Select a node by it's name
                 if (currentGameMode == 3) {
@@ -252,9 +252,9 @@ class GameScene: SKScene {
                         node.position = location
                         
                         if (location.y > 187) {
-                            let moveToCenter = SKAction.moveTo(CGPointMake(512, 88), duration: 0.5)
-                            moveToCenter.timingMode = SKActionTimingMode.EaseOut
-                            node.runAction(moveToCenter)
+                            let moveToCenter = SKAction.move(to: CGPoint(x: 512, y: 88), duration: 0.5)
+                            moveToCenter.timingMode = SKActionTimingMode.easeOut
+                            node.run(moveToCenter)
                         } else {
                             if (location.x < 287) {
                                 performColorSelect(1)
@@ -269,19 +269,19 @@ class GameScene: SKScene {
         } 
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch : AnyObject in touches {
             
-            let location : CGPoint = touch.locationInNode(self)
-            let nodes : Array = self.nodesAtPoint(location)
+            let location : CGPoint = touch.location(in: self)
+            let nodes : Array = self.nodes(at: location)
             for node in nodes {
                 if (currentGameMode == 3 && blockInteraction == false) {
                     if (node.name == "emojiButton1" || node.name == "emojiButton2") {
                         if (node.position.x == 512 && node.position.y == 88){
                         } else {
-                            let moveToCenter = SKAction.moveTo(CGPointMake(512, 88), duration: 0.4)
-                            moveToCenter.timingMode = SKActionTimingMode.EaseOut
-                            node.runAction(moveToCenter)
+                            let moveToCenter = SKAction.move(to: CGPoint(x: 512, y: 88), duration: 0.4)
+                            moveToCenter.timingMode = SKActionTimingMode.easeOut
+                            node.run(moveToCenter)
                         }
                     
                     }
@@ -291,13 +291,13 @@ class GameScene: SKScene {
     }
 
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
         
     }
     
     func setupEmojiSelect() {
-        let fadeInAction = SKAction.fadeInWithDuration(0.5)
+        let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
         
         // Randomly select a character
         let leftEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
@@ -315,13 +315,13 @@ class GameScene: SKScene {
         // Optionally, resize the sprite
         // emojiButton1!.size = emojiTexture.size()
     
-        emojiButton1?.runAction(fadeInAction)
-        emojiButton2?.runAction(fadeInAction)
+        emojiButton1?.run(fadeInAction)
+        emojiButton2?.run(fadeInAction)
     }
     
-    func performEmojiSelect(buttonNr: Int) {
-        let fadeOut = SKAction.fadeOutWithDuration(0.5)
-        let moveToCenter = SKAction.moveToX(512, duration: 0.8)
+    func performEmojiSelect(_ buttonNr: Int) {
+        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+        let moveToCenter = SKAction.moveTo(x: 512, duration: 0.8)
         blockInteraction = true
         
         var emojiSelectedAngry = false
@@ -329,21 +329,21 @@ class GameScene: SKScene {
         var emojiSelectedTwinker = false
         
         if buttonNr == 1 {
-            emojiButton2?.runAction(fadeOut)
-            emojiButton1?.runAction(moveToCenter, completion: { 
-                self.smallCirclesL?.hidden = false
-                self.smallCirclesR?.hidden = false
+            emojiButton2?.run(fadeOut)
+            emojiButton1?.run(moveToCenter, completion: { 
+                self.smallCirclesL?.isHidden = false
+                self.smallCirclesR?.isHidden = false
             })
             emojiSelectedTired = emoji1Tired
             emojiSelectedAngry = emoji1Angry
             emojiSelectedTwinker = emoji1Twike
-            GameAnalytics.addProgressionEventWithProgressionStatus(GAProgressionStatusStart, progression01: "world01", progression02: "level01", progression03: "")
+            GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level01", progression03: "")
         } else if buttonNr == 2 {
-            emojiButton1?.runAction(fadeOut)
-            emojiButton2?.runAction(moveToCenter, completion: {
-                self.smallCirclesL?.hidden = false
-                self.smallCirclesR?.hidden = false
-                GameAnalytics.addProgressionEventWithProgressionStatus(GAProgressionStatusStart, progression01: "world01", progression02: "level02", progression03: "")
+            emojiButton1?.run(fadeOut)
+            emojiButton2?.run(moveToCenter, completion: {
+                self.smallCirclesL?.isHidden = false
+                self.smallCirclesR?.isHidden = false
+                GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level02", progression03: "")
             })
             emojiSelectedTired = emoji2Tired
             emojiSelectedAngry = emoji2Angry
@@ -362,39 +362,39 @@ class GameScene: SKScene {
         currentGameMode += 1
     }
     
-    func performColorSelect(buttonNr: Int) {
+    func performColorSelect(_ buttonNr: Int) {
         currentGameMode += 1
         blockInteraction = true
         var colorButtonCenter:CGFloat = 0.0
-        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
-        self.smallCirclesL?.hidden = true
-        self.smallCirclesR?.hidden = true
+        let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
+        self.smallCirclesL?.isHidden = true
+        self.smallCirclesR?.isHidden = true
         
         
         //
-        emojiButton1?.childNodeWithName("emoji1Sparkle")?.hidden = true
-        emojiButton2?.childNodeWithName("emoji2Sparkle")?.hidden = true
+        emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = true
+        emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = true
         //
         
         print("Run color function")
         if (buttonNr == 1) {
             colorButtonCenter = (colorFieldLeft?.position.x)!
-            self.colorFieldRight?.runAction(fadeOutAction)
-            self.colorLineRight?.runAction(fadeOutAction)
+            self.colorFieldRight?.run(fadeOutAction)
+            self.colorLineRight?.run(fadeOutAction)
         } else if (buttonNr == 2) {
             colorButtonCenter = (colorFieldRight?.position.x)!
-            self.colorFieldLeft?.runAction(fadeOutAction)
-            self.colorLineLeft?.runAction(fadeOutAction)
+            self.colorFieldLeft?.run(fadeOutAction)
+            self.colorLineLeft?.run(fadeOutAction)
         }
-        let moveAction = SKAction.moveTo(CGPointMake(colorButtonCenter, 88) , duration: 0.5)
-        moveAction.timingMode = SKActionTimingMode.EaseInEaseOut
+        let moveAction = SKAction.move(to: CGPoint(x: colorButtonCenter, y: 88) , duration: 0.5)
+        moveAction.timingMode = SKActionTimingMode.easeInEaseOut
         
         if (emojiButton2?.alpha == 0.0) {
-            emojiButton1?.runAction(moveAction, completion: {
+            emojiButton1?.run(moveAction, completion: {
                 self.perfomTigerReaction()
             })
         } else if (emojiButton1?.alpha == 0.0) {
-            emojiButton2?.runAction(moveAction, completion: {
+            emojiButton2?.run(moveAction, completion: {
                 self.perfomTigerReaction()
             })
         }
@@ -403,49 +403,50 @@ class GameScene: SKScene {
     func perfomTigerReaction() {
         // remove UI elemnts
         
-        let waitAction = SKAction.waitForDuration(2)
+        let waitAction = SKAction.wait(forDuration: 2)
         roundsPlayed += 1
         if (tigerMoodTiredIndex > 0) {
-            let fadeInSnooze = SKAction.fadeInWithDuration(0.5)
-            let fadeOutSnooze = SKAction.fadeOutWithDuration(0.5)
-            let waitAction2 = SKAction.waitForDuration(2)
+            let fadeInSnooze = SKAction.fadeIn(withDuration: 0.5)
+            let fadeOutSnooze = SKAction.fadeOut(withDuration: 0.5)
+            let waitAction2 = SKAction.wait(forDuration: 2)
             
-            tigerSnooze?.runAction(SKAction.sequence([fadeInSnooze, waitAction2, fadeOutSnooze]), completion: {
+            tigerSnooze?.run(SKAction.sequence([fadeInSnooze, waitAction2, fadeOutSnooze]), completion: {
                 self.runAfterTigerMood()
             })
         } else if (tigerMoodAngryIndex > 0){
             tigerMouthOpen.yScale = 0.1
             tigerMouthOpen.alpha = 1
-            let openingMouth = SKAction.scaleYTo(1, duration: 0.2)
-            let closingMouth = SKAction.scaleYTo(0.1, duration: 0.2)
-            let waitAction3 = SKAction.waitForDuration(0.2)
+            let openingMouth = SKAction.scaleY(to: 1, duration: 0.2)
+            let closingMouth = SKAction.scaleY(to: 0.1, duration: 0.2)
+            let waitAction3 = SKAction.wait(forDuration: 0.2)
             
-            tigerMouthClosed2.runAction(SKAction.fadeAlphaTo(0.0, duration: 0.2))
-            tigerMouthOpen.runAction(SKAction.sequence([openingMouth, waitAction3, closingMouth, waitAction3, openingMouth, waitAction3, closingMouth]), completion: {
-                self.tigerMouthClosed2.runAction(SKAction.fadeAlphaTo(0.0, duration: 0.2))
-                self.tigerMouthOpen.runAction(SKAction.fadeAlphaTo(0.0, duration: 0.2))
+            tigerMouthClosed2.run(SKAction.fadeAlpha(to: 0.0, duration: 0.2))
+            tigerMouthOpen.run(SKAction.sequence([openingMouth, waitAction3, closingMouth, waitAction3, openingMouth, waitAction3, closingMouth]), completion: {
+                self.tigerMouthClosed2.run(SKAction.fadeAlpha(to: 1.0, duration: 0.2))
+                self.tigerMouthOpen.run(SKAction.fadeAlpha(to: 0.0, duration: 0.2))
                 self.runAfterTigerMood()
             })
         } else {
-            self.runAction(waitAction, completion: { 
+            self.run(waitAction, completion: { 
                 self.runAfterTigerMood()
+                
             })
         }
     }
     func runAfterTigerMood() {
-        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
+        let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         
-        self.emojiButton1?.runAction(fadeOutAction)
-        self.emojiButton2?.runAction(fadeOutAction, completion: {
-            self.emojiButton1?.position = CGPointMake(442, 88)
-            self.emojiButton2?.position = CGPointMake(582, 88)
-            self.colorFieldRight?.runAction(fadeOutAction)
-            self.colorFieldLeft?.runAction(fadeOutAction)
-            self.colorLineLeft?.runAction(fadeOutAction)
-            self.colorLineRight?.runAction(fadeOutAction)
+        self.emojiButton1?.run(fadeOutAction)
+        self.emojiButton2?.run(fadeOutAction, completion: {
+            self.emojiButton1?.position = CGPoint(x: 442, y: 88)
+            self.emojiButton2?.position = CGPoint(x: 582, y: 88)
+            self.colorFieldRight?.run(fadeOutAction)
+            self.colorFieldLeft?.run(fadeOutAction)
+            self.colorLineLeft?.run(fadeOutAction)
+            self.colorLineRight?.run(fadeOutAction)
             self.blockInteraction = false
-            self.emojiButton1?.childNodeWithName("emoji1Sparkle")?.hidden = false
-            self.emojiButton2?.childNodeWithName("emoji2Sparkle")?.hidden = false
+            self.emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = false
+            self.emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = false
             
             if (self.roundsPlayed == self.maxRounds) {
                 self.restartGame()
@@ -457,7 +458,7 @@ class GameScene: SKScene {
     
     
     func setupColorSelect() {
-        let fadeInAction = SKAction.fadeInWithDuration(0.5)
+        let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
         
         let leftColor = getRandomValue(colors.count, lastValue: lastColor)
         colorFieldLeft?.color = colors[leftColor]
@@ -467,17 +468,17 @@ class GameScene: SKScene {
         colorFieldRight?.color = colors[rightColor]
         lastColor = rightColor
         
-        colorLineLeft?.runAction(fadeInAction)
-        colorLineRight?.runAction(fadeInAction)
-        colorFieldLeft?.runAction(fadeInAction)
-        colorFieldRight?.runAction(fadeInAction, completion: { 
+        colorLineLeft?.run(fadeInAction)
+        colorLineRight?.run(fadeInAction)
+        colorFieldLeft?.run(fadeInAction)
+        colorFieldRight?.run(fadeInAction, completion: { 
             self.blockInteraction = false
         })
         
     }
     
     
-    func getRandomValue(fromRange: Int, lastValue: Int) -> Int {
+    func getRandomValue(_ fromRange: Int, lastValue: Int) -> Int {
         var randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
         while (randomIndex == lastValue) {
             randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
@@ -485,7 +486,7 @@ class GameScene: SKScene {
         return randomIndex
     }
     
-    func setupEmojiMood(emojiNumber:Int, leftOrRight: Int) {
+    func setupEmojiMood(_ emojiNumber:Int, leftOrRight: Int) {
         var angryValue: Bool
         var tiredValue: Bool
         var twinkerValue: Bool
@@ -614,23 +615,23 @@ class GameScene: SKScene {
         // restart
         
         // smoke effect
-        let particlePath:NSString = NSBundle.mainBundle().pathForResource("SmokeParticles", ofType: "sks")!
-        let sparkEmmiter = NSKeyedUnarchiver.unarchiveObjectWithFile(particlePath as String) as! SKEmitterNode
-        sparkEmmiter.position = CGPointMake(512, 180)
+        let particlePath:NSString = Bundle.main.path(forResource: "SmokeParticles", ofType: "sks")! as NSString
+        let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: particlePath as String) as! SKEmitterNode
+        sparkEmmiter.position = CGPoint(x: 512, y: 180)
         sparkEmmiter.name = "sparkEmmitter"
         sparkEmmiter.zPosition = 400
         //sparkEmmiter.targetNode = self
         self.addChild(sparkEmmiter)
         
         
-        self.runAction(SKAction.waitForDuration(3)) {
-            let transition = SKTransition.fadeWithDuration(1.0)
+        self.run(SKAction.wait(forDuration: 3), completion: {
+            let transition = SKTransition.fade(withDuration: 1.0)
             
             let nextScene = TitleScene(fileNamed: "TitleScene")
-            nextScene!.scaleMode = .AspectFill
+            nextScene!.scaleMode = .aspectFill
             
             self.scene?.view?.presentScene(nextScene!, transition: transition)
-        }
+        }) 
         
         
     }
