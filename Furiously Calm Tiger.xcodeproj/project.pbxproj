@@ -27,8 +27,6 @@
 		1FA94B181CD79DBE0024B6DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA94B171CD79DBE0024B6DA /* Assets.xcassets */; };
 		1FA94B1B1CD79DBE0024B6DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA94B191CD79DBE0024B6DA /* LaunchScreen.storyboard */; };
 		1FA94B261CD79DBE0024B6DA /* Furiously_Calm_TigerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94B251CD79DBE0024B6DA /* Furiously_Calm_TigerUITests.swift */; };
-		1FDEB1941CFBDBD5006AD049 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDEB1921CFBDBD5006AD049 /* Fabric.framework */; };
-		1FDEB1951CFBDBD5006AD049 /* GameAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDEB1931CFBDBD5006AD049 /* GameAnalytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +64,6 @@
 		1FA94B211CD79DBE0024B6DA /* Furiously Calm TigerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Furiously Calm TigerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA94B251CD79DBE0024B6DA /* Furiously_Calm_TigerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Furiously_Calm_TigerUITests.swift; sourceTree = "<group>"; };
 		1FA94B271CD79DBE0024B6DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FDEB1921CFBDBD5006AD049 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		1FDEB1931CFBDBD5006AD049 /* GameAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameAnalytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDEB1941CFBDBD5006AD049 /* Fabric.framework in Frameworks */,
-				1FDEB1951CFBDBD5006AD049 /* GameAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +107,6 @@
 				1FA94B0B1CD79DBE0024B6DA /* Furiously Calm Tiger */,
 				1FA94B241CD79DBE0024B6DA /* Furiously Calm TigerUITests */,
 				1FA94B0A1CD79DBE0024B6DA /* Products */,
-				1FDEB1921CFBDBD5006AD049 /* Fabric.framework */,
-				1FDEB1931CFBDBD5006AD049 /* GameAnalytics.framework */,
 			);
 			sourceTree = "<group>";
 		};
