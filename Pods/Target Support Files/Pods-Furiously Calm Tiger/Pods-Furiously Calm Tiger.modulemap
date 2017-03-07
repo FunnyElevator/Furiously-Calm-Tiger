@@ -1,0 +1,6 @@
+framework module Pods_Furiously_Calm_Tiger {
+  umbrella header "Pods-Furiously Calm Tiger-umbrella.h"
+
+  export *
+  module * { export * }
+}

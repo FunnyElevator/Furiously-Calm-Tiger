@@ -218,7 +218,7 @@ class GameScene: SKScene {
                     if (touchedNode.name == "emojiButton1") {
                         performEmojiSelect(1)
                         print("Emoji 1")
-                         GameAnalytics.setCustomDimension01("emojiLeft")
+                        // Customize Analytics GameAnalytics.setCustomDimension01("emojiLeft")
                     } else if (touchedNode.name == "emojiButton2") {
                         performEmojiSelect(2)
                         print("Emoji 2")
@@ -346,13 +346,13 @@ class GameScene: SKScene {
             emojiSelectedTired = emoji1Tired
             emojiSelectedAngry = emoji1Angry
             emojiSelectedTwinker = emoji1Twike
-            GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level01", progression03: "")
+            // Customize Analytics GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level01", progression03: "")
         } else if buttonNr == 2 {
             emojiButton1?.run(fadeOut)
             emojiButton2?.run(moveToCenter, completion: {
                 self.smallCirclesL?.isHidden = false
                 self.smallCirclesR?.isHidden = false
-                GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level02", progression03: "")
+                // Customize Analytics GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level02", progression03: "")
             })
             emojiSelectedTired = emoji2Tired
             emojiSelectedAngry = emoji2Angry

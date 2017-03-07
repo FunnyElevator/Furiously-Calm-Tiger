@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0104BF494B052374D6DF79EE2CF0BD4A /* Flurry-iOS-SDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 35EDBEBA6943E4A1E9D1FCD2F72F54DB /* Flurry-iOS-SDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08065F316F0FE0FFEC90A9671CE6E75B /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F6F0EFB9F72373A15C2F92AD093BD9D /* Flurry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19309A18977DF61067FFC610DD8262DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FED6DFFC96C7627CD0C653E4E0C909 /* SystemConfiguration.framework */; };
+		26906FE20152B5B86F5AC280057D6D7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD3A784A47351BB2C746C5B0FFF26D9 /* Foundation.framework */; };
+		49B323DC51ECA4BA2D630FA90EAD72B3 /* FlurrySessionBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BBC86BB4DE3B9F0A758B3C63518C19CE /* FlurrySessionBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FD3F1BFC8E2EC6B149860FBB6E15D65 /* Pods-Furiously Calm Tiger-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D8704113610EE8148101E4CB568E8D7B /* Pods-Furiously Calm Tiger-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E345551FB750ACF2381BADEEC98AA12 /* Pods-Furiously Calm TigerUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B457DE4EFE87F3971A9FF1CEDE42EDB /* Pods-Furiously Calm TigerUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB3DD258CD6DF6482E7D888CFDF479E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005226DDC9800B7FA0277F4094B49E4F /* UIKit.framework */; };
+		B6DADF4731E22DA70E9C05D6937BE33E /* Pods-Furiously Calm Tiger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF47470C4EA7F6A72B36140B1D0BA25 /* Pods-Furiously Calm Tiger-dummy.m */; };
+		B938418552E17C1581C4429639C22797 /* FlurryEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = B82F8EF5B6D48C8834FFA88D6A9C4A86 /* FlurryEmpty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C14A3BBB1CE8D440D26FDF32F157DE91 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CC30297471C3BBD29650F27FB2320E /* Security.framework */; };
+		C93336CA07D72D59896458B929A7DB2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD3A784A47351BB2C746C5B0FFF26D9 /* Foundation.framework */; };
+		D64B65FBE3D63038F8463DA2E8FD85FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD3A784A47351BB2C746C5B0FFF26D9 /* Foundation.framework */; };
+		E0FF158E7935B0529E4D5F2CC16A5EBF /* Pods-Furiously Calm TigerUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 345DC87C1E4A53D761C35D586904DBA0 /* Pods-Furiously Calm TigerUITests-dummy.m */; };
+		F831481758E16246678BDB7CF4BD0D59 /* Flurry-iOS-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C94D4EB2D2209F6E4A3AB75B5E8A3F87 /* Flurry-iOS-SDK-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD2A17DB6328D87E0B3D3270B44F6EA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4646576BAE3511AC833E41713263F74A;
+			remoteInfo = "Flurry-iOS-SDK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		005226DDC9800B7FA0277F4094B49E4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		00D55972078589D7B7583278FEA84268 /* Flurry-iOS-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Flurry-iOS-SDK-prefix.pch"; sourceTree = "<group>"; };
+		0F6F0EFB9F72373A15C2F92AD093BD9D /* Flurry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
+		1D82131BEC600B3895F1A071298BD08E /* Pods-Furiously Calm Tiger-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Furiously Calm Tiger-acknowledgements.markdown"; sourceTree = "<group>"; };
+		26AD4F31006DAE91E8006FA17141DE76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27C43719442333BAA994FE97D72ADE8F /* libFlurry_7.10.0.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libFlurry_7.10.0.a; path = Flurry/libFlurry_7.10.0.a; sourceTree = "<group>"; };
+		2B457DE4EFE87F3971A9FF1CEDE42EDB /* Pods-Furiously Calm TigerUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Furiously Calm TigerUITests-umbrella.h"; sourceTree = "<group>"; };
+		2CC522C35CDD9E2BC9424F4DF3646F05 /* Pods-Furiously Calm TigerUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Furiously Calm TigerUITests-resources.sh"; sourceTree = "<group>"; };
+		345DC87C1E4A53D761C35D586904DBA0 /* Pods-Furiously Calm TigerUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Furiously Calm TigerUITests-dummy.m"; sourceTree = "<group>"; };
+		35EDBEBA6943E4A1E9D1FCD2F72F54DB /* Flurry-iOS-SDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Flurry-iOS-SDK-umbrella.h"; sourceTree = "<group>"; };
+		3E56DD2F4DF688C69B94B916197525BB /* Flurry-iOS-SDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Flurry-iOS-SDK.modulemap"; sourceTree = "<group>"; };
+		442FEB7ECC8611EC606E0001FFB0E0D0 /* Pods-Furiously Calm Tiger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Furiously Calm Tiger.debug.xcconfig"; sourceTree = "<group>"; };
+		56B1ECE89FEFFBE6A682C6D456A0EE9D /* Pods-Furiously Calm Tiger-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Furiously Calm Tiger-resources.sh"; sourceTree = "<group>"; };
+		581366E9C327BB41E704AF85D2D194FC /* Flurry-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Flurry-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
+		5A1255211B5304639FA0305125AADF38 /* Pods-Furiously Calm Tiger-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Furiously Calm Tiger-acknowledgements.plist"; sourceTree = "<group>"; };
+		5EF47470C4EA7F6A72B36140B1D0BA25 /* Pods-Furiously Calm Tiger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Furiously Calm Tiger-dummy.m"; sourceTree = "<group>"; };
+		60726A22C8DD4EC7390DB5AB1DF4E719 /* Pods-Furiously Calm TigerUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Furiously Calm TigerUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7894C3CE25E9FC1D0B77B1BC1F11C918 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8875B049EEC63B407594E34A9DB123D0 /* Pods-Furiously Calm TigerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Furiously Calm TigerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		920DF0AF646418042F0D9E02E7E0F39C /* Pods-Furiously Calm TigerUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Furiously Calm TigerUITests.modulemap"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9AE8A8FBDACAA44C8523D906FB391BC8 /* Pods_Furiously_Calm_TigerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Furiously_Calm_TigerUITests.framework; path = "Pods-Furiously Calm TigerUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A987DD5A304FD6E145C62BB76FDBC698 /* Pods-Furiously Calm TigerUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Furiously Calm TigerUITests-frameworks.sh"; sourceTree = "<group>"; };
+		AE3BCE622FBDB2470A71BD678728FEB8 /* Flurry_iOS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Flurry_iOS_SDK.framework; path = "Flurry-iOS-SDK.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82F8EF5B6D48C8834FFA88D6A9C4A86 /* FlurryEmpty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlurryEmpty.m; path = Flurry/FlurryEmpty.m; sourceTree = "<group>"; };
+		BAC56C57E8E267326BDE68B81C45B73E /* Pods-Furiously Calm TigerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Furiously Calm TigerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BBC86BB4DE3B9F0A758B3C63518C19CE /* FlurrySessionBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlurrySessionBuilder.h; path = Flurry/FlurrySessionBuilder.h; sourceTree = "<group>"; };
+		C312732F7F899A1A1BA189AB5F063C6A /* Pods-Furiously Calm Tiger-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Furiously Calm Tiger-frameworks.sh"; sourceTree = "<group>"; };
+		C94D4EB2D2209F6E4A3AB75B5E8A3F87 /* Flurry-iOS-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Flurry-iOS-SDK-dummy.m"; sourceTree = "<group>"; };
+		C9CC30297471C3BBD29650F27FB2320E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		D8704113610EE8148101E4CB568E8D7B /* Pods-Furiously Calm Tiger-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Furiously Calm Tiger-umbrella.h"; sourceTree = "<group>"; };
+		DF036EEC5FD45FEFBA8005446D8A9577 /* Pods_Furiously_Calm_Tiger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Furiously_Calm_Tiger.framework; path = "Pods-Furiously Calm Tiger.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0FED6DFFC96C7627CD0C653E4E0C909 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		EA02B134BBE21585CCC31297BEE0BA88 /* Pods-Furiously Calm Tiger.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Furiously Calm Tiger.modulemap"; sourceTree = "<group>"; };
+		EC020AC06600DE44AFB7D4134A0556B3 /* Pods-Furiously Calm Tiger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Furiously Calm Tiger.release.xcconfig"; sourceTree = "<group>"; };
+		EFD3A784A47351BB2C746C5B0FFF26D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F6736CEED096328663BB80EF67487AB4 /* Pods-Furiously Calm TigerUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Furiously Calm TigerUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FC492E4713508413D3E35C3C4B5B12B1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F6A2A712BE5028B0A8489D017D7BCD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C93336CA07D72D59896458B929A7DB2E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA3465F8F32C02BF2F7EEDAE13F7677 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D64B65FBE3D63038F8463DA2E8FD85FE /* Foundation.framework in Frameworks */,
+				C14A3BBB1CE8D440D26FDF32F157DE91 /* Security.framework in Frameworks */,
+				19309A18977DF61067FFC610DD8262DA /* SystemConfiguration.framework in Frameworks */,
+				AB3DD258CD6DF6482E7D888CFDF479E6 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB2393DE64CDD6A753ACDF256F9207F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26906FE20152B5B86F5AC280057D6D7A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0240D125101F4E34177083595ECB5E26 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EFD3A784A47351BB2C746C5B0FFF26D9 /* Foundation.framework */,
+				C9CC30297471C3BBD29650F27FB2320E /* Security.framework */,
+				E0FED6DFFC96C7627CD0C653E4E0C909 /* SystemConfiguration.framework */,
+				005226DDC9800B7FA0277F4094B49E4F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		0908094561C3D415AA812ED21C0D1596 /* Pods-Furiously Calm Tiger */ = {
+			isa = PBXGroup;
+			children = (
+				7894C3CE25E9FC1D0B77B1BC1F11C918 /* Info.plist */,
+				EA02B134BBE21585CCC31297BEE0BA88 /* Pods-Furiously Calm Tiger.modulemap */,
+				1D82131BEC600B3895F1A071298BD08E /* Pods-Furiously Calm Tiger-acknowledgements.markdown */,
+				5A1255211B5304639FA0305125AADF38 /* Pods-Furiously Calm Tiger-acknowledgements.plist */,
+				5EF47470C4EA7F6A72B36140B1D0BA25 /* Pods-Furiously Calm Tiger-dummy.m */,
+				C312732F7F899A1A1BA189AB5F063C6A /* Pods-Furiously Calm Tiger-frameworks.sh */,
+				56B1ECE89FEFFBE6A682C6D456A0EE9D /* Pods-Furiously Calm Tiger-resources.sh */,
+				D8704113610EE8148101E4CB568E8D7B /* Pods-Furiously Calm Tiger-umbrella.h */,
+				442FEB7ECC8611EC606E0001FFB0E0D0 /* Pods-Furiously Calm Tiger.debug.xcconfig */,
+				EC020AC06600DE44AFB7D4134A0556B3 /* Pods-Furiously Calm Tiger.release.xcconfig */,
+			);
+			name = "Pods-Furiously Calm Tiger";
+			path = "Target Support Files/Pods-Furiously Calm Tiger";
+			sourceTree = "<group>";
+		};
+		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0240D125101F4E34177083595ECB5E26 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A6BBE67D630970B3C1F398C7E8AE205 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E56DD2F4DF688C69B94B916197525BB /* Flurry-iOS-SDK.modulemap */,
+				581366E9C327BB41E704AF85D2D194FC /* Flurry-iOS-SDK.xcconfig */,
+				C94D4EB2D2209F6E4A3AB75B5E8A3F87 /* Flurry-iOS-SDK-dummy.m */,
+				00D55972078589D7B7583278FEA84268 /* Flurry-iOS-SDK-prefix.pch */,
+				35EDBEBA6943E4A1E9D1FCD2F72F54DB /* Flurry-iOS-SDK-umbrella.h */,
+				FC492E4713508413D3E35C3C4B5B12B1 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Flurry-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		439C880FA3BCF6D09BC98DFD4AD2A3A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27C43719442333BAA994FE97D72ADE8F /* libFlurry_7.10.0.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		533294335CA4DEE209DF24455E7C024A /* FlurrySDK */ = {
+			isa = PBXGroup;
+			children = (
+				0F6F0EFB9F72373A15C2F92AD093BD9D /* Flurry.h */,
+				B82F8EF5B6D48C8834FFA88D6A9C4A86 /* FlurryEmpty.m */,
+				BBC86BB4DE3B9F0A758B3C63518C19CE /* FlurrySessionBuilder.h */,
+				439C880FA3BCF6D09BC98DFD4AD2A3A0 /* Frameworks */,
+			);
+			name = FlurrySDK;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
+				F2F39E4D63971B421F89391AF68C30E1 /* Pods */,
+				EBC724EFF28B3C9CA6C0AEC62853893A /* Products */,
+				C74C648C9F32EDEAE3FB70D005A0DB20 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		975BC16F4E690D14A110EB585DFC0431 /* Flurry-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				533294335CA4DEE209DF24455E7C024A /* FlurrySDK */,
+				1A6BBE67D630970B3C1F398C7E8AE205 /* Support Files */,
+			);
+			name = "Flurry-iOS-SDK";
+			path = "Flurry-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		B58ABD8F127D5BE1AD961F613546F5E4 /* Pods-Furiously Calm TigerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				26AD4F31006DAE91E8006FA17141DE76 /* Info.plist */,
+				920DF0AF646418042F0D9E02E7E0F39C /* Pods-Furiously Calm TigerUITests.modulemap */,
+				60726A22C8DD4EC7390DB5AB1DF4E719 /* Pods-Furiously Calm TigerUITests-acknowledgements.markdown */,
+				F6736CEED096328663BB80EF67487AB4 /* Pods-Furiously Calm TigerUITests-acknowledgements.plist */,
+				345DC87C1E4A53D761C35D586904DBA0 /* Pods-Furiously Calm TigerUITests-dummy.m */,
+				A987DD5A304FD6E145C62BB76FDBC698 /* Pods-Furiously Calm TigerUITests-frameworks.sh */,
+				2CC522C35CDD9E2BC9424F4DF3646F05 /* Pods-Furiously Calm TigerUITests-resources.sh */,
+				2B457DE4EFE87F3971A9FF1CEDE42EDB /* Pods-Furiously Calm TigerUITests-umbrella.h */,
+				BAC56C57E8E267326BDE68B81C45B73E /* Pods-Furiously Calm TigerUITests.debug.xcconfig */,
+				8875B049EEC63B407594E34A9DB123D0 /* Pods-Furiously Calm TigerUITests.release.xcconfig */,
+			);
+			name = "Pods-Furiously Calm TigerUITests";
+			path = "Target Support Files/Pods-Furiously Calm TigerUITests";
+			sourceTree = "<group>";
+		};
+		C74C648C9F32EDEAE3FB70D005A0DB20 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0908094561C3D415AA812ED21C0D1596 /* Pods-Furiously Calm Tiger */,
+				B58ABD8F127D5BE1AD961F613546F5E4 /* Pods-Furiously Calm TigerUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		EBC724EFF28B3C9CA6C0AEC62853893A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE3BCE622FBDB2470A71BD678728FEB8 /* Flurry_iOS_SDK.framework */,
+				DF036EEC5FD45FEFBA8005446D8A9577 /* Pods_Furiously_Calm_Tiger.framework */,
+				9AE8A8FBDACAA44C8523D906FB391BC8 /* Pods_Furiously_Calm_TigerUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2F39E4D63971B421F89391AF68C30E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				975BC16F4E690D14A110EB585DFC0431 /* Flurry-iOS-SDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2CE792121D4C6FBE4E9F0E323A7F1A09 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E345551FB750ACF2381BADEEC98AA12 /* Pods-Furiously Calm TigerUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E68EEABA3E5B6050ED9FB5E1FCB06C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD3F1BFC8E2EC6B149860FBB6E15D65 /* Pods-Furiously Calm Tiger-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE41A4E645F0E42A65C3A6D0916F9FD7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0104BF494B052374D6DF79EE2CF0BD4A /* Flurry-iOS-SDK-umbrella.h in Headers */,
+				08065F316F0FE0FFEC90A9671CE6E75B /* Flurry.h in Headers */,
+				49B323DC51ECA4BA2D630FA90EAD72B3 /* FlurrySessionBuilder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4646576BAE3511AC833E41713263F74A /* Flurry-iOS-SDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC002EE62C578ED7C2A294D14B21A9FD /* Build configuration list for PBXNativeTarget "Flurry-iOS-SDK" */;
+			buildPhases = (
+				5045938FE0D6A66500A870239B309F96 /* Sources */,
+				BAA3465F8F32C02BF2F7EEDAE13F7677 /* Frameworks */,
+				FE41A4E645F0E42A65C3A6D0916F9FD7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flurry-iOS-SDK";
+			productName = "Flurry-iOS-SDK";
+			productReference = AE3BCE622FBDB2470A71BD678728FEB8 /* Flurry_iOS_SDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E438CA2AAEB45A035C7492D3AF38C25E /* Pods-Furiously Calm Tiger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31B378D1ACEC2A1E2D19048547C2696A /* Build configuration list for PBXNativeTarget "Pods-Furiously Calm Tiger" */;
+			buildPhases = (
+				ECF4DDF3D942C6126E94C670006F116F /* Sources */,
+				DB2393DE64CDD6A753ACDF256F9207F8 /* Frameworks */,
+				50E68EEABA3E5B6050ED9FB5E1FCB06C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6BA9FF4920BCD048774B66A2A671AFF /* PBXTargetDependency */,
+			);
+			name = "Pods-Furiously Calm Tiger";
+			productName = "Pods-Furiously Calm Tiger";
+			productReference = DF036EEC5FD45FEFBA8005446D8A9577 /* Pods_Furiously_Calm_Tiger.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FE61691A3329B69C86FC79ED9376DB95 /* Pods-Furiously Calm TigerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DED8CA27B22F931E84D45B69A79456B /* Build configuration list for PBXNativeTarget "Pods-Furiously Calm TigerUITests" */;
+			buildPhases = (
+				2FC714763A72AE49B69C108A18C9AB03 /* Sources */,
+				4F6A2A712BE5028B0A8489D017D7BCD9 /* Frameworks */,
+				2CE792121D4C6FBE4E9F0E323A7F1A09 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Furiously Calm TigerUITests";
+			productName = "Pods-Furiously Calm TigerUITests";
+			productReference = 9AE8A8FBDACAA44C8523D906FB391BC8 /* Pods_Furiously_Calm_TigerUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = EBC724EFF28B3C9CA6C0AEC62853893A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4646576BAE3511AC833E41713263F74A /* Flurry-iOS-SDK */,
+				E438CA2AAEB45A035C7492D3AF38C25E /* Pods-Furiously Calm Tiger */,
+				FE61691A3329B69C86FC79ED9376DB95 /* Pods-Furiously Calm TigerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FC714763A72AE49B69C108A18C9AB03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0FF158E7935B0529E4D5F2CC16A5EBF /* Pods-Furiously Calm TigerUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5045938FE0D6A66500A870239B309F96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F831481758E16246678BDB7CF4BD0D59 /* Flurry-iOS-SDK-dummy.m in Sources */,
+				B938418552E17C1581C4429639C22797 /* FlurryEmpty.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF4DDF3D942C6126E94C670006F116F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6DADF4731E22DA70E9C05D6937BE33E /* Pods-Furiously Calm Tiger-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6BA9FF4920BCD048774B66A2A671AFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Flurry-iOS-SDK";
+			target = 4646576BAE3511AC833E41713263F74A /* Flurry-iOS-SDK */;
+			targetProxy = AD2A17DB6328D87E0B3D3270B44F6EA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00BF05B4E68926636439D8CA3DC57E57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 442FEB7ECC8611EC606E0001FFB0E0D0 /* Pods-Furiously Calm Tiger.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Furiously Calm Tiger/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Furiously Calm Tiger/Pods-Furiously Calm Tiger.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Furiously_Calm_Tiger;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		5DCC2DD07B3CC72DAD487641DC000245 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAC56C57E8E267326BDE68B81C45B73E /* Pods-Furiously Calm TigerUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Furiously Calm TigerUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Furiously Calm TigerUITests/Pods-Furiously Calm TigerUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Furiously_Calm_TigerUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		60E43E904B190EC268D12488A23B9D72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8875B049EEC63B407594E34A9DB123D0 /* Pods-Furiously Calm TigerUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Furiously Calm TigerUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Furiously Calm TigerUITests/Pods-Furiously Calm TigerUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Furiously_Calm_TigerUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A4061AFCE3261FCDD72C38F6A622136 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC020AC06600DE44AFB7D4134A0556B3 /* Pods-Furiously Calm Tiger.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Furiously Calm Tiger/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Furiously Calm Tiger/Pods-Furiously Calm Tiger.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Furiously_Calm_Tiger;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE05978D0DA9450F22EC667755FF3326 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 581366E9C327BB41E704AF85D2D194FC /* Flurry-iOS-SDK.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Flurry-iOS-SDK/Flurry-iOS-SDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Flurry-iOS-SDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Flurry-iOS-SDK/Flurry-iOS-SDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Flurry_iOS_SDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F841B988CAF01059F5DCAA688562566E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 581366E9C327BB41E704AF85D2D194FC /* Flurry-iOS-SDK.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Flurry-iOS-SDK/Flurry-iOS-SDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Flurry-iOS-SDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Flurry-iOS-SDK/Flurry-iOS-SDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Flurry_iOS_SDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DED8CA27B22F931E84D45B69A79456B /* Build configuration list for PBXNativeTarget "Pods-Furiously Calm TigerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DCC2DD07B3CC72DAD487641DC000245 /* Debug */,
+				60E43E904B190EC268D12488A23B9D72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */,
+				862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31B378D1ACEC2A1E2D19048547C2696A /* Build configuration list for PBXNativeTarget "Pods-Furiously Calm Tiger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00BF05B4E68926636439D8CA3DC57E57 /* Debug */,
+				6A4061AFCE3261FCDD72C38F6A622136 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC002EE62C578ED7C2A294D14B21A9FD /* Build configuration list for PBXNativeTarget "Flurry-iOS-SDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F841B988CAF01059F5DCAA688562566E /* Debug */,
+				CE05978D0DA9450F22EC667755FF3326 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

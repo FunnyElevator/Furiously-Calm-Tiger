@@ -27,6 +27,8 @@
 		1FA94B181CD79DBE0024B6DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA94B171CD79DBE0024B6DA /* Assets.xcassets */; };
 		1FA94B1B1CD79DBE0024B6DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA94B191CD79DBE0024B6DA /* LaunchScreen.storyboard */; };
 		1FA94B261CD79DBE0024B6DA /* Furiously_Calm_TigerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94B251CD79DBE0024B6DA /* Furiously_Calm_TigerUITests.swift */; };
+		E718D29731FF33C7218525C2 /* Pods_Furiously_Calm_Tiger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6CC29D8261C6767A23191A /* Pods_Furiously_Calm_Tiger.framework */; };
+		FFE40BA267A700D034E41E3D /* Pods_Furiously_Calm_TigerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2593BA3EFD3E124E887B0E1F /* Pods_Furiously_Calm_TigerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08E1F0608E53CE7316A4CBAE /* Pods-Furiously Calm Tiger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Furiously Calm Tiger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Furiously Calm Tiger/Pods-Furiously Calm Tiger.debug.xcconfig"; sourceTree = "<group>"; };
+		0A43587480BAE679AC487535 /* Pods-Furiously Calm Tiger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Furiously Calm Tiger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Furiously Calm Tiger/Pods-Furiously Calm Tiger.release.xcconfig"; sourceTree = "<group>"; };
 		1F02C22F1CF122DC002C3AE8 /* RoundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoundParticle.sks; sourceTree = "<group>"; };
 		1F02C2301CF122DC002C3AE8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		1F03FC1A1CF22A97001EBA67 /* Sparkles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Sparkles.sks; sourceTree = "<group>"; };
@@ -64,6 +68,10 @@
 		1FA94B211CD79DBE0024B6DA /* Furiously Calm TigerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Furiously Calm TigerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA94B251CD79DBE0024B6DA /* Furiously_Calm_TigerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Furiously_Calm_TigerUITests.swift; sourceTree = "<group>"; };
 		1FA94B271CD79DBE0024B6DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2593BA3EFD3E124E887B0E1F /* Pods_Furiously_Calm_TigerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Furiously_Calm_TigerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82088778D3339F3E53E30AC2 /* Pods-Furiously Calm TigerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Furiously Calm TigerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Furiously Calm TigerUITests/Pods-Furiously Calm TigerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BDCBEB4323ABC43352C1CF4D /* Pods-Furiously Calm TigerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Furiously Calm TigerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Furiously Calm TigerUITests/Pods-Furiously Calm TigerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DD6CC29D8261C6767A23191A /* Pods_Furiously_Calm_Tiger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Furiously_Calm_Tiger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E718D29731FF33C7218525C2 /* Pods_Furiously_Calm_Tiger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE40BA267A700D034E41E3D /* Pods_Furiously_Calm_TigerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +117,8 @@
 				1FA94B0B1CD79DBE0024B6DA /* Furiously Calm Tiger */,
 				1FA94B241CD79DBE0024B6DA /* Furiously Calm TigerUITests */,
 				1FA94B0A1CD79DBE0024B6DA /* Products */,
+				33BE3521A8BA887E685B562B /* Pods */,
+				94AE52C37C4F3A9E6C5FDFEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +158,26 @@
 			path = "Furiously Calm TigerUITests";
 			sourceTree = "<group>";
 		};
+		33BE3521A8BA887E685B562B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				08E1F0608E53CE7316A4CBAE /* Pods-Furiously Calm Tiger.debug.xcconfig */,
+				0A43587480BAE679AC487535 /* Pods-Furiously Calm Tiger.release.xcconfig */,
+				BDCBEB4323ABC43352C1CF4D /* Pods-Furiously Calm TigerUITests.debug.xcconfig */,
+				82088778D3339F3E53E30AC2 /* Pods-Furiously Calm TigerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		94AE52C37C4F3A9E6C5FDFEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD6CC29D8261C6767A23191A /* Pods_Furiously_Calm_Tiger.framework */,
+				2593BA3EFD3E124E887B0E1F /* Pods_Furiously_Calm_TigerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,10 +185,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FA94B2A1CD79DBE0024B6DA /* Build configuration list for PBXNativeTarget "Furiously Calm Tiger" */;
 			buildPhases = (
+				F709E2391633E8BC3740F3E5 /* [CP] Check Pods Manifest.lock */,
 				1FA94B051CD79DBE0024B6DA /* Sources */,
 				1FA94B061CD79DBE0024B6DA /* Frameworks */,
 				1FA94B071CD79DBE0024B6DA /* Resources */,
 				1FDEB1911CFBDBB8006AD049 /* ShellScript */,
+				DCE374B290DE9C52BAC95CBA /* [CP] Embed Pods Frameworks */,
+				4AC36A44DFE984E42CD74EDD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FA94B2D1CD79DBE0024B6DA /* Build configuration list for PBXNativeTarget "Furiously Calm TigerUITests" */;
 			buildPhases = (
+				DF1A4AF89485D460533A2CB6 /* [CP] Check Pods Manifest.lock */,
 				1FA94B1D1CD79DBE0024B6DA /* Sources */,
 				1FA94B1E1CD79DBE0024B6DA /* Frameworks */,
 				1FA94B1F1CD79DBE0024B6DA /* Resources */,
+				1D9D67222770C6059D708F16 /* [CP] Embed Pods Frameworks */,
+				D7041EB2A8D5E8519970DA07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +297,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1D9D67222770C6059D708F16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Furiously Calm TigerUITests/Pods-Furiously Calm TigerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1FDEB1911CFBDBB8006AD049 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,6 +324,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 894e6de68ca67d58dabdaef41e6c3328a3041a24 bcec39425c2e23e815c232b3ac6b15e4b575a3d812e6c7e162af02cec3a17c07";
+		};
+		4AC36A44DFE984E42CD74EDD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Furiously Calm Tiger/Pods-Furiously Calm Tiger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7041EB2A8D5E8519970DA07 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Furiously Calm TigerUITests/Pods-Furiously Calm TigerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCE374B290DE9C52BAC95CBA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Furiously Calm Tiger/Pods-Furiously Calm Tiger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF1A4AF89485D460533A2CB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F709E2391633E8BC3740F3E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -434,6 +562,7 @@
 		};
 		1FA94B2B1CD79DBE0024B6DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08E1F0608E53CE7316A4CBAE /* Pods-Furiously Calm Tiger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -453,6 +582,7 @@
 		};
 		1FA94B2C1CD79DBE0024B6DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A43587480BAE679AC487535 /* Pods-Furiously Calm Tiger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -472,6 +602,7 @@
 		};
 		1FA94B2E1CD79DBE0024B6DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDCBEB4323ABC43352C1CF4D /* Pods-Furiously Calm TigerUITests.debug.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = "Furiously Calm TigerUITests/Info.plist";
@@ -486,6 +617,7 @@
 		};
 		1FA94B2F1CD79DBE0024B6DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82088778D3339F3E53E30AC2 /* Pods-Furiously Calm TigerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Furiously Calm TigerUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

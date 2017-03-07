@@ -6,6 +6,7 @@ target 'Furiously Calm Tiger' do
   use_frameworks!
 
   # Pods for Furiously Calm Tiger
+  pod 'Flurry-iOS-SDK/FlurrySDK' #Analytics Pod
 
   target 'Furiously Calm TigerUITests' do
     inherit! :search_paths
