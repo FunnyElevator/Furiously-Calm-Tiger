@@ -23,6 +23,13 @@ class TitleScene: SKScene {
         /* Called when a touch begins */
         super.touchesBegan(touches, with: event)
         
+        //remove previous partcile emitters
+        for child in self.children {
+            if child.name == "sparkEmmitter" {
+                child.removeFromParent()
+            }
+        }
+        
         if let location = touches.first?.location(in: self) {
             let touchedNode = atPoint(location)
             
@@ -41,9 +48,7 @@ class TitleScene: SKScene {
                         self.scene?.view?.presentScene(nextScene!, transition: transition)
                     })
                 }
-            } else {
-                // remove previous emitters? after 2s?
-                
+            } else {                
                 // sprakle emitter for Other Touches
                 let particlePath:NSString = Bundle.main.path(forResource: "Sparkles", ofType: "sks")! as NSString
                 let sparklesEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: particlePath as String) as! SKEmitterNode

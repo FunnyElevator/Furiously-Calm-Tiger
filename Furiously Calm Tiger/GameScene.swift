@@ -198,16 +198,12 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.location(in: self)
             
-            /* Demo action
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            sprite.zPosition = 200
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            sprite.runAction(SKAction.repeatActionForever(action))
-            self.addChild(sprite)*/
-            
+            //remove previous partcile emitters
+            for child in self.children {
+                if child.name == "sparkEmmitter" {
+                    child.removeFromParent()
+                }
+            }
             
             let touchedNode = atPoint(location)
             if (blockInteraction == false) {
@@ -233,9 +229,6 @@ class GameScene: SKScene {
                         print("Color 2")
                     }
                 }
-                
-                
-                //remove previous partcile emitters
                 
                 // create touch circle effect
                 let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
