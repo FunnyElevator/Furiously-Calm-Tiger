@@ -108,13 +108,13 @@ class GameScene: SKScene {
         emoji1Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
         emoji1Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         emoji1Sparkle!.name = "emoji1Sparkle"
-        emoji1Sparkle!.zPosition = 0
+        emoji1Sparkle!.zPosition = -1
         emojiButton1?.addChild(emoji1Sparkle!)
         
         emoji2Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
         emoji2Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         emoji2Sparkle!.name = "emoji2Sparkle"
-        emoji2Sparkle!.zPosition = 0
+        emoji2Sparkle!.zPosition = -1
         emojiButton2?.addChild(emoji2Sparkle!)
         
         
