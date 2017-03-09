@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import Flurry_iOS_SDK
 
 class TitleScene: SKScene {
     var startButton: SKSpriteNode?
@@ -33,6 +34,9 @@ class TitleScene: SKScene {
                         
                         let nextScene = GameScene(fileNamed: "GameScene")
                         nextScene!.scaleMode = .aspectFill
+                        
+                        // Analytics
+                        Flurry.logEvent("GameStarted");
                         
                         self.scene?.view?.presentScene(nextScene!, transition: transition)
                     })

@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import Flurry_iOS_SDK
 
 class GameScene: SKScene {
     var colorFieldLeft: SKSpriteNode?
@@ -337,6 +338,9 @@ class GameScene: SKScene {
         var emojiSelectedTired = false
         var emojiSelectedTwinker = false
         
+        // Analytics
+        Flurry.logEvent("EmojiSelected");
+        
         if buttonNr == 1 {
             emojiButton2?.run(fadeOut)
             emojiButton1?.run(moveToCenter, completion: { 
@@ -379,6 +383,8 @@ class GameScene: SKScene {
         self.smallCirclesL?.isHidden = true
         self.smallCirclesR?.isHidden = true
         
+        // Analytics
+        Flurry.logEvent("ColorSelected");
         
         //
         emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = true
