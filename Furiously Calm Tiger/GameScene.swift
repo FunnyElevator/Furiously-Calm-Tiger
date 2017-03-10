@@ -35,7 +35,12 @@ class GameScene: SKScene {
     var lastEmoji1Number: Int = 0
     var lastEmoji2Number: Int = 0
     var sessionParams = [String: String]()
-    var roundParams = [String: String]()
+    var roundParams = ["colorL": "nil",
+                       "colorR": "nil",
+                       "colorS": "nil",
+                       "emojiL": "nil",
+                       "emojiR": "nil",
+                       "emojiS": "nil"]
     
     //  Tiger Mood Parameters
     var tigerMoodAngryIndex: Int = 0
@@ -219,19 +224,18 @@ class GameScene: SKScene {
                 } else if (currentGameMode == 2) {
                     if (touchedNode.name == "emojiButton1") {
                         performEmojiSelect(1)
-                        print("Emoji 1")
-                        // Customize Analytics GameAnalytics.setCustomDimension01("emojiLeft")
+                        print("Logging: Emoji 1")
                     } else if (touchedNode.name == "emojiButton2") {
                         performEmojiSelect(2)
-                        print("Emoji 2")
+                        print("Logging: Emoji 2")
                     }
                 } else if (currentGameMode == 3) {
                     if (touchedNode.name == "colorFieldLeft") {
                         performColorSelect(1)
-                        print("Color 1")
+                        print("Logging: Color 1")
                     } else if (touchedNode.name == "colorFieldRight") {
                         performColorSelect(2)
-                        print("Color 2")
+                        print("Logging: Color 2")
                     }
                 }
                 
@@ -325,6 +329,10 @@ class GameScene: SKScene {
     
         emojiButton1?.run(fadeInAction)
         emojiButton2?.run(fadeInAction)
+        
+        // Analytics: set round parameters
+        roundParams["emojiL"] = String(leftEmoji)
+        roundParams["emojiR"] = String(rightEmoji)
     }
     
     func performEmojiSelect(_ buttonNr: Int) {
@@ -337,7 +345,7 @@ class GameScene: SKScene {
         var emojiSelectedTwinker = false
         
         // Analytics
-        Flurry.logEvent("EmojiSelected");
+        roundParams["emojiS"] = String(buttonNr)
         
         if buttonNr == 1 {
             emojiButton2?.run(fadeOut)
@@ -376,18 +384,17 @@ class GameScene: SKScene {
     func performColorSelect(_ buttonNr: Int) {
         currentGameMode += 1
         blockInteraction = true
+        
+        // Analytics 
+        roundParams["colorS"] = String(buttonNr)
+        
+        // UI changes
         var colorButtonCenter:CGFloat = 0.0
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         self.smallCirclesL?.isHidden = true
         self.smallCirclesR?.isHidden = true
-        
-        // Analytics
-        Flurry.logEvent("ColorSelected");
-        
-        //
         emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = true
         emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = true
-        //
         
         print("Run color function")
         if (buttonNr == 1) {
@@ -414,7 +421,11 @@ class GameScene: SKScene {
     }
     
     func perfomTigerReaction() {
-        // remove UI elemnts
+        // remove UI elements Done in runAfterTigerMood()
+        
+        // Analytics: Send RoundData (Started in ...)
+        Flurry.endTimedEvent("roundCompleted", withParameters: roundParams);
+        roundParams.removeAll()
         
         let waitAction = SKAction.wait(forDuration: 2)
         roundsPlayed += 1
@@ -473,13 +484,13 @@ class GameScene: SKScene {
     func setupColorSelect() {
         let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
         
-        let leftColor = getRandomValue(colors.count, lastValue: lastColor)
-        colorFieldLeft?.color = colors[leftColor]
-        lastColor = leftColor
+        let leftColorValue = getRandomValue(colors.count, lastValue: lastColor)
+        colorFieldLeft?.color = colors[leftColorValue]
+        lastColor = leftColorValue
         
-        let rightColor = getRandomValue(colors.count, lastValue: lastColor)
-        colorFieldRight?.color = colors[rightColor]
-        lastColor = rightColor
+        let rightColorValue = getRandomValue(colors.count, lastValue: lastColor)
+        colorFieldRight?.color = colors[rightColorValue]
+        lastColor = rightColorValue
         
         colorLineLeft?.run(fadeInAction)
         colorLineRight?.run(fadeInAction)
@@ -488,6 +499,10 @@ class GameScene: SKScene {
             self.blockInteraction = false
         })
         
+        // Analytics: Set round parameters (colors) & Start round
+        Flurry.logEvent("roundCompleted", withParameters: nil, timed: true);
+        roundParams["colorL"] = String(leftColorValue)
+        roundParams["colorR"] = String(rightColorValue)
     }
     
     
@@ -629,7 +644,9 @@ class GameScene: SKScene {
         
         // send Session Analytics
         // Started in TitleScene
+        sessionParams["roundsPlayed"] = String(roundsPlayed)
         Flurry.endTimedEvent("GameSession_Complete", withParameters: nil);
+        sessionParams.removeAll()
         
         // smoke effect
         let particlePath:NSString = Bundle.main.path(forResource: "SmokeParticles", ofType: "sks")! as NSString
