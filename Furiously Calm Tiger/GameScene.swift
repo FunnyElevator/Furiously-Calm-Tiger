@@ -10,6 +10,8 @@ import SpriteKit
 import Flurry_iOS_SDK
 
 class GameScene: SKScene {
+    
+    // UI Elements
     var colorFieldLeft: SKSpriteNode?
     var colorFieldRight: SKSpriteNode?
     var colorLineLeft: SKSpriteNode?
@@ -20,24 +22,6 @@ class GameScene: SKScene {
     var smallCirclesL: SKNode?
     var smallCirclesR: SKNode?
     
-    
-    // for logging
-    var lastEmoji1Number: Int = 0
-    var lastEmoji2Number: Int = 0
-    
-    var emoji1Angry: Bool = false
-    var emoji1Tired: Bool = false
-    var emoji1Twike: Bool = false
-    var emoji2Angry: Bool = false
-    var emoji2Tired: Bool = false
-    var emoji2Twike: Bool = false
-    
-    
-    var emojis = [SKTexture]()
-    var lastEmoji:Int = 0
-    var colors = [UIColor]()
-    var lastColor: Int = 0
-    
     var theTiger: SKNode?
     var tigerSnooze: SKNode?
     let tigerMouthOpen = SKSpriteNode(imageNamed: "TigerMouthOpen")
@@ -47,9 +31,30 @@ class GameScene: SKScene {
     var emoji1Sparkle: SKEmitterNode?
     var emoji2Sparkle: SKEmitterNode?
     
+    // Logging Parameters
+    var lastEmoji1Number: Int = 0
+    var lastEmoji2Number: Int = 0
+    var sessionParams = [String: String]()
+    var roundParams = [String: String]()
+    
+    //  Tiger Mood Parameters
     var tigerMoodAngryIndex: Int = 0
     var tigerMoodTiredIndex: Int = 0
     var tigerMoodTwinkeIndex: Bool = false
+    
+    var emoji1Angry: Bool = false
+    var emoji1Tired: Bool = false
+    var emoji1Twike: Bool = false
+    var emoji2Angry: Bool = false
+    var emoji2Tired: Bool = false
+    var emoji2Twike: Bool = false
+    
+
+    // GLOBAL parameters
+    var emojis = [SKTexture]()
+    var lastEmoji:Int = 0
+    var colors = [UIColor]()
+    var lastColor: Int = 0
     
     var blockInteraction: Bool = false
     
@@ -620,7 +625,11 @@ class GameScene: SKScene {
     }
     
     func restartGame() {
-        // restart
+        // restart the game
+        
+        // send Session Analytics
+        // Started in TitleScene
+        Flurry.endTimedEvent("GameSession_Complete", withParameters: nil);
         
         // smoke effect
         let particlePath:NSString = Bundle.main.path(forResource: "SmokeParticles", ofType: "sks")! as NSString

@@ -43,7 +43,10 @@ class TitleScene: SKScene {
                         nextScene!.scaleMode = .aspectFill
                         
                         // Analytics
-                        Flurry.logEvent("GameStarted");
+                        Flurry.logEvent("SessionStarted");
+                        Flurry.logEvent("GameSession_Complete", withParameters: nil, timed: true);
+                        // Finished in GameScene: restartGame()
+  
                         
                         self.scene?.view?.presentScene(nextScene!, transition: transition)
                     })
