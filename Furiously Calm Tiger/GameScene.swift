@@ -150,54 +150,39 @@ class GameScene: SKScene {
             // (removed in v2) SKTexture(imageNamed: "emoji-sad-flushed-1f623"),
             SKTexture(imageNamed: "emoji-sad-mouth-1f62b"),
             // (removed in v2) SKTexture(imageNamed: "emoji-sad-teeth-1f62c"),
-             SKTexture(imageNamed: "emoji-unhappy-sick-1f915"),
+             SKTexture(imageNamed: "emoji-unhappy-sick-1f915")
             // (removed in v2) SKTexture(imageNamed: "emoji-xx-1f635")
         ]
         
         // Setup Colors
         colors = [
-            UIColor(red: 217/255, green: 30/255,  blue: 24/255,  alpha: 1.0),
-            UIColor(red: 103/255, green: 65/255,  blue: 114/255, alpha: 1.0),
+              UIColor(red: 217/255, green: 30/255,  blue: 24/255,  alpha: 1.0),
+              UIColor(red: 103/255, green: 65/255,  blue: 114/255, alpha: 1.0),
+            //UIColor(red: 210/255, green: 77/255,  blue: 87/255,  alpha: 1.0),
+            //UIColor(red: 129/255, green: 207/255, blue: 224/255, alpha: 1.0),
             
-            UIColor(red: 210/255, green: 77/255,  blue: 87/255,  alpha: 1.0),
-            UIColor(red: 129/255, green: 207/255, blue: 224/255, alpha: 1.0),
+            //UIColor(red: 52/255,  green: 152/255, blue: 219/255, alpha: 1.0),
+              UIColor(red: 25/255,  green: 181/255, blue: 254/255, alpha: 1.0),
+            //UIColor(red: 58/255,  green: 83/255,  blue: 155/255, alpha: 1.0),
+              UIColor(red: 37/255,  green: 116/255, blue: 169/255, alpha: 1.0),
             
+            //UIColor(red: 31/255,  green: 58/255,  blue: 147/255, alpha: 1.0),
+            //UIColor(red: 137/255, green: 196/255, blue: 244/255, alpha: 1.0),
+            //UIColor(red: 135/255, green: 211/255, blue: 124/255, alpha: 1.0),
+            //UIColor(red: 38/255,  green: 166/255, blue: 91/255,  alpha: 1.0),
             
+              UIColor(red: 27/255,  green: 163/255, blue: 156/255, alpha: 1.0),
+            //UIColor(red: 134/255, green: 226/255, blue: 213/255, alpha: 1.0),
+              UIColor(red: 46/255,  green: 204/255, blue: 113/255, alpha: 1.0),
+            //UIColor(red: 3/255,   green: 166/255, blue: 120/255, alpha: 1.0),
             
-            UIColor(red: 52/255,  green: 152/255, blue: 219/255, alpha: 1.0),
-            UIColor(red: 25/255,  green: 181/255, blue: 254/255, alpha: 1.0),
+            //UIColor(red: 42/255,  green: 187/255, blue: 155/255, alpha: 1.0),
+            //UIColor(red: 30/255,  green: 130/255, blue: 76/255,  alpha: 1.0),
+              UIColor(red: 232/255, green: 126/255, blue: 4/255,   alpha: 1.0),
+            //UIColor(red: 242/255, green: 120/255, blue: 75/255,  alpha: 1.0),
             
-            UIColor(red: 58/255,  green: 83/255,  blue: 155/255, alpha: 1.0),
-            UIColor(red: 37/255,  green: 116/255, blue: 169/255, alpha: 1.0),
-            
-            
-            //5
-            UIColor(red: 31/255,  green: 58/255,  blue: 147/255, alpha: 1.0),
-            UIColor(red: 137/255, green: 196/255, blue: 244/255, alpha: 1.0),
-            
-            UIColor(red: 135/255, green: 211/255, blue: 124/255, alpha: 1.0),
-            UIColor(red: 38/255,  green: 166/255, blue: 91/255,  alpha: 1.0),
-            
-            
-            
-            UIColor(red: 27/255,  green: 163/255, blue: 156/255, alpha: 1.0),
-            UIColor(red: 134/255, green: 226/255, blue: 213/255, alpha: 1.0),
-            
-            UIColor(red: 46/255,  green: 204/255, blue: 113/255, alpha: 1.0),
-            UIColor(red: 3/255,   green: 166/255, blue: 120/255, alpha: 1.0),
-            
-            
-            
-            UIColor(red: 42/255,  green: 187/255, blue: 155/255, alpha: 1.0),
-            UIColor(red: 30/255,  green: 130/255, blue: 76/255,  alpha: 1.0),
-            
-            UIColor(red: 232/255, green: 126/255, blue: 4/255,   alpha: 1.0),
-            UIColor(red: 242/255, green: 120/255, blue: 75/255,  alpha: 1.0),
-            
-            
-            
-            UIColor(red: 211/255, green: 84/255,  blue: 0/255,   alpha: 1.0),
-            UIColor(red: 249/255, green: 191/255, blue: 59/255,  alpha: 1.0)
+            //UIColor(red: 211/255, green: 84/255,  blue: 0/255,   alpha: 1.0),
+              UIColor(red: 249/255, green: 191/255, blue: 59/255,  alpha: 1.0)
         ]
         
     }
