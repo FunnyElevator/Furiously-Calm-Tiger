@@ -130,28 +130,28 @@ class GameScene: SKScene {
         
         // Setup Emoji Textures
         emojis = [
-            SKTexture(imageNamed: "emoji-happy-1f61b"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-happy-1f61b"),
             SKTexture(imageNamed: "emoji-happy-flushed-1f60a"),
-            SKTexture(imageNamed: "emoji-happy-love-1f60d"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-happy-love-1f60d"),
             SKTexture(imageNamed: "emoji-happy-mouth-1f600"),
-            SKTexture(imageNamed: "emoji-happy-tongue-1f61c"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-happy-tongue-1f61c"),
             SKTexture(imageNamed: "emoji-happy-twinker-1f609"),
-            SKTexture(imageNamed: "emoji-happy-upside-1f643"),
-            SKTexture(imageNamed: "emoji-hushed-1f62f"),
-            SKTexture(imageNamed: "emoji-kiss-1f617"),
-            SKTexture(imageNamed: "emoji-neutral-1f610"),
-         // SKTexture(imageNamed: "emoji-neutral-1f636"), // used as placeholder
-            SKTexture(imageNamed: "emoji-neutral-1f644"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-happy-upside-1f643"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-hushed-1f62f"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-kiss-1f617"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-neutral-1f610"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-neutral-1f636"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-neutral-1f644"),
             SKTexture(imageNamed: "emoji-positive-1f642"),
             SKTexture(imageNamed: "emoji-sad-1f61f"),
-            SKTexture(imageNamed: "emoji-sad-1f626"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-sad-1f626"),
             SKTexture(imageNamed: "emoji-sad-cry-1f622"),
-            SKTexture(imageNamed: "emoji-sad-cry-1f625"),
-            SKTexture(imageNamed: "emoji-sad-flushed-1f623"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-sad-cry-1f625"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-sad-flushed-1f623"),
             SKTexture(imageNamed: "emoji-sad-mouth-1f62b"),
-            SKTexture(imageNamed: "emoji-sad-teeth-1f62c"),
-            SKTexture(imageNamed: "emoji-unhappy-sick-1f915"),
-            SKTexture(imageNamed: "emoji-xx-1f635")
+            // (removed in v2) SKTexture(imageNamed: "emoji-sad-teeth-1f62c"),
+             SKTexture(imageNamed: "emoji-unhappy-sick-1f915"),
+            // (removed in v2) SKTexture(imageNamed: "emoji-xx-1f635")
         ]
         
         // Setup Colors
