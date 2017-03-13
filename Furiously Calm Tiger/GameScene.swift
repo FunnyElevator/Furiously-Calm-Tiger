@@ -644,7 +644,7 @@ class GameScene: SKScene {
         
         
         self.run(SKAction.wait(forDuration: 3), completion: {
-            let transition = SKTransition.fade(withDuration: 1.0)
+            let transition = SKTransition.fade(withDuration: 2.5)
             
             let nextScene = TitleScene(fileNamed: "TitleScene")
             nextScene!.scaleMode = .aspectFill
