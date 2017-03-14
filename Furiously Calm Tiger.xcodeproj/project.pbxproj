@@ -16,6 +16,7 @@
 		1F16030F1CFBE88C0044350B /* TigerSnoozescene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F16030E1CFBE88C0044350B /* TigerSnoozescene.sks */; };
 		1F1DC65F1CFB3E1800AB9B9D /* littleCircles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DC65E1CFB3E1800AB9B9D /* littleCircles.sks */; };
 		1F24BC911CEA5AF400CF6A96 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */; };
+		1F4D2EEE1E7821C4000B6B6B /* BgStars.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F4D2EED1E7821C4000B6B6B /* BgStars.sks */; };
 		1F5EEE8F1CE9FD020026E201 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */; };
 		1F6B2DC31CEB26F60090B44E /* MyActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B2DC21CEB26F60090B44E /* MyActions.sks */; };
 		1FA75D381CEE0BE40003BC78 /* Tiger.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FA75D371CEE0BE40003BC78 /* Tiger.sks */; };
@@ -53,6 +54,7 @@
 		1F16030E1CFBE88C0044350B /* TigerSnoozescene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TigerSnoozescene.sks; sourceTree = "<group>"; };
 		1F1DC65E1CFB3E1800AB9B9D /* littleCircles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = littleCircles.sks; sourceTree = "<group>"; };
 		1F24BC901CEA5AF400CF6A96 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		1F4D2EED1E7821C4000B6B6B /* BgStars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = BgStars.sks; path = Scenes/BgStars.sks; sourceTree = "<group>"; };
 		1F5EEE8E1CE9FD020026E201 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
 		1F6B2DC21CEB26F60090B44E /* MyActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyActions.sks; path = Actions/MyActions.sks; sourceTree = "<group>"; };
 		1FA75D371CEE0BE40003BC78 /* Tiger.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiger.sks; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				1F0642AF1CFBD2FA0023B253 /* spark2.png */,
 				1F03FC1A1CF22A97001EBA67 /* Sparkles.sks */,
 				1F1DC65E1CFB3E1800AB9B9D /* littleCircles.sks */,
+				1F4D2EED1E7821C4000B6B6B /* BgStars.sks */,
 				1F16030E1CFBE88C0044350B /* TigerSnoozescene.sks */,
 			);
 			name = Graphics;
@@ -269,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4D2EEE1E7821C4000B6B6B /* BgStars.sks in Resources */,
 				1F03FC1B1CF22A97001EBA67 /* Sparkles.sks in Resources */,
 				1FA94B0F1CD79DBE0024B6DA /* GameScene.sks in Resources */,
 				1F0E61F91CFB2FE400115A29 /* RoundParticle2.sks in Resources */,
