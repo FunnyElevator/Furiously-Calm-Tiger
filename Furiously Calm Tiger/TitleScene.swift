@@ -37,7 +37,8 @@ class TitleScene: SKScene {
                 print("Start button touched")
                 if let actionPressed = SKAction(named: "StartButtonPressed") {
                     startButton!.run(actionPressed, completion: {
-                        let transition = SKTransition.fade(withDuration: 1.0)
+                        //let transition = SKTransition.fade(withDuration: 1.0) //old fade
+                        let transition = SKTransition.push(with: SKTransitionDirection.up, duration: 2)
                         
                         let nextScene = GameScene(fileNamed: "GameScene")
                         nextScene!.scaleMode = .aspectFill
