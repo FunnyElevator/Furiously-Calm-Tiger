@@ -17,6 +17,15 @@ class GameScene: SKScene {
     var colorLineLeft: SKSpriteNode?
     var colorLineRight: SKSpriteNode?
     
+    var rectCenterRotate1: SKSpriteNode?
+    var rectCenterRotate2: SKSpriteNode?
+    var rectCenterFill: SKSpriteNode?
+    var rectCenterFrame: SKSpriteNode?
+    var rectColorSmallFillL: SKSpriteNode?
+    var rectColorSmallFrameL: SKSpriteNode?
+    var rectColorSmallFillR: SKSpriteNode?
+    var rectColorSmallFrameR: SKSpriteNode?
+    
     var emojiButton1: SKSpriteNode?
     var emojiButton2: SKSpriteNode?
     var smallCirclesL: SKNode?
@@ -79,12 +88,21 @@ class GameScene: SKScene {
         // Connect UI Elements from the Editor
         colorFieldLeft  = self.childNode(withName: "colorFieldLeft")  as? SKSpriteNode
         colorFieldRight = self.childNode(withName: "colorFieldRight") as? SKSpriteNode
-        colorLineLeft  = self.childNode(withName: "colorLineLeft")  as? SKSpriteNode
-        colorLineRight = self.childNode(withName: "colorLineRight") as? SKSpriteNode
-        emojiButton1 = self.childNode(withName: "emojiButton1") as? SKSpriteNode
-        emojiButton2 = self.childNode(withName: "emojiButton2") as? SKSpriteNode
-        smallCirclesL = self.childNode(withName: "smallCirclesL")
-        smallCirclesR = self.childNode(withName: "smallCirclesR")
+        colorLineLeft   = self.childNode(withName: "colorLineLeft")  as? SKSpriteNode
+        colorLineRight  = self.childNode(withName: "colorLineRight") as? SKSpriteNode
+        emojiButton1    = self.childNode(withName: "emojiButton1") as? SKSpriteNode
+        emojiButton2    = self.childNode(withName: "emojiButton2") as? SKSpriteNode
+        smallCirclesL   = self.childNode(withName: "smallCirclesL")
+        smallCirclesR   = self.childNode(withName: "smallCirclesR")
+        
+        rectCenterRotate1   = self.childNode(withName: "rectCenterRotate1") as! SKSpriteNode?
+        rectCenterRotate2   = self.childNode(withName: "rectCenterRotate2") as! SKSpriteNode?
+        rectCenterFill      = self.childNode(withName: "rectCenterFill") as! SKSpriteNode?
+        rectCenterFrame     = self.childNode(withName: "rectCenterFrame") as! SKSpriteNode?
+        rectColorSmallFillL = self.childNode(withName: "rectColorSmallFillL") as! SKSpriteNode?
+        rectColorSmallFrameL = self.childNode(withName: "rectColorSmallFrameL") as! SKSpriteNode?
+        rectColorSmallFillR  = self.childNode(withName: "rectColorSmallFillR") as! SKSpriteNode?
+        rectColorSmallFrameR = self.childNode(withName: "rectColorSmallFrameR") as! SKSpriteNode?
         
         theTiger = self.childNode(withName: "Tiger")
         tigerSnooze = self.childNode(withName: "TigerSnooze")
@@ -110,8 +128,6 @@ class GameScene: SKScene {
         emojiButton2?.alpha = 0.0
         smallCirclesL?.isHidden = true
         smallCirclesR?.isHidden = true
-        //tigerMouthOpen?.alpha = 0.0                           didn't work...
-        //tigerMouthClosed1?.alpha = 0.0
         
         //Add sparkle emitters to Emoji Icons
         let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle2", ofType: "sks")! as NSString
@@ -386,10 +402,7 @@ class GameScene: SKScene {
         
         setupColorSelect()
         currentGameMode += 1
-        
-        
-        
-        
+    
     }
     
     func performColorSelect(_ buttonNr: Int) {
@@ -622,7 +635,6 @@ class GameScene: SKScene {
             angryValue = false
             tiredValue = false
             twinkerValue = false
-            
         }
         
         if (leftOrRight == 1) {
@@ -634,7 +646,6 @@ class GameScene: SKScene {
             emoji2Angry = angryValue
             emoji2Tired = tiredValue
             emoji2Twike = twinkerValue
-            
         }
         
     }
@@ -651,6 +662,15 @@ class GameScene: SKScene {
         colorFieldRight?.alpha = 0.0
         colorLineLeft?.alpha = 0.0
         colorLineRight?.alpha = 0.0
+        
+        rectCenterFill?.alpha = 0.0
+        rectCenterFrame?.alpha = 0.0
+        rectCenterRotate1?.alpha = 0.0
+        rectCenterRotate2?.alpha = 0.0
+        rectColorSmallFillL?.alpha = 0.0
+        rectColorSmallFillR?.alpha = 0.0
+        rectColorSmallFrameL?.alpha = 0.0
+        rectColorSmallFrameR?.alpha = 0.0
     }
     
     func restartGame() {
