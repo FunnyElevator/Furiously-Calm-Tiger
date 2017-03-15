@@ -10,7 +10,7 @@ import SpriteKit
 import Flurry_iOS_SDK
 
 class GameScene: SKScene {
-    
+    // MARK: Global variables
     // UI Elements
     var colorFieldLeft: SKSpriteNode?
     var colorFieldRight: SKSpriteNode?
@@ -82,6 +82,7 @@ class GameScene: SKScene {
     let maxRounds:Int = 3
 
     
+    // MARK: - Initialization
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         
@@ -219,6 +220,7 @@ class GameScene: SKScene {
         
     }
     
+    // MARK: - Touch Handling & Action Triggering
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        /* Called when a touch begins */
         
@@ -324,7 +326,8 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
         
     }
-    
+   
+    // MARK: - EMOJI setup & selection
     func setupEmojiSelect() {
         let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
         
@@ -405,6 +408,31 @@ class GameScene: SKScene {
     
     }
     
+    // MARK: - COLOR setup & selection
+    func setupColorSelect() {
+        let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
+        
+        let leftColorValue = getRandomValue(colors.count, lastValue: lastColor)
+        colorFieldLeft?.color = colors[leftColorValue]
+        lastColor = leftColorValue
+        
+        let rightColorValue = getRandomValue(colors.count, lastValue: lastColor)
+        colorFieldRight?.color = colors[rightColorValue]
+        lastColor = rightColorValue
+        
+        colorLineLeft?.run(fadeInAction)
+        colorLineRight?.run(fadeInAction)
+        colorFieldLeft?.run(fadeInAction)
+        colorFieldRight?.run(fadeInAction, completion: {
+            self.blockInteraction = false
+        })
+        
+        // Analytics: Set round parameters (colors) & Start round
+        Flurry.logEvent("roundCompleted", withParameters: nil, timed: true);
+        roundParams["colorL"] = String(leftColorValue)
+        roundParams["colorR"] = String(rightColorValue)
+    }
+    
     func performColorSelect(_ buttonNr: Int) {
         currentGameMode += 1
         blockInteraction = true
@@ -415,9 +443,9 @@ class GameScene: SKScene {
         // UI changes
         var colorButtonCenter:CGFloat = 0.0
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
+        let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
         self.smallCirclesL?.isHidden = true
         self.smallCirclesR?.isHidden = true
-        
         
         
         print("Run color function")
@@ -444,6 +472,15 @@ class GameScene: SKScene {
         }
     }
     
+    func getRandomValue(_ fromRange: Int, lastValue: Int) -> Int {
+        var randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
+        while (randomIndex == lastValue) {
+            randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
+        }
+        return randomIndex
+    }
+    
+    // MARK: - Tiger Reaction & round resetting
     func perfomTigerReaction() {
         // remove UI elements Done in runAfterTigerMood()
         
@@ -505,40 +542,6 @@ class GameScene: SKScene {
                 self.currentGameMode = 1
             }
         })
-    }
-    
-    
-    func setupColorSelect() {
-        let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
-        
-        let leftColorValue = getRandomValue(colors.count, lastValue: lastColor)
-        colorFieldLeft?.color = colors[leftColorValue]
-        lastColor = leftColorValue
-        
-        let rightColorValue = getRandomValue(colors.count, lastValue: lastColor)
-        colorFieldRight?.color = colors[rightColorValue]
-        lastColor = rightColorValue
-        
-        colorLineLeft?.run(fadeInAction)
-        colorLineRight?.run(fadeInAction)
-        colorFieldLeft?.run(fadeInAction)
-        colorFieldRight?.run(fadeInAction, completion: { 
-            self.blockInteraction = false
-        })
-        
-        // Analytics: Set round parameters (colors) & Start round
-        Flurry.logEvent("roundCompleted", withParameters: nil, timed: true);
-        roundParams["colorL"] = String(leftColorValue)
-        roundParams["colorR"] = String(rightColorValue)
-    }
-    
-    
-    func getRandomValue(_ fromRange: Int, lastValue: Int) -> Int {
-        var randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
-        while (randomIndex == lastValue) {
-            randomIndex = Int(arc4random_uniform(UInt32(fromRange)))
-        }
-        return randomIndex
     }
     
     func setupEmojiMood(_ emojiNumber:Int, leftOrRight: Int) {
@@ -650,6 +653,9 @@ class GameScene: SKScene {
         
     }
     
+    
+    // MARK: - Game reset & restart
+    
     func perfomAngryFinal() {
         //
         
@@ -677,7 +683,7 @@ class GameScene: SKScene {
         // restart the game
         
         // send Session Analytics
-        // Started in TitleScene
+        // (Session started in TitleScene)
         sessionParams["roundsPlayed"] = String(roundsPlayed)
         Flurry.endTimedEvent("GameSession_Complete", withParameters: nil);
         sessionParams.removeAll()
