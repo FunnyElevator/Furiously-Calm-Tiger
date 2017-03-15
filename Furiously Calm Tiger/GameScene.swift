@@ -127,6 +127,22 @@ class GameScene: SKScene {
         emoji2Sparkle!.zPosition = -1
         emojiButton2?.addChild(emoji2Sparkle!)
         
+        // Add and hide Outlines to EmojiButtons
+        let circleEmoji = SKShapeNode(circleOfRadius: 44.5 ) // Size of Circle
+        circleEmoji.fillColor = SKColor.white
+        circleEmoji.position = CGPoint(x: 0.0, y: 0.0)
+        circleEmoji.zPosition = -5
+        circleEmoji.name = "circleEmoji"
+        circleEmoji.isHidden = true
+        emojiButton1?.addChild(circleEmoji)
+        
+        let circleEmoji2 = SKShapeNode(circleOfRadius: 44.5 ) // Size of Circle
+        circleEmoji2.fillColor = SKColor.white
+        circleEmoji2.position = CGPoint(x: 0.0, y: 0.0)
+        circleEmoji2.zPosition = -5
+        circleEmoji2.name = "circleEmoji"
+        circleEmoji2.isHidden = true
+        emojiButton2?.addChild(circleEmoji2)
         
         // Setup Emoji Textures
         emojis = [
@@ -332,22 +348,28 @@ class GameScene: SKScene {
         // Analytics
         roundParams["emojiS"] = String(buttonNr)
         
+        func UIchanges () {
+            emojiButton1?.childNode(withName: "circleEmoji")?.isHidden = false
+            emojiButton2?.childNode(withName: "circleEmoji")?.isHidden = false
+            emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = true
+            emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = true
+            self.smallCirclesL?.isHidden = false
+            self.smallCirclesR?.isHidden = false
+        }
+        
+        
         if buttonNr == 1 {
             emojiButton2?.run(fadeOut)
             emojiButton1?.run(moveToCenter, completion: { 
-                self.smallCirclesL?.isHidden = false
-                self.smallCirclesR?.isHidden = false
+                UIchanges()
             })
             emojiSelectedTired = emoji1Tired
             emojiSelectedAngry = emoji1Angry
             emojiSelectedTwinker = emoji1Twike
-            // Customize Analytics GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level01", progression03: "")
         } else if buttonNr == 2 {
             emojiButton1?.run(fadeOut)
             emojiButton2?.run(moveToCenter, completion: {
-                self.smallCirclesL?.isHidden = false
-                self.smallCirclesR?.isHidden = false
-                // Customize Analytics GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "world01", progression02: "level02", progression03: "")
+                UIchanges()
             })
             emojiSelectedTired = emoji2Tired
             emojiSelectedAngry = emoji2Angry
@@ -364,6 +386,10 @@ class GameScene: SKScene {
         
         setupColorSelect()
         currentGameMode += 1
+        
+        
+        
+        
     }
     
     func performColorSelect(_ buttonNr: Int) {
@@ -378,8 +404,8 @@ class GameScene: SKScene {
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         self.smallCirclesL?.isHidden = true
         self.smallCirclesR?.isHidden = true
-        emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = true
-        emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = true
+        
+        
         
         print("Run color function")
         if (buttonNr == 1) {
@@ -443,6 +469,7 @@ class GameScene: SKScene {
         }
     }
     func runAfterTigerMood() {
+        // resetting UI elements & parameters
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         
         self.emojiButton1?.run(fadeOutAction)
@@ -456,6 +483,8 @@ class GameScene: SKScene {
             self.blockInteraction = false
             self.emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = false
             self.emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = false
+            self.emojiButton1?.childNode(withName: "circleEmoji")?.isHidden = true
+            self.emojiButton2?.childNode(withName: "circleEmoji")?.isHidden = true
             
             if (self.roundsPlayed == self.maxRounds) {
                 self.restartGame()
