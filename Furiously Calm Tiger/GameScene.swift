@@ -448,6 +448,28 @@ class GameScene: SKScene {
         self.smallCirclesR?.isHidden = true
         
         
+        // set color for fill-rects
+        var colorNumber = 0
+        if (buttonNr == 1) {
+            colorNumber = Int(roundParams["colorL"]!)!
+        } else if (buttonNr == 2) {
+            colorNumber = Int(roundParams["colorR"]!)!
+        }
+        let choosenColor = colors[colorNumber]
+        rectCenterFill?.color = choosenColor
+        rectColorSmallFillL?.color = choosenColor
+        rectColorSmallFillR?.color = choosenColor
+        
+        // Fade in rects
+        rectCenterFill?.run(fadeInAction)
+        rectCenterFrame?.run(fadeInAction)
+        rectCenterRotate1?.run(fadeInAction)
+        rectCenterRotate2?.run(fadeInAction)
+        rectColorSmallFillL?.run(fadeInAction)
+        rectColorSmallFillR?.run(fadeInAction)
+        rectColorSmallFrameL?.run(fadeInAction)
+        rectColorSmallFrameR?.run(fadeInAction)
+        
         print("Run color function")
         if (buttonNr == 1) {
             colorButtonCenter = (colorFieldLeft?.position.x)!
@@ -522,6 +544,7 @@ class GameScene: SKScene {
         // resetting UI elements & parameters
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         
+        resetColorAreas()
         self.emojiButton1?.run(fadeOutAction)
         self.emojiButton2?.run(fadeOutAction, completion: {
             self.emojiButton1?.position = CGPoint(x: 442, y: 88)
