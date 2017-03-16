@@ -369,9 +369,6 @@ class GameScene: SKScene {
         lastEmoji = rightEmoji
         lastEmoji2Number = rightEmoji
         
-        // Optionally, resize the sprite
-        // emojiButton1!.size = emojiTexture.size()
-    
         emojiButton1?.run(fadeInAction)
         emojiButton2?.run(fadeInAction)
         
@@ -400,7 +397,6 @@ class GameScene: SKScene {
             self.smallCirclesL?.isHidden = false
             self.smallCirclesR?.isHidden = false
         }
-        
         
         if buttonNr == 1 {
             emojiButton2?.run(fadeOut)
@@ -473,7 +469,6 @@ class GameScene: SKScene {
         roundParams["colorS"] = String(buttonNr)
         
         // UI changes
-        var colorButtonCenter:CGFloat = 0.0
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
         self.smallCirclesL?.isHidden = true
@@ -502,29 +497,36 @@ class GameScene: SKScene {
         rectColorSmallFrameL?.run(fadeInAction)
         rectColorSmallFrameR?.run(fadeInAction)
         
-        // fade out other button area
-        if (buttonNr == 1) {
-            colorButtonCenter = (colorFieldLeft?.position.x)!
-            self.colorFieldRight?.run(fadeOutAction)
-            self.colorLineRight?.run(fadeOutAction)
-            self.colorCircleR?.run(fadeOutAction)
-            self.colorCircleFrameR?.run(fadeOutAction)
-        } else if (buttonNr == 2) {
-            colorButtonCenter = (colorFieldRight?.position.x)!
-            self.colorFieldLeft?.run(fadeOutAction)
-            self.colorLineLeft?.run(fadeOutAction)
-            self.colorCircleL?.run(fadeOutAction)
-            self.colorCircleFrameL?.run(fadeOutAction)
-        }
-        let moveAction = SKAction.move(to: CGPoint(x: colorButtonCenter, y: 88) , duration: 0.5)
-        moveAction.timingMode = SKActionTimingMode.easeInEaseOut
+        // fade out other button area &
+        self.colorCircleFrameL?.run(fadeOutAction)
+        self.colorCircleFrameR?.run(fadeOutAction)
+        self.colorLineLeft?.run(fadeOutAction)
+        self.colorLineRight?.run(fadeOutAction)
         
-        if (emojiButton2?.alpha == 0.0) {
-            emojiButton1?.run(moveAction, completion: {
+        
+        if (buttonNr == 1) {
+            //colorButtonCenter = (colorFieldLeft?.position.x)!
+            self.colorFieldRight?.run(fadeOutAction)
+            self.colorCircleR?.run(fadeOutAction)
+        } else if (buttonNr == 2) {
+            //colorButtonCenter = (colorFieldRight?.position.x)!
+            self.colorFieldLeft?.run(fadeOutAction)
+            self.colorCircleL?.run(fadeOutAction)
+        }
+        let moveAction = SKAction.move(to: CGPoint(x: 512, y: 88) , duration: 1.5)
+        moveAction.timingMode = SKActionTimingMode.easeIn
+        let scaleAction = SKAction.scale(by: 0.2, duration: 1.5)
+        scaleAction.timingMode = SKActionTimingMode.easeIn
+        let groupedActions = SKAction.group([scaleAction, moveAction])
+        
+        if (buttonNr == 1) {
+            colorCircleL?.run(moveAction)
+            colorFieldLeft?.run(groupedActions, completion: {
                 self.perfomTigerReaction()
             })
-        } else if (emojiButton1?.alpha == 0.0) {
-            emojiButton2?.run(moveAction, completion: {
+        } else if (buttonNr == 2) {
+            colorCircleR?.run(moveAction)
+            colorFieldRight?.run(groupedActions, completion: {
                 self.perfomTigerReaction()
             })
         }
@@ -546,7 +548,7 @@ class GameScene: SKScene {
         Flurry.endTimedEvent("roundCompleted", withParameters: roundParams);
         roundParams.removeAll()
         
-        let waitAction = SKAction.wait(forDuration: 2)
+        let waitAction = SKAction.wait(forDuration: 4)      ///remove TEMP (deafult 2)
         roundsPlayed += 1
         if (tigerMoodTiredIndex > 0) {
             let fadeInSnooze = SKAction.fadeIn(withDuration: 0.5)
@@ -556,7 +558,7 @@ class GameScene: SKScene {
             tigerSnooze?.run(SKAction.sequence([fadeInSnooze, waitAction2, fadeOutSnooze]), completion: {
                 self.runAfterTigerMood()
             })
-        } else if (tigerMoodAngryIndex > 0){
+        } else if (tigerMoodAngryIndex > 20){ /// remove TEMP (deafult 0)
             tigerMouthOpen.yScale = 0.1
             tigerMouthOpen.alpha = 1
             let openingMouth = SKAction.scaleY(to: 1, duration: 0.2)
