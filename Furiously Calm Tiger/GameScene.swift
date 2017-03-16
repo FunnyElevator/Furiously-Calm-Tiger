@@ -143,34 +143,39 @@ class GameScene: SKScene {
         smallCirclesR?.isHidden = true
         
         //Add sparkle emitters to Emoji Icons
-        let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle2", ofType: "sks")! as NSString
-        emoji1Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        let roundParticlePath:NSString = Bundle.main.path(forResource: "RoundParticle2", ofType: "sks")! as NSString
+        emoji1Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundParticlePath as String) as! SKEmitterNode)
         emoji1Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         emoji1Sparkle!.name = "emoji1Sparkle"
         emoji1Sparkle!.zPosition = -1
         emojiButton1?.addChild(emoji1Sparkle!)
         
-        emoji2Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        emoji2Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundParticlePath as String) as! SKEmitterNode)
         emoji2Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         emoji2Sparkle!.name = "emoji2Sparkle"
         emoji2Sparkle!.zPosition = -1
         emojiButton2?.addChild(emoji2Sparkle!)
         
         //Add sparkle emitters to COLOR circles
-        color1Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        let roundParticleThinPath:NSString = Bundle.main.path(forResource: "RoundParticle3", ofType: "sks")! as NSString
+        color1Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundParticleThinPath as String) as! SKEmitterNode)
         color1Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         color1Sparkle!.name = "color1Sparkle"
         color1Sparkle!.zPosition = -1
+        color1Sparkle?.xScale = 0.65
+        color1Sparkle?.yScale = 0.65
         colorCircleFrameL?.addChild(color1Sparkle!)
         
-        color2Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        color2Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundParticleThinPath as String) as! SKEmitterNode)
         color2Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
         color2Sparkle!.name = "color2Sparkle"
         color2Sparkle!.zPosition = -1
+        color2Sparkle?.xScale = 0.65
+        color2Sparkle?.yScale = 0.65
         colorCircleFrameR?.addChild(color2Sparkle!)
         
         // Add and hide Outlines to EmojiButtons
-        let circleEmoji = SKShapeNode(circleOfRadius: 44.5 ) // Size of Circle
+        let circleEmoji = SKShapeNode(circleOfRadius: 44.8 ) // Size of Circle
         circleEmoji.fillColor = SKColor.white
         circleEmoji.position = CGPoint(x: 0.0, y: 0.0)
         circleEmoji.zPosition = -5
@@ -178,7 +183,7 @@ class GameScene: SKScene {
         circleEmoji.isHidden = true
         emojiButton1?.addChild(circleEmoji)
         
-        let circleEmoji2 = SKShapeNode(circleOfRadius: 44.5 ) // Size of Circle
+        let circleEmoji2 = SKShapeNode(circleOfRadius: 44.8 ) // Size of Circle
         circleEmoji2.fillColor = SKColor.white
         circleEmoji2.position = CGPoint(x: 0.0, y: 0.0)
         circleEmoji2.zPosition = -5
@@ -581,16 +586,21 @@ class GameScene: SKScene {
     func runAfterTigerMood() {
         // resetting UI elements & parameters
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
+        let scaleBackAction = SKAction.scale(to: 1.0, duration: 0.1)
         
         resetColorAreas()
         self.emojiButton1?.run(fadeOutAction)
         self.emojiButton2?.run(fadeOutAction, completion: {
             self.emojiButton1?.position = CGPoint(x: 442, y: 88)
             self.emojiButton2?.position = CGPoint(x: 582, y: 88)
+            self.colorCircleL?.position = CGPoint(x: 144, y: 88)
+            self.colorCircleR?.position = CGPoint(x: 882, y: 88)
+            self.colorFieldLeft?.position  = CGPoint(x: 143.5, y: 93.5)
+            self.colorFieldRight?.position = CGPoint(x: 880.5, y: 93.5)
+            self.colorFieldLeft?.run(scaleBackAction)
+            self.colorFieldRight?.run(scaleBackAction)
             self.colorFieldRight?.run(fadeOutAction)
             self.colorFieldLeft?.run(fadeOutAction)
-            self.colorLineLeft?.run(fadeOutAction)
-            self.colorLineRight?.run(fadeOutAction)
             self.blockInteraction = false
             self.emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = false
             self.emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = false
