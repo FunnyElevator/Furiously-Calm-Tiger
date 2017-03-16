@@ -16,6 +16,10 @@ class GameScene: SKScene {
     var colorFieldRight: SKSpriteNode?
     var colorLineLeft: SKSpriteNode?
     var colorLineRight: SKSpriteNode?
+    var colorCircleFrameL: SKSpriteNode?
+    var colorCircleFrameR: SKSpriteNode?
+    var colorCircleL: SKSpriteNode?
+    var colorCircleR: SKSpriteNode?
     
     var rectCenterRotate1: SKSpriteNode?
     var rectCenterRotate2: SKSpriteNode?
@@ -91,6 +95,11 @@ class GameScene: SKScene {
         colorFieldRight = self.childNode(withName: "colorFieldRight") as? SKSpriteNode
         colorLineLeft   = self.childNode(withName: "colorLineLeft")  as? SKSpriteNode
         colorLineRight  = self.childNode(withName: "colorLineRight") as? SKSpriteNode
+        colorCircleL    = self.childNode(withName: "colorCircleL") as? SKSpriteNode
+        colorCircleR    = self.childNode(withName: "colorCircleR") as? SKSpriteNode
+        colorCircleFrameL = self.childNode(withName: "colorCircleFrameL") as? SKSpriteNode
+        colorCircleFrameR = self.childNode(withName: "colorCircleFrameR") as? SKSpriteNode
+        
         emojiButton1    = self.childNode(withName: "emojiButton1") as? SKSpriteNode
         emojiButton2    = self.childNode(withName: "emojiButton2") as? SKSpriteNode
         smallCirclesL   = self.childNode(withName: "smallCirclesL")
@@ -105,7 +114,7 @@ class GameScene: SKScene {
         rectColorSmallFillR  = self.childNode(withName: "rectColorSmallFillR") as! SKSpriteNode?
         rectColorSmallFrameR = self.childNode(withName: "rectColorSmallFrameR") as! SKSpriteNode?
         
-        theTiger = self.childNode(withName: "Tiger")
+        theTiger    = self.childNode(withName: "Tiger")
         tigerSnooze = self.childNode(withName: "TigerSnooze")
         
         tigerMouthOpen.position = CGPoint(x: 0.0, y: 15.0)
@@ -414,11 +423,18 @@ class GameScene: SKScene {
         
         let leftColorValue = getRandomValue(colors.count, lastValue: lastColor)
         colorFieldLeft?.color = colors[leftColorValue]
+        colorCircleL?.color = colors[leftColorValue]
         lastColor = leftColorValue
         
         let rightColorValue = getRandomValue(colors.count, lastValue: lastColor)
         colorFieldRight?.color = colors[rightColorValue]
+        colorCircleR?.color = colors[rightColorValue]
         lastColor = rightColorValue
+        
+        colorCircleR?.run(fadeInAction)
+        colorCircleL?.run(fadeInAction)
+        colorCircleFrameL?.run(fadeInAction)
+        colorCircleFrameR?.run(fadeInAction)
         
         colorLineLeft?.run(fadeInAction)
         colorLineRight?.run(fadeInAction)
@@ -470,15 +486,19 @@ class GameScene: SKScene {
         rectColorSmallFrameL?.run(fadeInAction)
         rectColorSmallFrameR?.run(fadeInAction)
         
-        print("Run color function")
+        // fade out other button area
         if (buttonNr == 1) {
             colorButtonCenter = (colorFieldLeft?.position.x)!
             self.colorFieldRight?.run(fadeOutAction)
             self.colorLineRight?.run(fadeOutAction)
+            self.colorCircleR?.run(fadeOutAction)
+            self.colorCircleFrameR?.run(fadeOutAction)
         } else if (buttonNr == 2) {
             colorButtonCenter = (colorFieldRight?.position.x)!
             self.colorFieldLeft?.run(fadeOutAction)
             self.colorLineLeft?.run(fadeOutAction)
+            self.colorCircleL?.run(fadeOutAction)
+            self.colorCircleFrameL?.run(fadeOutAction)
         }
         let moveAction = SKAction.move(to: CGPoint(x: colorButtonCenter, y: 88) , duration: 0.5)
         moveAction.timingMode = SKActionTimingMode.easeInEaseOut
@@ -691,6 +711,10 @@ class GameScene: SKScene {
         colorFieldRight?.alpha = 0.0
         colorLineLeft?.alpha = 0.0
         colorLineRight?.alpha = 0.0
+        colorCircleL?.alpha = 0.0
+        colorCircleR?.alpha = 0.0
+        colorCircleFrameL?.alpha = 0.0
+        colorCircleFrameR?.alpha = 0.0
         
         rectCenterFill?.alpha = 0.0
         rectCenterFrame?.alpha = 0.0
