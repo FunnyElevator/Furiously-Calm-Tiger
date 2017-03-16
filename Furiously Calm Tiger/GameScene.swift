@@ -43,6 +43,9 @@ class GameScene: SKScene {
     
     var emoji1Sparkle: SKEmitterNode?
     var emoji2Sparkle: SKEmitterNode?
+
+    var color1Sparkle: SKEmitterNode?
+    var color2Sparkle: SKEmitterNode?
     
     // Logging Parameters
     var lastEmoji1Number: Int = 0
@@ -152,6 +155,19 @@ class GameScene: SKScene {
         emoji2Sparkle!.name = "emoji2Sparkle"
         emoji2Sparkle!.zPosition = -1
         emojiButton2?.addChild(emoji2Sparkle!)
+        
+        //Add sparkle emitters to COLOR circles
+        color1Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        color1Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
+        color1Sparkle!.name = "color1Sparkle"
+        color1Sparkle!.zPosition = -1
+        colorCircleFrameL?.addChild(color1Sparkle!)
+        
+        color2Sparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode)
+        color2Sparkle!.position = CGPoint(x: 0.0, y: 0.0)
+        color2Sparkle!.name = "color2Sparkle"
+        color2Sparkle!.zPosition = -1
+        colorCircleFrameR?.addChild(color2Sparkle!)
         
         // Add and hide Outlines to EmojiButtons
         let circleEmoji = SKShapeNode(circleOfRadius: 44.5 ) // Size of Circle
@@ -280,11 +296,11 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        /* Emoji dragging disabled
         for touch : AnyObject in touches {
-            
             let location : CGPoint = touch.location(in: self)
             let nodes : Array = self.nodes(at: location)
+            
             for node in nodes {
                 // Select a node by it's name
                 if (currentGameMode == 3) {
@@ -306,7 +322,7 @@ class GameScene: SKScene {
                     }
                 }
             }
-        } 
+        } */
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
