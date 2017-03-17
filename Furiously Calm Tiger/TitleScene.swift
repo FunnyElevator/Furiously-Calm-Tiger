@@ -11,12 +11,24 @@ import Flurry_iOS_SDK
 
 class TitleScene: SKScene {
     var startButton: SKSpriteNode?
-    
+    var startSparkle: SKEmitterNode?
+  
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         
         startButton = self.childNode(withName: "StartButton") as? SKSpriteNode
         startButton!.alpha = 0.0
+        
+        //Add sparkle emitters to COLOR circles
+        let roundParticleThinPath:NSString = Bundle.main.path(forResource: "RoundParticle2", ofType: "sks")! as NSString
+        startSparkle = (NSKeyedUnarchiver.unarchiveObject(withFile: roundParticleThinPath as String) as! SKEmitterNode)
+        startSparkle!.position = CGPoint(x: 0.0, y: 0.0)
+        startSparkle!.name = "color1Sparkle"
+        startSparkle!.zPosition = -1
+        startSparkle?.xScale = 0.7
+        startSparkle?.yScale = 0.7
+        startButton?.addChild(startSparkle!)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
