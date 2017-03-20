@@ -257,6 +257,9 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.location(in: self)
             
+            let touchedNode = atPoint(location)
+            //print(touchedNode.name)
+            
             //remove previous partcile emitters
             for child in self.children {
                 if child.name == "sparkEmmitter" {
@@ -264,12 +267,9 @@ class GameScene: SKScene {
                 }
             }
             
-            let touchedNode = atPoint(location)
-            //print(touchedNode.name)
             if (blockInteraction == false) {
                 if (currentGameMode == 1) {
                     currentGameMode += 1
-                    
                     setupEmojiSelect()
                 } else if (currentGameMode == 2) {
                     if (touchedNode.name == "emojiButton1") {
@@ -280,22 +280,21 @@ class GameScene: SKScene {
                         print("Logging: Emoji 2")
                     }
                 } else if (currentGameMode == 3) {
-                    if (touchedNode.name == "colorCircleFrameL") {
+                    if (touchedNode.name == "colorCircleFrameL" || touchedNode.name == "colorCircleL") {
                         performColorSelect(1)
                         print("Logging: Color 1")
-                    } else if (touchedNode.name == "colorCircleFrameR") {
+                    } else if (touchedNode.name == "colorCircleFrameR" || touchedNode.name == "colorCircleR") {
                         performColorSelect(2)
                         print("Logging: Color 2")
                     }
-                } else {
-                    // create touch circle effect
-                    let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
-                    let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
-                    sparkEmmiter.position = location
-                    sparkEmmiter.name = "sparkEmmitter"
-                    sparkEmmiter.zPosition = 400
-                    self.addChild(sparkEmmiter)
                 }
+                // create touch circle effect
+                let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
+                let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
+                sparkEmmiter.position = location
+                sparkEmmiter.name = "sparkEmmitter"
+                sparkEmmiter.zPosition = 400
+                self.addChild(sparkEmmiter)
             }
         }
     }
@@ -518,9 +517,9 @@ class GameScene: SKScene {
             self.colorFieldLeft?.run(fadeOutAction)
             self.colorCircleL?.run(fadeOutAction)
         }
-        let moveAction = SKAction.move(to: CGPoint(x: 512, y: 88) , duration: 1.5)
+        let moveAction = SKAction.move(to: CGPoint(x: 512, y: 88) , duration: 0.5)
         moveAction.timingMode = SKActionTimingMode.easeIn
-        let scaleAction = SKAction.scale(by: 0.2, duration: 1.5)
+        let scaleAction = SKAction.scale(by: 0.2, duration: 0.5)
         scaleAction.timingMode = SKActionTimingMode.easeIn
         let groupedActions = SKAction.group([scaleAction, moveAction])
         
@@ -555,6 +554,10 @@ class GameScene: SKScene {
         
         let waitAction = SKAction.wait(forDuration: 4)      ///remove TEMP (deafult 2)
         roundsPlayed += 1
+        
+        
+        
+        
         if (tigerMoodTiredIndex > 0) {
             let fadeInSnooze = SKAction.fadeIn(withDuration: 0.5)
             let fadeOutSnooze = SKAction.fadeOut(withDuration: 0.5)
@@ -598,18 +601,20 @@ class GameScene: SKScene {
             self.colorFieldLeft?.position  = CGPoint(x: 143.5, y: 93.5)
             self.colorFieldRight?.position = CGPoint(x: 880.5, y: 93.5)
             self.colorFieldLeft?.run(scaleBackAction)
-            self.colorFieldRight?.run(scaleBackAction)
+            self.colorFieldRight?.yScale = 1.0
+            self.colorFieldRight?.xScale = -1.0
             self.colorFieldRight?.run(fadeOutAction)
             self.colorFieldLeft?.run(fadeOutAction)
-            self.blockInteraction = false
             self.emojiButton1?.childNode(withName: "emoji1Sparkle")?.isHidden = false
             self.emojiButton2?.childNode(withName: "emoji2Sparkle")?.isHidden = false
             self.emojiButton1?.childNode(withName: "circleEmoji")?.isHidden = true
             self.emojiButton2?.childNode(withName: "circleEmoji")?.isHidden = true
             
+            // New round or restart
             if (self.roundsPlayed == self.maxRounds) {
                 self.restartGame()
             } else {
+                self.blockInteraction = false
                 self.currentGameMode = 1
             }
         })
@@ -726,14 +731,6 @@ class GameScene: SKScene {
     
     
     // MARK: - Game reset & restart
-    
-    func perfomAngryFinal() {
-        //
-        
-    }
-    func performTiredFinal() {
-        //
-    }
     func resetColorAreas() {
         colorFieldLeft?.alpha = 0.0
         colorFieldRight?.alpha = 0.0
@@ -767,22 +764,21 @@ class GameScene: SKScene {
         let particlePath:NSString = Bundle.main.path(forResource: "SmokeParticles", ofType: "sks")! as NSString
         let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: particlePath as String) as! SKEmitterNode
         sparkEmmiter.position = CGPoint(x: 512, y: 180)
-        sparkEmmiter.name = "sparkEmmitter"
-        sparkEmmiter.zPosition = 400
+        sparkEmmiter.name = "bigSparkEmmitter"
+        sparkEmmiter.zPosition = 290
         //sparkEmmiter.targetNode = self
         self.addChild(sparkEmmiter)
         
         
         self.run(SKAction.wait(forDuration: 3), completion: {
-            let transition = SKTransition.fade(withDuration: 2.5)
+            let transition = SKTransition.fade(withDuration: 3.5)
+            transition.pausesIncomingScene = false;
             
             let nextScene = TitleScene(fileNamed: "TitleScene")
             nextScene!.scaleMode = .aspectFill
             
             self.scene?.view?.presentScene(nextScene!, transition: transition)
-        }) 
-        
-        
+        })
     }
     
 }
