@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let scene = TitleScene(fileNamed:"TitleScene") { // // // GameScene
+        if let scene = TitleScene(fileNamed:"TitleScene") {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = false
@@ -36,9 +36,9 @@ class GameViewController: UIViewController {
 
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
+            return .landscape
         } else {
-            return .all
+            return .landscape
         }
     }
 
