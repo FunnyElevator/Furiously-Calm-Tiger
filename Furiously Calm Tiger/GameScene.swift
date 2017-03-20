@@ -265,6 +265,7 @@ class GameScene: SKScene {
             }
             
             let touchedNode = atPoint(location)
+            //print(touchedNode.name)
             if (blockInteraction == false) {
                 if (currentGameMode == 1) {
                     currentGameMode += 1
@@ -279,23 +280,22 @@ class GameScene: SKScene {
                         print("Logging: Emoji 2")
                     }
                 } else if (currentGameMode == 3) {
-                    if (touchedNode.name == "colorFieldLeft") {
+                    if (touchedNode.name == "colorCircleFrameL") {
                         performColorSelect(1)
                         print("Logging: Color 1")
-                    } else if (touchedNode.name == "colorFieldRight") {
+                    } else if (touchedNode.name == "colorCircleFrameR") {
                         performColorSelect(2)
                         print("Logging: Color 2")
                     }
+                } else {
+                    // create touch circle effect
+                    let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
+                    let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
+                    sparkEmmiter.position = location
+                    sparkEmmiter.name = "sparkEmmitter"
+                    sparkEmmiter.zPosition = 400
+                    self.addChild(sparkEmmiter)
                 }
-                
-                // create touch circle effect
-                let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
-                let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
-                sparkEmmiter.position = location
-                sparkEmmiter.name = "sparkEmmitter"
-                sparkEmmiter.zPosition = 400
-                //sparkEmmiter.targetNode = self
-                self.addChild(sparkEmmiter)
             }
         }
     }
