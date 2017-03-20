@@ -69,14 +69,22 @@ class TitleScene: SKScene {
                     })
                 }
             } else {                
-                // sprakle emitter for Other Touches
+                // create touch circle effect
+                let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
+                let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
+                sparkEmmiter.position = location
+                sparkEmmiter.name = "sparkEmmitter"
+                sparkEmmiter.zPosition = 400
+                self.addChild(sparkEmmiter)
+                
+                /* sprakle emitter for Other Touches
                 let particlePath:NSString = Bundle.main.path(forResource: "Sparkles", ofType: "sks")! as NSString
                 let sparklesEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: particlePath as String) as! SKEmitterNode
                 sparklesEmmiter.position = location
                 sparklesEmmiter.name = "sparkEmmitter"
                 sparklesEmmiter.zPosition = 400
                 //sparkEmmiter.targetNode = self
-                self.addChild(sparklesEmmiter)
+                self.addChild(sparklesEmmiter) */
             }
         }
     }
