@@ -53,6 +53,10 @@ class TitleScene: SKScene {
                         let transition = SKTransition.push(with: SKTransitionDirection.up, duration: 2)
                         
                         let nextScene = GameScene(fileNamed: "GameScene")
+                        // resize scene to fit iphone aspect ratio (1024x576 -> 16:9)
+                        if UIDevice.current.userInterfaceIdiom == .phone {
+                            nextScene?.size.height = 576.0
+                        }
                         nextScene!.scaleMode = .aspectFill
                         
                         // Analytics
