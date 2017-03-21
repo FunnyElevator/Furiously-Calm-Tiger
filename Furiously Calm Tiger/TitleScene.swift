@@ -12,12 +12,19 @@ import Flurry_iOS_SDK
 class TitleScene: SKScene {
     var startButton: SKSpriteNode?
     var startSparkle: SKEmitterNode?
+    
+    var infoButton: SKSpriteNode?
+    var infoScreen: SKNode?
+    var infoIsVisible: Bool = false
   
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         
         startButton = self.childNode(withName: "StartButton") as? SKSpriteNode
         startButton!.alpha = 0.0
+        
+        infoButton = self.childNode(withName: "InfoButton") as? SKSpriteNode
+        infoScreen = self.childNode(withName: "InfoScreen")
         
         //Add sparkle emitters to COLOR circles
         let roundParticleThinPath:NSString = Bundle.main.path(forResource: "RoundParticle2", ofType: "sks")! as NSString
@@ -44,31 +51,43 @@ class TitleScene: SKScene {
         
         if let location = touches.first?.location(in: self) {
             let touchedNode = atPoint(location)
+            let fadeInAction = SKAction.fadeIn(withDuration: 0.5)
+            let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
             
+            if infoIsVisible {
+                infoButton?.run(fadeInAction)
+                infoScreen?.run(fadeOutAction)
+                startButton?.run(fadeInAction, completion: { 
+                    self.infoIsVisible = false
+                })
+            }
             if touchedNode.name == "StartButton" {
                 print("Start button touched")
                 if let actionPressed = SKAction(named: "StartButtonPressed") {
                     startButton!.run(actionPressed, completion: {
+                        // Analytics
+                        Flurry.logEvent("GameSession_Started");
+                        Flurry.logEvent("GameSession_Complete", withParameters: nil, timed: true);
+                        // Finished in GameScene: restartGame()
+                        
                         //let transition = SKTransition.fade(withDuration: 1.0) //old fade
                         let transition = SKTransition.push(with: SKTransitionDirection.up, duration: 2)
-                        
                         let nextScene = GameScene(fileNamed: "GameScene")
                         // resize scene to fit iphone aspect ratio (1024x576 -> 16:9)
                         if UIDevice.current.userInterfaceIdiom == .phone {
                             nextScene?.size.height = 576.0
                         }
                         nextScene!.scaleMode = .aspectFill
-                        
-                        // Analytics
-                        Flurry.logEvent("GameSession_Started");
-                        Flurry.logEvent("GameSession_Complete", withParameters: nil, timed: true);
-                        // Finished in GameScene: restartGame()
-  
-                        
                         self.scene?.view?.presentScene(nextScene!, transition: transition)
                     })
                 }
-            } else {                
+            } else if touchedNode.name == "InfoButton" {
+                infoIsVisible = true
+                infoButton?.run(fadeOutAction)
+                infoScreen?.run(fadeInAction)
+                startButton?.run(fadeOutAction)
+                
+            } else {
                 // create touch circle effect
                 let roundparticlePath:NSString = Bundle.main.path(forResource: "RoundParticle", ofType: "sks")! as NSString
                 let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
