@@ -40,6 +40,8 @@ class GameScene: SKScene {
     var tigerHead: SKNode?
     var tigerEarL: SKSpriteNode?
     var tigerEarR: SKSpriteNode?
+    var tigerEyeBrowL: SKSpriteNode?
+    var tigerEyeBrowR: SKSpriteNode?
     let tigerMouthOpen = SKSpriteNode(imageNamed: "TigerMouthOpen")
     let tigerMouthClosed1 = SKSpriteNode(imageNamed: "TigerMouthClosed1")
     let tigerMouthClosed2 = SKSpriteNode(imageNamed: "TigerMouthClosed2")
@@ -125,6 +127,8 @@ class GameScene: SKScene {
         tigerHead = self.theTiger?.childNode(withName: "//TigerHead") 
         tigerEarL = self.theTiger?.childNode(withName: "//TigerEarL") as! SKSpriteNode?
         tigerEarR = self.theTiger?.childNode(withName: "//TigerEarR") as! SKSpriteNode?
+        tigerEyeBrowL = self.theTiger?.childNode(withName: "//TigerEyeBrowL") as! SKSpriteNode?
+        tigerEyeBrowR = self.theTiger?.childNode(withName: "//TigerEyeBrowR") as! SKSpriteNode?
         
         tigerMouthOpen.position = CGPoint(x: 0.0, y: 15.0)
         tigerMouthOpen.zPosition = 250
@@ -299,7 +303,7 @@ class GameScene: SKScene {
                 let sparkEmmiter = NSKeyedUnarchiver.unarchiveObject(withFile: roundparticlePath as String) as! SKEmitterNode
                 sparkEmmiter.position = location
                 sparkEmmiter.name = "sparkEmmitter"
-                sparkEmmiter.zPosition = 400
+                sparkEmmiter.zPosition = 310 // below circular buttons
                 self.addChild(sparkEmmiter)
             }
         }
@@ -564,47 +568,77 @@ class GameScene: SKScene {
         roundsPlayed += 1
         
         // wait 3 seconds & move UI
-        let waitAction = SKAction.wait(forDuration: 3.0)
+        let waitAction = SKAction.wait(forDuration: 2.0)
         let emojiButtons = [emojiButton1, emojiButton2]
         
         self.run(waitAction, completion: {
             // move elements on top of tiger
-            // MARK: and reset them later!
             let moveAction = SKAction.moveTo(y: 300.0, duration: 2.0)
             moveAction.timingMode = SKActionTimingMode.easeInEaseOut
             let rotateAction = SKAction.rotate(byAngle: 70.0, duration: 6.0)
             rotateAction.timingMode = SKActionTimingMode.easeIn
             
-            emojiButtons[buttonNo]?.run(moveAction)
+                [buttonNo]?.run(moveAction)
             self.rectCenterFill?.run(rotateAction)
             self.rectCenterFill?.run(moveAction, completion: { 
                 let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
                 emojiButtons[buttonNo]?.run(fadeOutAction)
                 self.rectCenterFill?.run(fadeOutAction)
+                self.rectColorSmallFillL?.run(fadeOutAction)
+                self.rectColorSmallFillR?.run(fadeOutAction)
+                self.rectColorSmallFrameL?.run(fadeOutAction)
+                self.rectColorSmallFrameR?.run(fadeOutAction)
             })
         })
         
-        // performReaction
+        // perform RANDOM Reaction
         // move on to runAfterTigerMood()
-        let tigerMoodValaue = getRandomValue(0, lastValue: 1)
-        let waitAction2 = SKAction.wait(forDuration: 6)
+        let tigerMoodValaue = getRandomValue(10, lastValue: 0)
+        print(tigerMoodValaue)
+        let waitToStart = SKAction.wait(forDuration: 4.8)
+        let waitAction2 = SKAction.wait(forDuration: 0.1)
+        let waitAction3 = SKAction.wait(forDuration: 0.25)
+        let waitAction4 = SKAction.wait(forDuration: 0.5)
         
-        if (tigerMoodValaue == 0) {
+        if (tigerMoodValaue > 5) {
             tigerMouthOpen.yScale = 0.1
             tigerMouthOpen.alpha = 1
-            let openingMouth = SKAction.scaleY(to: 1, duration: 0.2)
-            let closingMouth = SKAction.scaleY(to: 0.1, duration: 0.2)
-            
-            tigerMouthClosed2.run(SKAction.fadeAlpha(to: 0.0, duration: 0.2))
-            tigerMouthOpen.run(SKAction.sequence([openingMouth, waitAction2, closingMouth, waitAction2, openingMouth, waitAction2, closingMouth]), completion: {
-                self.tigerMouthClosed2.run(SKAction.fadeAlpha(to: 1.0, duration: 0.2))
-                self.tigerMouthOpen.run(SKAction.fadeAlpha(to: 0.0, duration: 0.2))
-                self.runAfterTigerMood()
+            self.run(waitToStart, completion: {
+                let openingMouth = SKAction.scaleY(to: 1, duration: 0.2)
+                let closingMouth = SKAction.scaleY(to: 0.1, duration: 0.2)
+                let rotateEarL = SKAction.rotate(byAngle:  0.26, duration: 0.2)
+                let rotateEarR = SKAction.rotate(byAngle: -0.26, duration: 0.2)
+                rotateEarL.timingMode = SKActionTimingMode.easeInEaseOut
+                rotateEarR.timingMode = SKActionTimingMode.easeInEaseOut
+                
+                self.tigerEarL?.run(SKAction.sequence([rotateEarL, waitAction3, rotateEarR, waitAction4, rotateEarL, waitAction3, rotateEarR]))
+                self.tigerEarR?.run(SKAction.sequence([rotateEarR, waitAction3, rotateEarL, waitAction4, rotateEarR, waitAction3, rotateEarL]))
+                self.tigerMouthClosed2.run(SKAction.fadeAlpha(to: 0.0, duration: 0.2))
+                self.tigerMouthOpen.run(SKAction.sequence([openingMouth, waitAction3, closingMouth, waitAction3, openingMouth, waitAction3, closingMouth]), completion: {
+                    self.tigerMouthClosed2.run(SKAction.fadeAlpha(to: 1.0, duration: 0.2))
+                    self.tigerMouthOpen.run(SKAction.fadeAlpha(to: 0.0, duration: 0.2))
+                    
+                    self.runAfterTigerMood()
+                })
             })
         } else {
-            self.run(waitAction2, completion: {
-                self.runAfterTigerMood()
+            self.run(waitToStart, completion: {
+                let rotateH = SKAction.rotate(byAngle:  0.08, duration: 0.6)
+                rotateH.timingMode = SKActionTimingMode.easeInEaseOut
+                let rotateEyeB = SKAction.rotate(byAngle:  0.33, duration: 0.3)
+                rotateEyeB.timingMode = SKActionTimingMode.easeInEaseOut
                 
+                self.tigerEyeBrowL?.run(SKAction.sequence([
+                    waitAction2, rotateEyeB.reversed(), waitAction4, waitAction3, rotateEyeB, waitAction4,
+                    waitAction4, rotateEyeB.reversed(), waitAction4, waitAction3, rotateEyeB]))
+                self.tigerEyeBrowR?.run(SKAction.sequence([
+                    waitAction2, rotateEyeB, waitAction4, waitAction3, rotateEyeB.reversed(), waitAction4,
+                    waitAction4, rotateEyeB, waitAction4, waitAction3, rotateEyeB.reversed()]))
+                self.tigerHead?.run(SKAction.sequence([
+                    rotateH.reversed(), waitAction4, waitAction4, rotateH, waitAction4,
+                    rotateH, waitAction4, waitAction4, rotateH.reversed()]), completion: {
+                    self.runAfterTigerMood()
+                })
             })
         }
     }
@@ -643,6 +677,8 @@ class GameScene: SKScene {
     }
     
     func setupEmojiMood(_ emojiNumber:Int, leftOrRight: Int) {
+        // not active in v2
+        
         var angryValue: Bool
         var tiredValue: Bool
         var twinkerValue: Bool
