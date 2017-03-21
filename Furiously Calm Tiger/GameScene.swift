@@ -567,7 +567,7 @@ class GameScene: SKScene {
 
         roundsPlayed += 1
         
-        // wait 3 seconds & move UI
+        // wait x seconds & move UI
         let waitAction = SKAction.wait(forDuration: 2.0)
         let emojiButtons = [emojiButton1, emojiButton2]
         
@@ -578,7 +578,7 @@ class GameScene: SKScene {
             let rotateAction = SKAction.rotate(byAngle: 70.0, duration: 6.0)
             rotateAction.timingMode = SKActionTimingMode.easeIn
             
-                [buttonNo]?.run(moveAction)
+            emojiButtons[buttonNo]?.run(moveAction)
             self.rectCenterFill?.run(rotateAction)
             self.rectCenterFill?.run(moveAction, completion: { 
                 let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
@@ -601,8 +601,7 @@ class GameScene: SKScene {
         let waitAction4 = SKAction.wait(forDuration: 0.5)
         
         if (tigerMoodValaue > 5) {
-            tigerMouthOpen.yScale = 0.1
-            tigerMouthOpen.alpha = 1
+            
             self.run(waitToStart, completion: {
                 let openingMouth = SKAction.scaleY(to: 1, duration: 0.2)
                 let closingMouth = SKAction.scaleY(to: 0.1, duration: 0.2)
@@ -611,6 +610,8 @@ class GameScene: SKScene {
                 rotateEarL.timingMode = SKActionTimingMode.easeInEaseOut
                 rotateEarR.timingMode = SKActionTimingMode.easeInEaseOut
                 
+                self.tigerMouthOpen.yScale = 0.1
+                self.tigerMouthOpen.alpha = 1
                 self.tigerEarL?.run(SKAction.sequence([rotateEarL, waitAction3, rotateEarR, waitAction4, rotateEarL, waitAction3, rotateEarR]))
                 self.tigerEarR?.run(SKAction.sequence([rotateEarR, waitAction3, rotateEarL, waitAction4, rotateEarR, waitAction3, rotateEarL]))
                 self.tigerMouthClosed2.run(SKAction.fadeAlpha(to: 0.0, duration: 0.2))
