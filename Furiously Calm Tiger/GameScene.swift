@@ -268,7 +268,7 @@ class GameScene: SKScene {
             let location = touch.location(in: self)
             
             let touchedNode = atPoint(location)
-            print(touchedNode.name)
+            //print(touchedNode.name)
             
             //remove previous partcile emitters
             for child in self.children {
