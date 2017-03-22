@@ -146,7 +146,7 @@ class GameScene: SKScene {
         
         
         /* Prepare Interface elements */
-        resetColorAreas()
+        resetUIElements()
         emojiButton1?.alpha = 0.0
         emojiButton2?.alpha = 0.0
         smallCirclesL?.isHidden = true
@@ -341,7 +341,7 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch : AnyObject in touches {
-            
+            /*
             let location : CGPoint = touch.location(in: self)
             let nodes : Array = self.nodes(at: location)
             for node in nodes {
@@ -356,7 +356,7 @@ class GameScene: SKScene {
                     
                     }
                 }
-            }
+            }*/
         }
     }
 
@@ -374,12 +374,12 @@ class GameScene: SKScene {
         let leftEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
         lastEmoji1Number = leftEmoji
         emojiButton1?.texture = emojis[leftEmoji] as SKTexture
-        self.setupEmojiMood(leftEmoji, leftOrRight: 1)
+        //self.setupEmojiMood(leftEmoji, leftOrRight: 1)
         lastEmoji = leftEmoji
         
         let rightEmoji = getRandomValue(emojis.count, lastValue: lastEmoji)
         emojiButton2?.texture = emojis[rightEmoji] as SKTexture
-        self.setupEmojiMood(rightEmoji, leftOrRight: 2)
+        //self.setupEmojiMood(rightEmoji, leftOrRight: 2)
         lastEmoji = rightEmoji
         lastEmoji2Number = rightEmoji
         
@@ -648,7 +648,7 @@ class GameScene: SKScene {
         let fadeOutAction = SKAction.fadeOut(withDuration: 0.5)
         let scaleBackAction = SKAction.scale(to: 1.0, duration: 0.1)
         
-        resetColorAreas()
+        resetUIElements()
         self.emojiButton1?.run(fadeOutAction)
         self.emojiButton2?.run(fadeOutAction, completion: {
             self.emojiButton1?.position = CGPoint(x: 442, y: 88)
@@ -790,7 +790,7 @@ class GameScene: SKScene {
     
     
     // MARK: - Game reset & restart
-    func resetColorAreas() {
+    func resetUIElements() {
         colorFieldLeft?.alpha = 0.0
         colorFieldRight?.alpha = 0.0
         colorLineLeft?.alpha = 0.0
